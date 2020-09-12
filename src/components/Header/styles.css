@@ -1,0 +1,8 @@
+#main-header {
+  background-color: hsla(0, 70%, 4%, 0.897);
+  background-blend-mode: multiply;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
