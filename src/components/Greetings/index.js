@@ -31,13 +31,10 @@ function Greetings() {
 
             <br></br>
             <h3 style={customStyle}>Good {greeting}.</h3>
-            <h3>Hi there! I am {name} {surname} and I am glad to have you browsing here.</h3>
+            <h3>I am {name} {surname} and I am glad to have you browsing here.</h3>
             <br>
             </br>
-            <h3>I am currently reborning as a React app.
-                <br></br>
-                Sorry for any incovenience.
-            </h3>
+            <h3>This webpage is underconstruction and it is turning to an React app .</h3>
 
         </div>
     );
