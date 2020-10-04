@@ -2,4 +2,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-Personal Website in React - Under Construction
+Personal Website built with React - Under Construction

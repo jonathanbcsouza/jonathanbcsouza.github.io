@@ -1,14 +1,26 @@
 import React from 'react';
-import "./styles.css";
+import { StyledFooter } from "./styles";
 
 const currentDate = new Date().getFullYear();
 
-const Footer = () =>
 
-    <footer id="footer">
-        <hr></hr>
-        <br></br>
+const MakeFooter = () => {
+  return (
+    <div>
+
+      <br></br>
+      <hr></hr>
+
+      <StyledFooter>
+
         <p>Copyright {currentDate}</p>
-    </footer>;
 
-export default Footer;
+      </StyledFooter>
+
+    </div>
+  )
+}
+
+
+
+export default MakeFooter;

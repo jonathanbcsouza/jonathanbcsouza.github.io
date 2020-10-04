@@ -1,16 +1,17 @@
 import React from 'react';
-import "./styles.css";
+import { StyledGreetings } from "./styles";
 
-function Greetings(props) {
+const Greetings = ({ setSentence, setColour }) => {
     return (
-        <div className="greetings">
-
+        <>
             <br></br>
+            <StyledGreetings styledColour={setColour} >
+                {setSentence}
+            </StyledGreetings>
 
-            <h3>I am {props.name} {props.surname} {props.sentence}</h3>
-
-        </div>
+        </>
     );
 }
 
 export default Greetings;
+
