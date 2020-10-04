@@ -1,11 +1,14 @@
 import React from 'react';
-import { FaGithub, FaMedium, FaSpotify, FaTwitter } from 'react-icons/fa';
-
+import { FaGithub, FaLinkedin, FaMedium, FaSpotify, FaTwitter } from 'react-icons/fa';
 
 export const MySocialLinks = [
     {
-        component: <FaGithub color="#fff" />,
+        component: <FaGithub color="#fff"/>,
         link: "https://github.com/jonathanbcsouza",
+    },
+    {
+        component: <FaLinkedin color="#0e76a8" />,
+        link: "https://www.linkedin.com/in/jonathanbcsouza/",
     },
     {
         component: <FaMedium color="#fff" />,
@@ -18,7 +21,7 @@ export const MySocialLinks = [
     {
         component: <FaTwitter color="#00acee" />,
         link: "https://www.twitter.com/jonathanbcsouza",
-    }
+    },
 ]
 
 

@@ -15,7 +15,9 @@ const Social = () => {
 
                 <h3>Let's Connect!</h3>
 
-                <IconContext.Provider value={{ size: "32", color: "blue" }}>
+                <br></br>
+
+                <IconContext.Provider value={{ size: "32" }}>
                     <div>
 
                         <StyledLink link={MySocialLinks[0].link}>
@@ -30,7 +32,9 @@ const Social = () => {
                         <StyledLink link={MySocialLinks[3].link}>
                             {MySocialLinks[3].component}
                         </StyledLink>
-
+                        <StyledLink link={MySocialLinks[4].link}>
+                            {MySocialLinks[4].component}
+                        </StyledLink>
                     </div>
                 </IconContext.Provider>
 

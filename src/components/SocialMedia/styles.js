@@ -6,7 +6,6 @@ export const StyledIcon = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
   path { transition: fill .4s ease; }
 
   svg:hover{
@@ -20,4 +19,6 @@ export const StyledIcon = styled.div`
 export const StyledLink = styled.a.attrs(
   ({link}) => ({ href: link,target: "_blank"})
 )`
+margin:2px;
+
 `;

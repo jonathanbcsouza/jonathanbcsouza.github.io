@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from './components/Header';
-import ProfilePhoto from "./components/ProfilePhoto";
 import Greetings from './components/Greetings';
 import SocialMedia from './components/SocialMedia';
 import Footer from './components/Footer';
@@ -13,8 +12,7 @@ const App = () => {
       <div className="App">
 
         <Header
-          setColour="blue"
-          setFontSize="30"
+          setFontSize="50"
         />
 
         <Greetings
