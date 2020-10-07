@@ -4,17 +4,11 @@ import { IconContext } from "react-icons";
 import { MySocialLinks } from "./socialLinks";
 
 const Social = () => {
-  function mapSocial(array) {
-    const mapped = [];
-    for (let i = 0; i < array.length; i++) {
-      mapped.push(
-        <StyledLink link={array[i].link}>{array[i].component}</StyledLink>
-      );
-    }
-    return mapped;
+  function MapSocial() {
+    return MySocialLinks.map((i) => (
+      <StyledLink link={i.link}>{i.component}</StyledLink>
+    ));
   }
-
-  const mappedAges = mapSocial(MySocialLinks);
 
   return (
     <div>
@@ -22,13 +16,11 @@ const Social = () => {
 
       <StyledIcon>
         <h3>Let's Connect!</h3>
-
         <br></br>
-
         <IconContext.Provider value={{ size: "32" }}>
-
-          <div>{mappedAges}</div>
-          
+          <div>
+            <MapSocial />
+          </div>
         </IconContext.Provider>
       </StyledIcon>
     </div>

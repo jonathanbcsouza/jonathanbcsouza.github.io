@@ -1,19 +1,15 @@
-import React from 'react';
-import Header from './components/Header';
-import Greetings from './components/Greetings';
-import SocialMedia from './components/SocialMedia';
-import Footer from './components/Footer';
+import React from "react";
+import Header from "./components/Header";
+import Greetings from "./components/Greetings";
+import SocialMedia from "./components/SocialMedia";
+import Footer from "./components/Footer";
 import "./styles.css";
-
 
 const App = () => {
   return (
     <>
       <div className="App">
-
-        <Header
-          setFontSize="50"
-        />
+        <Header setFontSize="50" />
 
         <Greetings
           setSentence="This is my first react component!"
@@ -28,11 +24,9 @@ const App = () => {
         <SocialMedia />
 
         <Footer />
-
       </div>
-
     </>
   );
-}
+};
 
 export default App;
