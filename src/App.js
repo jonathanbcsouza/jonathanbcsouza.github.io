@@ -17,12 +17,12 @@ const App = () => {
 
         <Greetings
           setSentence="This is my first react component!"
-          setColour="Bisque"
+          setColour="BurlyWood"
         />
 
         <Greetings
           setSentence="This is the same component, but I am reusing it with a new text and new colour :)"
-          setColour="BurlyWood"
+          setColour="Bisque"
         />
 
         <SocialMedia />

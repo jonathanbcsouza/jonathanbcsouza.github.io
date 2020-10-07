@@ -1,49 +1,38 @@
-import React from 'react';
+import React from "react";
 import { StyledIcon, StyledLink } from "./styles";
 import { IconContext } from "react-icons";
 import { MySocialLinks } from "./socialLinks";
 
 const Social = () => {
+  function mapSocial(array) {
+    const mapped = [];
+    for (let i = 0; i < array.length; i++) {
+      mapped.push(
+        <StyledLink link={array[i].link}>{array[i].component}</StyledLink>
+      );
+    }
+    return mapped;
+  }
 
-    return (
+  const mappedAges = mapSocial(MySocialLinks);
 
-        <div>
+  return (
+    <div>
+      <br></br>
 
-            <br></br>
+      <StyledIcon>
+        <h3>Let's Connect!</h3>
 
-            <StyledIcon>
+        <br></br>
 
-                <h3>Let's Connect!</h3>
+        <IconContext.Provider value={{ size: "32" }}>
 
-                <br></br>
-
-                <IconContext.Provider value={{ size: "32" }}>
-                    <div>
-
-                        <StyledLink link={MySocialLinks[0].link}>
-                            {MySocialLinks[0].component}
-                        </StyledLink>
-                        <StyledLink link={MySocialLinks[1].link}>
-                            {MySocialLinks[1].component}
-                        </StyledLink>
-                        <StyledLink link={MySocialLinks[2].link}>
-                            {MySocialLinks[2].component}
-                        </StyledLink>
-                        <StyledLink link={MySocialLinks[3].link}>
-                            {MySocialLinks[3].component}
-                        </StyledLink>
-                        <StyledLink link={MySocialLinks[4].link}>
-                            {MySocialLinks[4].component}
-                        </StyledLink>
-                    </div>
-                </IconContext.Provider>
-
-            </StyledIcon>
-
-        </div>
-    );
-
-}
-
+          <div>{mappedAges}</div>
+          
+        </IconContext.Provider>
+      </StyledIcon>
+    </div>
+  );
+};
 
 export default Social;
