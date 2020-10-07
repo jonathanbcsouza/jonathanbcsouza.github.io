@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaGithub, FaLinkedin, FaMedium, FaSpotify, FaTwitter } from 'react-icons/fa';
+import { StyledLink } from "./styles";
 
 export const MySocialLinks = [
     {
@@ -24,6 +25,10 @@ export const MySocialLinks = [
     },
 ]
 
-
+export function MapSocial() {
+  return MySocialLinks.map((i) => (
+    <StyledLink link={i.link}>{i.component}</StyledLink>
+  ));
+}
 
 
