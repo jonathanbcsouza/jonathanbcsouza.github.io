@@ -3,7 +3,7 @@ import { StyledIcon } from "./styles";
 import { IconContext } from "react-icons";
 import { MapSocial } from "./socialLinks";
 
-const Social = () => {
+const SocialMedia = () => {
   return (
     <div>
       <br></br>
@@ -11,7 +11,7 @@ const Social = () => {
       <StyledIcon>
         <IconContext.Provider value={{ size: "32" }}>
           <h3>Let's Connect!</h3>
-          <br></br>
+          <br />
 
           <div>
             <MapSocial />
@@ -22,4 +22,4 @@ const Social = () => {
   );
 };
 
-export default Social;
+export default SocialMedia;

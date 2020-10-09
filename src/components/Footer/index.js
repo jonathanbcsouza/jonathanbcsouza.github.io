@@ -1,26 +1,19 @@
 import React from 'react';
 import { StyledFooter } from "./styles";
+import SocialMedia from "../SocialMedia/index";
 
 const currentDate = new Date().getFullYear();
 
-
 const MakeFooter = () => {
   return (
-    <div>
-
-      <br></br>
-      <hr></hr>
-
+    <>
       <StyledFooter>
-
-        <p>Copyright {currentDate}</p>
-
+        <SocialMedia />
+        <br />
+        <p>Copyright {currentDate} @ Jonathan Souza</p>
       </StyledFooter>
-
-    </div>
-  )
-}
-
-
+    </>
+  );
+};
 
 export default MakeFooter;
