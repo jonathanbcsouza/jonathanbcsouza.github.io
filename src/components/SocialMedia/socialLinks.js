@@ -17,7 +17,7 @@ export const MySocialLinks = [
     },
     {
         component: <FaSpotify color="#1DB954" />,
-        link: "hhttps://open.spotify.com/artist/3SzDQcUhTIhN8GvnxHIgHE?si=tyMKA77PSuCh7WNEyazPpg",
+        link: "https://open.spotify.com/artist/3SzDQcUhTIhN8GvnxHIgHE?si=tyMKA77PSuCh7WNEyazPpg",
     },
     {
         component: <FaTwitter color="#00acee" />,
