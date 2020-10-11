@@ -1,6 +1,6 @@
 {
-  "short_name": "Jonathan's Website",
-  "name": "Jonathan's Portfolio Website",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "https://avatars0.githubusercontent.com/u/25882133?v=4",
+      "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "https://avatars0.githubusercontent.com/u/25882133?v=4",
+      "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
