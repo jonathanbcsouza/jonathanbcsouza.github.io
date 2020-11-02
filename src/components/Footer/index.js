@@ -10,7 +10,7 @@ const MakeFooter = () => {
       <StyledFooter>
         <SocialMedia />
         <br />
-        <p>Copyright {currentDate} @ Jonathan Souza</p>
+        <p>Copyright {currentDate} © Jonathan Souza</p>
       </StyledFooter>
     </>
   );

@@ -7,16 +7,11 @@ const App = () => {
   return (
     <>
       <div className="App">
-        <Header setFontSize="50" />
+        <Header setFontSize="" />
 
         <Greetings
-          setSentence="This is my first react component!"
+          setSentence=""
           setColour="BurlyWood"
-        />
-
-        <Greetings
-          setSentence="This is the same component, but I am reusing it with a new text and new colour :)"
-          setColour="Bisque"
         />
 
         <Footer />

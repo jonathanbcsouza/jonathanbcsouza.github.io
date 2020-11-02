@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaGithub, FaLinkedin, FaMedium, FaSpotify, FaTwitter } from 'react-icons/fa';
+import { SiCodesandbox } from "react-icons/si";
 import { StyledLink } from "./styles";
 
 export const MySocialLinks = [
@@ -23,6 +24,11 @@ export const MySocialLinks = [
         component: <FaTwitter color="#00acee" />,
         link: "https://www.twitter.com/jonathanbcsouza",
     },
+    {
+        component: <SiCodesandbox color="#fff" />,
+        link: "https://codesandbox.io/u/jonathanbcsouza",
+    },
+
 ]
 
 export function MapSocial() {
