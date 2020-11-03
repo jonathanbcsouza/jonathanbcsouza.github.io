@@ -1,5 +1,14 @@
 import React from "react";
-import { StyledGreetings } from "./styles";
+import styled from "styled-components";
+
+const StyledGreetings = styled.h3`
+
+font-family:'opensans-bold';
+font-size: 24px;
+margin-left: 32px;
+color: ${({styledColour}) => `${styledColour}`}
+`;
+
 
 const currentTime = new Date().getHours();
 
