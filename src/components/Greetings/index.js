@@ -1,17 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledGreetings = styled.h3`
-
-font-family:'opensans-bold';
-font-size: 24px;
-margin-left: 32px;
-color: ${({styledColour}) => `${styledColour}`}
+const StyledGreetings = styled.p`
+  font-family: "opensans-bold";
+  font-size: 24px;
+  text-align: center;
+  color: ${({ styledColour }) => `${styledColour}`};
 `;
 
-
 const currentTime = new Date().getHours();
-
 let greeting;
 
 const customStyle = {
@@ -20,23 +17,22 @@ const customStyle = {
 
 if (currentTime < 12) {
   greeting = "morning";
-  customStyle.color = "orange";
+  customStyle.color = "#d8b97f";
 } else if (currentTime < 18) {
   greeting = "afternoon";
-  customStyle.color = "red";
+  customStyle.color = "#orange";
 } else {
   greeting = "evening";
-  customStyle.color = "green";
+  customStyle.color = "#da0132";
 }
 
-const Greetings = ({ setSentence, setColour }) => {
+const Greetings = ({ setColour }) => {
   return (
     <>
       <br></br>
       <StyledGreetings styledColour={setColour}>
         <p style={customStyle}>Good {greeting}</p>
         <br></br>
-        {setSentence}
       </StyledGreetings>
     </>
   );
