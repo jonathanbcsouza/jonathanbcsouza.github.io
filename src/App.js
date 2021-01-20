@@ -8,14 +8,10 @@ const App = () => {
   return (
     <>
       <div className="App">
-
-
-      <Greetings setColour="BurlyWood" />
-
-      <BackgroundImage />
-
         {/* <Header setFontSize="12" setText="Welcome" /> */}
+        <Greetings setColour="BurlyWood" />
 
+        <BackgroundImage />
         <Footer />
       </div>
     </>
