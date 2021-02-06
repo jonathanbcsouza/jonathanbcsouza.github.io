@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const StyledGreetings = styled.p`
@@ -17,7 +17,7 @@ const customStyle = {
 
 if (currentTime < 12) {
   greeting = "morning";
-  customStyle.color = "#d8b97f";
+  customStyle.color = "#da0132";
 } else if (currentTime < 18) {
   greeting = "afternoon";
   customStyle.color = "#orange";
@@ -26,12 +26,31 @@ if (currentTime < 12) {
   customStyle.color = "#da0132";
 }
 
+const time = new Date().toLocaleTimeString();
+
 const Greetings = ({ setColour }) => {
+  setInterval(updateTime, 1000);
+  const [getTime, setTime] = useState(time);
+
+  function updateTime() {
+    const newTime = new Date().toLocaleTimeString();
+    setTime(newTime);
+  }
+
+  setInterval(updateGreeting, 1000);
+  const [getGreet, setGreet] = useState(greeting);
+  function updateGreeting() {
+    const newGreet = greeting;
+    setGreet(newGreet);
+  }
+
   return (
     <>
       <br></br>
       <StyledGreetings styledColour={setColour}>
-        <p style={customStyle}>Good {greeting}</p>
+        <p style={customStyle}>
+          Good {getGreet} - {getTime}
+        </p>
         <br></br>
       </StyledGreetings>
     </>

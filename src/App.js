@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./components/Header";
 import Greetings from "./components/Greetings";
 import Footer from "./components/Footer";
 import BackgroundImage from "./components/Background";
+// import Header from "./components/Header";
 
 const App = () => {
   return (
@@ -12,6 +12,7 @@ const App = () => {
         <Greetings setColour="BurlyWood" />
 
         <BackgroundImage />
+
         <Footer />
       </div>
     </>
