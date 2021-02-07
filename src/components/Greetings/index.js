@@ -21,35 +21,33 @@ const Greetings = () => {
   setInterval(updateColour, 1000);
   const [textColour, setTextColour] = useState("#d8b97f");
   function updateColour() {
-
     currentTime = new Date().getHours();
-    let newColour;
-
-    if (currentTime < 12) {
-      newColour = "d8b97f";
-    } else if (currentTime < 18) {
-      newColour = "red";
-    } else {
-      newColour = "green";
-    }
+    
+    let checkColour;
+    const newColour = setStatement(checkColour, "d8b97f", "red", "green");
     setTextColour(newColour);
   }
 
   setInterval(updateGreeting, 1000);
   const [greeting, setGreeting] = useState("...");
   function updateGreeting() {
-
     currentTime = new Date().getHours();
-    let newGreeting;
-
-    if (currentTime < 12) {
-      newGreeting = "morning";
-    } else if (currentTime < 18) {
-      newGreeting = "afternoon";
-    } else {
-      newGreeting = "evening";
-    }
+    
+    let checkGreeting;
+    const newGreeting = setStatement(checkGreeting,"morning", "afternoon", "evening");
     setGreeting(newGreeting);
+  }
+
+
+  function setStatement(focus, condA, condB, condC) {
+    if (currentTime < 12) {
+      focus = condA;
+    } else if (currentTime < 18) {
+      focus = condB;
+    } else {
+      focus = condC;
+    }
+    return focus;
   }
 
   return (
