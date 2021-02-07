@@ -9,7 +9,7 @@ const App = () => {
     <>
       <div className="App">
         {/* <Header setFontSize="12" setText="Welcome" /> */}
-        <Greetings setColour="BurlyWood" />
+        <Greetings />
 
         <BackgroundImage />
 
