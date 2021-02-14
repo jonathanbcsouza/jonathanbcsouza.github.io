@@ -32,8 +32,8 @@ export const MySocialLinks = [
 ]
 
 export function MapSocial() {
-  return MySocialLinks.map((i) => (
-    <StyledLink link={i.link}>{i.component}</StyledLink>
+  return MySocialLinks.map((item) => (
+    <StyledLink key={item.link} link={item.link}>{item.component}</StyledLink>
   ));
 }
 

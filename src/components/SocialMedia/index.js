@@ -12,7 +12,6 @@ const SocialMedia = () => {
         <IconContext.Provider value={{ size: "32" }}>
           <h3>Let's Connect!</h3>
           <br />
-
           <div>
             <MapSocial />
           </div>

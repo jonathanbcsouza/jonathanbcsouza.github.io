@@ -1,10 +1,11 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 import SocialMedia from "../SocialMedia/index";
 
 const currentDate = new Date().getFullYear();
 
-const StyledFooter = styled.p`
+const StyledFooter = styled.div`
+  background-color: black;
   text-align: center;
   color: orange;
   font-size: 12px;
@@ -14,7 +15,6 @@ const StyledFooter = styled.p`
   bottom: 0;
   width: 100vw;
 `;
-
 
 const MakeFooter = () => {
   return (
