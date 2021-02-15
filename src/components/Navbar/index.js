@@ -7,10 +7,6 @@ const StyledNav = styled.nav`
   text-transform: uppercase;
 `;
 
-const StyledLogo = styled.img`
-  font-size: 1.45em;
-`;
-
 const StyledUl = styled.ul`
   display: flex;
   flex-direction: column;
@@ -24,33 +20,41 @@ const StyledUl = styled.ul`
 `;
 
 const StyledLi = styled.li`
-  margin: 20px;
-
+  padding: 20px;
   a {
     text-decoration: none;
     color: white;
     flex-direction: row;
-    &:hover {
-      transition: 0.5s;
-      color: red;
-    }
+  }
+  &:hover {
+    background: #444444;
+    cursor: pointer;
+    transition: 0.5s;
+    color: red;
+  }
+
+  @media (max-width: 615px) {
+    display: ${(props) => (props.isBtnCLicked ? "none" : "")};
+    height: 0;
   }
 `;
+
+const StyledMenuicon = styled.li``;
 
 const Navbar = () => {
   const [open, setOpen] = useState(true);
   const handleToggle = () => setOpen(!open);
 
   return (
-    <StyledNav onClick={handleToggle}>
+    <StyledNav>
       <StyledUl>
-        <DropdownIcon openProps={open} />
-        <StyledLogo />
+        <StyledMenuicon onClick={handleToggle}>
+          <DropdownIcon isBtnCLicked={open} />
+        </StyledMenuicon>
+
         {MenuItems.map((item) => {
-          if (open === false) {
-          }
           return (
-            <StyledLi isDropdownOpen={open} key={item.id}>
+            <StyledLi isBtnCLicked={open} key={item.id}>
               <a href={item.url}>{item.title}</a>
             </StyledLi>
           );

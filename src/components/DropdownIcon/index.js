@@ -3,18 +3,28 @@ import styled from "styled-components";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const StyledMenuBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   color: ${(props) => props.colour};
+  background-image: linear-gradient(${(props) => props.backColour}, #000);
   cursor: pointer;
-  padding: 10px;
-  text-align: right;
+  padding: 10px 25px;
+  height: 50px;
+  font-size: 24px;
 
+  &:hover {
+    background-image: linear-gradient(${(props) => props.backColour}, #000);
+    cursor: pointer;
+    transition: 0.5s;
+  }
   @media (min-width: 615px) {
     display: none;
   }
 `;
 
-const DropdownIcon = (props) => {
-  if (props.openProps) {
+const Menuicon = (props) => {
+  if (props.isBtnCLicked) {
     return (
       <StyledMenuBtn colour={"red"}>
         <FaBars />
@@ -22,10 +32,10 @@ const DropdownIcon = (props) => {
     );
   }
   return (
-    <StyledMenuBtn colour={"darkred"}>
+    <StyledMenuBtn backColour={"#272643"} colour={"darkred"}>
       <FaTimes />
     </StyledMenuBtn>
   );
 };
 
-export default DropdownIcon;
+export default Menuicon;
