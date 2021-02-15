@@ -14,7 +14,7 @@ const StyledMenuBtn = styled.div`
   font-size: 24px;
 
   &:hover {
-    background-image: linear-gradient(${(props) => props.backColour}, #000);
+    background-image: linear-gradient(#272643, #000);
     cursor: pointer;
     transition: 0.5s;
   }
