@@ -1,19 +1,17 @@
 import React from "react";
-import Greetings from "./components/Greetings";
-import Footer from "./components/Footer";
-import BackgroundImage from "./components/Background";
 import Navbar from "./components/Navbar";
-// import Header from "./components/Header";
+import Greetings from "./components/Greetings";
+import BackgroundImage from "./components/Background";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <>
       <div className="App">
-        {/* <Greetings /> */}
         <Navbar />
+        {/* <Greetings /> */}
         <BackgroundImage />
         <Footer />
-        {/* <Header setFontSize="12" setText="Welcome" /> */}
       </div>
     </>
   );

@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const StyledBackground = styled.div`
   height: 80vh;
-  background-position: none;
   background-repeat: no-repeat;
   background-size: contain;
   filter: grayscale(40%);

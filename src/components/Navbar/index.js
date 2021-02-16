@@ -51,7 +51,6 @@ const Navbar = () => {
         <StyledMenuicon onClick={handleToggle}>
           <DropdownIcon isBtnCLicked={open} />
         </StyledMenuicon>
-
         {MenuItems.map((item) => {
           return (
             <StyledLi isBtnCLicked={open} key={item.id}>

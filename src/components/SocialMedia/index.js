@@ -6,8 +6,7 @@ import { MapSocial } from "./socialLinks";
 const SocialMedia = () => {
   return (
     <div>
-      <br></br>
-
+      <br />
       <StyledIcon>
         <IconContext.Provider value={{ size: "32" }}>
           <h3>Let's Connect!</h3>

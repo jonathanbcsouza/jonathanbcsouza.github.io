@@ -7,14 +7,11 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-h1,
-h2,
-h3 {
+h1, h2,h3 {
   color: aliceblue;
 }
 
 #root {
-  /* background-color: hsla(0, 70%, 4%, 0.897); */
   background-color: black;
   height: 100vh;
 }

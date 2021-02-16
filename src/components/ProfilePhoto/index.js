@@ -11,7 +11,6 @@ background-size: cover;
 background-image: url("https://avatars0.githubusercontent.com/u/25882133?v=4");
 `;
 
-
 const ProfilePhoto = () => <StyledAvatar />
 
 export default ProfilePhoto;
