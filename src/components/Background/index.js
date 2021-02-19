@@ -8,6 +8,8 @@ const StyledBackground = styled.div`
   filter: grayscale(40%);
   margin-top: 10vh;
   background-image: url("https://pbs.twimg.com/media/EsJqDoAU0AInOjw?format=jpg&name=4096x4096");
+  ${'' /* opacity: ${(props) => props.opc}; */}
+  ${'' /* background-attachment: fixed; */}
 
   @media (min-width: 615px) {
     background-position: center;
@@ -18,7 +20,7 @@ const StyledBackground = styled.div`
 const Background = () => {
   return (
     <>
-      <StyledBackground />
+      <StyledBackground opc="0.2"/>
     </>
   );
 };

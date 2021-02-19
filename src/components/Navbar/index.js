@@ -5,6 +5,10 @@ import DropdownIcon from "../DropdownIcon";
 
 const StyledNav = styled.nav`
   text-transform: uppercase;
+  overflow: hidden;
+  position: fixed;
+  background: black;
+  width: 100%;
 `;
 
 const StyledUl = styled.ul`
