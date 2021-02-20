@@ -2,24 +2,24 @@ export const MenuItems = [
   {
     id: 0,
     title: "Home",
-    url: "#",
+    url: "/home",
   },
 
   {
     id: 1,
     title: "About",
-    url: "#",
+    url: "/about",
   },
 
   {
     id: 2,
     title: "Labs",
-    url: "#",
+    url: "/lab",
   },
 
   {
     id: 3,
     title: "Music",
-    url: "#",
+    url: "/music",
   },
 ];

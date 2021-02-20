@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { MenuItems } from "./menuItems";
 import DropdownIcon from "../DropdownIcon";
+import { Link } from "react-router-dom";
 
 const StyledNav = styled.nav`
   text-transform: uppercase;
@@ -43,7 +44,7 @@ const StyledLi = styled.li`
   }
 `;
 
-const StyledMenuicon = styled.li``;
+const StyledMenuicon = styled.div``;
 
 const Navbar = () => {
   const [open, setOpen] = useState(true);
@@ -58,7 +59,8 @@ const Navbar = () => {
         {MenuItems.map((item) => {
           return (
             <StyledLi isBtnCLicked={open} key={item.id}>
-              <a href={item.url}>{item.title}</a>
+              <Link to={item.url}>{item.title}</Link>
+              {/* <a href={item.url}>{item.title}</a> */}
             </StyledLi>
           );
         })}
