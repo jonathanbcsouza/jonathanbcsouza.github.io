@@ -5,7 +5,6 @@ import SocialMedia from "../SocialMedia/index";
 const currentDate = new Date().getFullYear();
 
 const StyledFooter = styled.div`
-  background-color: black;
   text-align: center;
   color: orange;
   font-size: 12px;

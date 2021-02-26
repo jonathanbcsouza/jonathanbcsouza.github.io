@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const StyledNav = styled.nav`
   text-transform: uppercase;
+  margin-top: -10px;
   overflow: hidden;
   position: fixed;
   background: black;
@@ -26,6 +27,7 @@ const StyledUl = styled.ul`
 
 const StyledLi = styled.div`
   margin: 10px;
+
   a {
     display: block;
     padding: 30px;
@@ -33,10 +35,9 @@ const StyledLi = styled.div`
     color: white;
   }
   &:hover {
-    background: #444444;
+    background: #121212;
     cursor: pointer;
     transition: 0.5s;
-    color: red;
   }
 
   @media (max-width: 615px) {
@@ -60,7 +61,14 @@ const Navbar = () => {
         {MenuItems.map((item) => {
           return (
             <StyledLi isBtnCLicked={open} key={item.id}>
-              <NavLink to={item.url}>{item.title}</NavLink>
+              <NavLink
+                activeStyle={{
+                  background: "#121212",
+                }}
+                to={item.url}
+              >
+                {item.title}
+              </NavLink>
             </StyledLi>
           );
         })}

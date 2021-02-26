@@ -1,10 +1,9 @@
 import React from "react";
-import Page from "./StyledPage";
 
 const Music = () => {
-  return (
-    <Page message="Music"/>
-  );
+  return <>
+    
+  </>;
 };
 
 export default Music;

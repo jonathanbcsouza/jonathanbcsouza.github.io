@@ -32,7 +32,7 @@ const Menuicon = (props) => {
     );
   }
   return (
-    <StyledMenuBtn backColour={"#272643"} colour={"darkred"}>
+    <StyledMenuBtn backColour={"#121212"} colour={"darkred"}>
       <FaTimes />
     </StyledMenuBtn>
   );
