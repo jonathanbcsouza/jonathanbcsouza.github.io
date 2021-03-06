@@ -3,6 +3,7 @@ import {FaGithub,FaLinkedin,FaMedium,FaSpotify,FaTwitter} from "react-icons/fa";
 import { SiCodesandbox } from "react-icons/si";
 import { StyledLink } from "./styles";
 
+
 export const MySocialLinks = [
   {
     component: <FaGithub color="#fff" />,

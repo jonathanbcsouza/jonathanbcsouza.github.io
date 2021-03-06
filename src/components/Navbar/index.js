@@ -27,6 +27,7 @@ const StyledUl = styled.ul`
 
 const StyledLi = styled.div`
   margin: 10px;
+  background-color: black;
 
   a {
     display: block;
@@ -62,6 +63,7 @@ const Navbar = () => {
           return (
             <StyledLi isBtnCLicked={open} key={item.id}>
               <NavLink
+                onClick={handleToggle}
                 activeStyle={{
                   background: "#121212",
                 }}
