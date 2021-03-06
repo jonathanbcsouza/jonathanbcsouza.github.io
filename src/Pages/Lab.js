@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../components/Card";
 import styled from "styled-components";
-import { myIframes } from "../Pages/myIframes";
+import { MyIframes } from "../Pages/MyIframes";
 
 const Lab = () => {
   const StyledDiv = styled.div`
@@ -13,18 +13,17 @@ const Lab = () => {
     align-items: center;
     color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    z-index:0;
-
+    z-index: 0;
   `;
 
   return (
     <>
       <StyledDiv>
-        {myIframes.map((each) => (
-          <Card iframe={each.src} title={each.title}></Card>
+        {MyIframes.map((each) => (
+          <Card iframe={each.src} title={each.title} tech={each.tech}></Card>
         ))}
       </StyledDiv>
     </>

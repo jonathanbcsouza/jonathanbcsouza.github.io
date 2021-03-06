@@ -4,17 +4,20 @@ import styled from "styled-components";
 const StyledCard = styled.div`
   z-index: 0;
   margin: 20px 20px 20px 20px;
-  width: 640px;
-  height: 360px;
+  width: 520px;
+  height: 320px;
   position: relative;
-
+  top: 0;
+  transition: top 0.5s ease;
   iframe {
-    opacity: 0.3;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
     border-radius: 30px;
     width: 100%;
     height: 100%;
     border: 0;
     overflow: hidden;
+    box-shadow: 1px 1px 5px 0px rgba(82, 82, 82, 0.75);
   }
 
   p {
@@ -26,10 +29,12 @@ const StyledCard = styled.div`
   }
 
   &:hover {
+    top: -10px;
+    transition: top 0.5s ease;
     iframe {
-      border-radius: 0;
       opacity: 1;
-      transition: opacity 0.2s linear;
+      transition: opacity 0.2s ease;
+      box-shadow: 8px 3px 15px 0px rgba(82, 82, 82, 0.85);
     }
     p {
       display: none;
@@ -40,7 +45,11 @@ const StyledCard = styled.div`
 const Card = (each) => {
   return (
     <StyledCard>
-      <p>{each.title}</p>
+      <p>
+        <h3>{each.title}</h3>
+        <br />
+        {each.tech}
+      </p>
       <iframe src={each.iframe} title={each.title}></iframe>
     </StyledCard>
   );
