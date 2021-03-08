@@ -12,9 +12,19 @@ export const MyIframes = [
     title: "Dom Access Methods",
   },
   {
+    tech: "Android",
+    src: " ",
+    title: "Tour Guide NZ",
+  },
+  {
+    tech: "Android",
+    src: " ",
+    title: "Music Player",
+  },
+  {
     tech: "C",
     src: "https://www.youtube.com/embed/XKU81C9e_5I",
-    title: "Encrytion decoder",
+    title: "Encryption decoder",
   },
   {
     tech: "C",

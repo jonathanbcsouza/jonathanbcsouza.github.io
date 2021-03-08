@@ -7,7 +7,7 @@ const Lab = () => {
   const StyledDiv = styled.div`
     width: 100%;
     height: 100%;
-    padding: 10% 0 20%;
+    padding: 10% 0 30%;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -17,6 +17,7 @@ const Lab = () => {
     align-items: center;
     flex-wrap: wrap;
     z-index: 0;
+
   `;
 
   return (

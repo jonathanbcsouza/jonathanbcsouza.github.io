@@ -40,6 +40,11 @@ const StyledCard = styled.div`
       display: none;
     }
   }
+
+  @media (max-width: 615px) {
+    width: 320px;
+    height: 220px;
+  }
 `;
 
 const Card = (each) => {
