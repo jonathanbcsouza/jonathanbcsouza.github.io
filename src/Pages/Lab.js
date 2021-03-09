@@ -17,14 +17,13 @@ const Lab = () => {
     align-items: center;
     flex-wrap: wrap;
     z-index: 0;
-
   `;
 
   return (
     <>
       <StyledDiv>
         {MyIframes.map((each) => (
-          <Card iframe={each.src} title={each.title} tech={each.tech}></Card>
+          <Card content={each.type} src={each.src} title={each.title} tech={each.tech}></Card>
         ))}
       </StyledDiv>
     </>

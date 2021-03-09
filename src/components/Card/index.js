@@ -9,15 +9,29 @@ const StyledCard = styled.div`
   position: relative;
   top: 0;
   transition: top 0.5s ease;
+
   iframe {
     opacity: 0.5;
-    transition: opacity 0.2s ease;
+    filter: blur(2px);
+    transition: filter 0.2s ease, filter 0.2s ease;
     border-radius: 30px;
     width: 100%;
     height: 100%;
     border: 0;
     overflow: hidden;
     box-shadow: 1px 1px 5px 0px rgba(82, 82, 82, 0.75);
+  }
+
+  img {
+    box-shadow: 1px 1px 5px 0px rgba(82, 82, 82, 0.75);
+    filter: blur(1px);
+    transition: filter 0.2s ease, filter 0.2s ease;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    margin: auto;
   }
 
   p {
@@ -31,9 +45,12 @@ const StyledCard = styled.div`
   &:hover {
     top: -10px;
     transition: top 0.5s ease;
-    iframe {
+
+    iframe,
+    img {
+      filter: blur(0);
       opacity: 1;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease, filter 0.2s ease;
       box-shadow: 8px 3px 15px 0px rgba(82, 82, 82, 0.85);
     }
     p {
@@ -48,6 +65,8 @@ const StyledCard = styled.div`
 `;
 
 const Card = (each) => {
+  const CustomTag = `${each.content}`;
+
   return (
     <StyledCard>
       <p>
@@ -55,7 +74,8 @@ const Card = (each) => {
         <br />
         {each.tech}
       </p>
-      <iframe src={each.iframe} title={each.title}></iframe>
+      {/* <iframe src={each.iframe} title={each.title}></iframe> */}
+      <CustomTag allowfullscreen="allowfullscreen" src={each.src} title={each.title}></CustomTag>
     </StyledCard>
   );
 };
