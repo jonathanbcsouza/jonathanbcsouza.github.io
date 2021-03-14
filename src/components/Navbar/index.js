@@ -27,13 +27,13 @@ const StyledUl = styled.ul`
 
 const StyledLi = styled.div`
   margin: 10px;
-  background-color: black;
+  color: var(--background);
 
   a {
     display: block;
     padding: 30px;
     text-decoration: none;
-    color: white;
+    color: var(--text-white);
   }
   &:hover {
     background: #121212;

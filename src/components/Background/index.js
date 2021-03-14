@@ -20,7 +20,7 @@ const StyledBackground = styled.div`
 const Background = () => {
   return (
     <>
-      <StyledBackground opc="0.2" />
+      <StyledBackground opc="0.7" />
     </>
   );
 };

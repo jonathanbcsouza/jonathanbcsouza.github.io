@@ -7,11 +7,11 @@ const Lab = () => {
   const StyledDiv = styled.div`
     width: 100%;
     height: 100%;
-    padding: 10% 0 30%;
+    padding: 10% 0 12%;
     justify-content: center;
     align-content: center;
     align-items: center;
-    color: white;
+    color: var(--text-white);
     display: flex;
     justify-content: space-evenly;
     align-items: center;

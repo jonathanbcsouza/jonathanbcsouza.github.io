@@ -19,7 +19,7 @@ const StyledCard = styled.div`
     height: 100%;
     border: 0;
     overflow: hidden;
-    box-shadow: 1px 1px 5px 0px rgba(82, 82, 82, 0.75);
+    box-shadow: 6px 6px 5px 0px rgba(82, 82, 82, 0.75);
   }
 
   img {
@@ -74,8 +74,11 @@ const Card = (each) => {
         <br />
         {each.tech}
       </p>
-      {/* <iframe src={each.iframe} title={each.title}></iframe> */}
-      <CustomTag allowfullscreen="allowfullscreen" src={each.src} title={each.title}></CustomTag>
+      <CustomTag
+        allowfullscreen="allowfullscreen"
+        src={each.src}
+        title={each.title}
+      ></CustomTag>
     </StyledCard>
   );
 };

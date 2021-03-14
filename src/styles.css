@@ -1,6 +1,11 @@
 * {
+  --background: black;
+  --text-white: white;
+  --text-orange: orange;
+  --headers: aliceblue;
+
+  background-color: var(--background);
   z-index:1;
-  background-color: black;
   margin: 0;
   padding: 0;
   outline: 0;
@@ -12,7 +17,7 @@
 h1,
 h2,
 h3 {
-  color: aliceblue;
+  color: var(--headers);
 }
 
 #root {

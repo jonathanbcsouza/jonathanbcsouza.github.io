@@ -42,15 +42,13 @@ export const MyIframes = [
   {
     type: "img",
     tech: "Data Analysis with Python",
-    src:
-      "https://uc5b3394e02fa973fc6f6a8b3163.previews.dropboxusercontent.com/p/thumb/ABHwYaVk15z2D5Ilb29cZU1FqtEYJ1KMEkq0PA-iXlNhZdSi_gscrcHEAvXyQ4WA82vqEMIQ-oSPiLGv5BVbmywqvYH32lgJWTTwQT--pc4aigmoCGjGV_D8ncMUz9zLMWO9pLXCAhyqCZJolcd51CDEXMhMmtByxEwLQV7pQ4XbZRY-7_9WKSStdgvI0e7rJ4NygbqeuxVH1wTt4h2qhvrPhR2LIe59gVQEi1EAr-L9aiJOnW4xBH4a7WKXRTQh6kvpSJ39KV-RMHj-8Jz6_t5FjD_OK6RYeq-keIVRwmCzcHSMEchw3VKenAS3HKdGSRID3iELUrCRDOJxelt-VAnnIVORMRyE50qspo4uRHZ-stssWnNa-VrfAyqPKA0ceFg/p.png",
+    src: process.env.PUBLIC_URL + "/images/projects/da-python.png",
     title: "Medical appointments in Brazil Analysis",
   },
   {
     type: "img",
     tech: "Data Analysis with Excel",
-    src:
-      "https://media-exp1.licdn.com/dms/image/C562DAQHrTAVgS9J9JA/profile-treasury-image-shrink_8192_8192/0/1598713934651?e=1615359600&v=beta&t=81yItRyKvJw2mVVgb2GISt1T-rjcll9IvkJd--YBf_w",
+    src: process.env.PUBLIC_URL + "/images/projects/da-excel.png",
     title: "QA Management System and Dashboard",
   },
   {

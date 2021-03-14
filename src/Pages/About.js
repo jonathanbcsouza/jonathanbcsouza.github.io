@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  color: white;
+  color: var(--text-white);
   padding: 15% 5%;
   font-size: 16px;
   line-height: 26px;

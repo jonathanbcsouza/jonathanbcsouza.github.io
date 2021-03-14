@@ -14,6 +14,8 @@ export const StyledIcon = styled.div`
     height: 30px;
     flex-direction: row;
     cursor: pointer;
+    animation: rotation 0.4s linear;
+
   }
 `;
 
