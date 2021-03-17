@@ -11,6 +11,8 @@ const StyledNav = styled.nav`
   position: fixed;
   background: black;
   width: 100%;
+  z-index: 10;
+
 `;
 
 const StyledUl = styled.ul`

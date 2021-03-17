@@ -8,7 +8,7 @@ const StyledFooter = styled.div`
   text-align: center;
   color: var(--text-orange);
   font-size: 12px;
-  border-top: var(--border-footer);
+  border-top: 1px solid var(--headers);
   padding-bottom: 10px;
   position: fixed;
   bottom: 0;
