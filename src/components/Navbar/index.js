@@ -7,40 +7,45 @@ import { NavLink } from "react-router-dom";
 const StyledNav = styled.nav`
   text-transform: uppercase;
   margin-top: -10px;
-  overflow: hidden;
   position: fixed;
-  background: black;
+  top: 0;
   width: 100%;
   z-index: 10;
-
 `;
 
 const StyledUl = styled.ul`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   text-align: center;
-  list-style: none;
+  width: 100%;
 
-  @media (min-width: 615px) {
-    flex-direction: row;
+  & :hover {
+    color: var(--text-hovers);
+    border-bottom: 1px solid;
+    border-color: var(--text-hovers);
+  }
+
+  @media (max-width: 615px) {
+    flex-direction: column;
+    border-color: none;
+
+    & :hover {
+    color: var(--text-hovers);
+    border-bottom: none;
+  }
+  }
+
   }
 `;
 
 const StyledLi = styled.div`
   margin: 10px;
-  color: var(--background);
 
   a {
     display: block;
     padding: 30px;
-    text-decoration: none;
     color: var(--text-white);
-  }
-  &:hover {
-    background: #121212;
-    cursor: pointer;
-    transition: 0.5s;
   }
 
   @media (max-width: 615px) {

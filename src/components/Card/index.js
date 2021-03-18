@@ -23,9 +23,8 @@ const StyledCard = styled.div`
   }
 
   img {
-    box-shadow: 1px 1px 5px 0px rgba(82, 82, 82, 0.75);
     filter: blur(1px);
-    transition: filter 0.2s ease, filter 0.2s ease;
+
     max-width: 100%;
     max-height: 100%;
     margin: 0 auto;

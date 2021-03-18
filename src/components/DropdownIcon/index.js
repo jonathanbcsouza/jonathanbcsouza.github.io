@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const StyledMenuBtn = styled.div`
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: flex-end;
   color: ${(props) => props.colour};
@@ -17,16 +17,17 @@ const StyledMenuBtn = styled.div`
     background-image: linear-gradient(${(props) => props.backColour}, #000);
     cursor: pointer;
     transition: 0.5s;
+
   }
-  @media (min-width: 615px) {
-    display: none;
+  @media (max-width: 615px) {
+    display: flex;
   }
 `;
 
 const Menuicon = (props) => {
   if (props.isBtnCLicked) {
     return (
-      <StyledMenuBtn colour={"red"}>
+      <StyledMenuBtn colour= "var(--text-orange)">
         <FaBars />
       </StyledMenuBtn>
     );
