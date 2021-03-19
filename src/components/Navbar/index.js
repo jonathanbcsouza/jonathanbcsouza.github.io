@@ -18,7 +18,6 @@ const StyledUl = styled.ul`
   flex-direction: row;
   justify-content: center;
   text-align: center;
-  width: 100%;
 
   & :hover {
     color: var(--text-hovers);

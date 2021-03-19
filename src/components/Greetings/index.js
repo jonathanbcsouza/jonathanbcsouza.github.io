@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const StyledGreetings = styled.p`
-  font-family: "opensans-bold";
-  font-size: 24px;
-  text-align: center;
+const StyledGreetings = styled.div`
+  position: relative;
+  top: 0vh;
+  z-index: 11;
+  display: inline-block;
+  font-size: smaller;
+  float: right;
+  margin-right: 2%;
+
+  @media (max-width: 615px) {
+    float: left;
+    margin-left: 10px;
+  }
 `;
 
 let currentTime;
@@ -18,8 +27,8 @@ const Greetings = () => {
     const newColour = handleHookStatement(
       checkColour,
       "d8b97f",
-      "red",
-      "green"
+      "orange",
+      "darkorange"
     );
     setTextColour(newColour);
   }
@@ -60,14 +69,25 @@ const Greetings = () => {
     return focus;
   }
 
+  const [hour, min, sec] = time.split(":");
+  const timeToString = hour + min + sec;
+
+  function timeSpent(params) {
+    const total = 235959;
+    return Math.round((params * 100) / total);
+  }
+  // left: ${(props) => props.width + "px"};
+  // <StyledProgBar width={timeSpent(timeToString)}>HI</StyledProgBar>
+
   return (
     <>
       <br />
       <StyledGreetings>
         <p style={{ color: textColour }}>
-          Good {greeting} - {time}
+          Good {greeting}. <br /> Total day spent {timeSpent(timeToString)} %.
         </p>
         <br />
+        {/* <BackgroundImage/> */}
       </StyledGreetings>
     </>
   );

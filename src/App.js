@@ -13,8 +13,11 @@ const App = () => {
   return (
     <div>
       <Router>
+      <Greetings />
+
         <Navbar />
         <Switch>
+
           <Route path="/" component={Home} exact />
           <Route path="/home" component={Home} exact />
           <Route path="/about" component={About} exact />
@@ -22,7 +25,6 @@ const App = () => {
           <Route path="/music" component={Music} exact />
         </Switch>
 
-        {/* <Greetings /> */}
         {/* <BackgroundImage /> */}
 
         <Footer />

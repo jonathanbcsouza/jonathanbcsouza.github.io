@@ -3,20 +3,17 @@ import styled from "styled-components";
 
 const Home = () => {
   const StyledContainer = styled.div`
-    padding-top: 300px;
-    margin-bottom: 10vh;
-    padding-left: 20vw;
     color: var(--text-white);
+    position: absolute;
+    top: 200px;
     z-index: 0;
+    padding-left: 30vw;
 
     h1,
     p {
-      max-width: 90%;
-      position: relative;
       animation-name: text_entrance;
       animation-duration: 3s;
       animation-delay: 0.5s;
-      left: 10px;
       animation-fill-mode: both;
     }
     p {
@@ -34,8 +31,9 @@ const Home = () => {
     }
 
     @media (max-width: 615px) {
-      padding: 7vw;
-      padding-top: 50%;
+      padding-left: 3vw;
+      margin: 0;
+      max-width: 90%;
     }
   `;
 
