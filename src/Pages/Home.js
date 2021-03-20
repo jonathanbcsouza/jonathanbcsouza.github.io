@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const Home = () => {
-  const StyledContainer = styled.div`
+const StyledContainer = styled.div`
     color: var(--text-white);
     position: absolute;
     top: 200px;
     z-index: 0;
     padding-left: 30vw;
+    width: 100%;
+    height: 100%;
 
     h1,
     p {
@@ -22,12 +23,10 @@ const Home = () => {
     @keyframes text_entrance {
       from {
         top: 0px;
-        color: black;
       }
       to {
         top: 20px;
-        color: white;
-      }
+]      }
     }
 
     @media (max-width: 615px) {
@@ -37,11 +36,13 @@ const Home = () => {
     }
   `;
 
+const Home = () => {
   return (
     <StyledContainer>
       <h1>Jonathan Souza</h1>
       <br></br>
       <p>A Web Developer with passion for the web, innovation and art.</p>
+      <br />
     </StyledContainer>
   );
 };

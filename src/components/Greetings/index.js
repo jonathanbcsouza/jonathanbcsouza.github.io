@@ -4,52 +4,68 @@ import styled from "styled-components";
 const StyledGreetings = styled.div`
   position: relative;
   top: 0vh;
-  z-index: 11;
   display: inline-block;
   font-size: smaller;
   float: right;
   margin-right: 2%;
+  z-index: 3;
 
   @media (max-width: 615px) {
     float: left;
     margin-left: 10px;
   }
+
+  p {
+    color: hsl(35, 100%, ${(props) => props.colourOfHour + "%"});
+  }
 `;
 
-let currentTime;
-const currentTimeStr = new Date().toLocaleTimeString();
+const currentTime = new Date().getHours();
 
 const Greetings = () => {
-  const [textColour, setTextColour] = useState("#d8b97f");
-  function updateColour() {
-    currentTime = new Date().getHours();
-    let checkColour;
-    const newColour = handleHookStatement(
-      checkColour,
-      "d8b97f",
-      "orange",
-      "darkorange"
-    );
-    setTextColour(newColour);
-  }
-
-  const [greeting, setGreeting] = useState("...");
-  function updateGreeting() {
-    currentTime = new Date().getHours();
-    let checkGreeting;
-    const newGreeting = handleHookStatement(
-      checkGreeting,
-      "morning",
-      "afternoon",
-      "evening"
-    );
-    setGreeting(newGreeting);
-  }
-
-  const [time, setTime] = useState(currentTimeStr);
+  const [time, setTime] = useState("loading...");
   function updateTime() {
     const newTime = new Date().toLocaleTimeString();
     setTime(newTime);
+  }
+
+  const [greeting, setGreeting] = useState("loading...");
+  function updateGreeting() {
+    let displayGreeting;
+
+    switch (true) {
+      case currentTime > 6 && currentTime < 12:
+        displayGreeting = "morning";
+        break;
+      case currentTime === 12:
+        displayGreeting = "noon";
+        break;
+      case currentTime < 17:
+        displayGreeting = "afternoon";
+        break;
+      case currentTime < 21:
+        displayGreeting = "evening";
+        break;
+      default:
+        displayGreeting = "night";
+    }
+    setGreeting(displayGreeting);
+  }
+
+  // Iterate the (HSL) negatively from 100% to a limit of 50%
+  // It syncs with the daytime
+  const [colourLightness, setTextColour] = useState("...");
+  function updateColour() {
+    const setLightness = 100 - timeToPercent(timeToString) / 2;
+    setTextColour(setLightness);
+  }
+
+  const [hour, min, sec] = time.split(":");
+  const timeToString = hour + min + sec;
+
+  function timeToPercent() {
+    const total = 235959;
+    return Math.round((timeToString * 100) / total);
   }
 
   setInterval(() => {
@@ -58,36 +74,11 @@ const Greetings = () => {
     updateGreeting();
   }, 1000);
 
-  function handleHookStatement(focus, condA, condB, condC) {
-    if (currentTime < 12) {
-      focus = condA;
-    } else if (currentTime < 18) {
-      focus = condB;
-    } else {
-      focus = condC;
-    }
-    return focus;
-  }
-
-  const [hour, min, sec] = time.split(":");
-  const timeToString = hour + min + sec;
-
-  function timeSpent(params) {
-    const total = 235959;
-    return Math.round((params * 100) / total);
-  }
-  // left: ${(props) => props.width + "px"};
-  // <StyledProgBar width={timeSpent(timeToString)}>HI</StyledProgBar>
-
   return (
     <>
-      <br />
-      <StyledGreetings>
-        <p style={{ color: textColour }}>
-          Good {greeting}. <br /> Total day spent {timeSpent(timeToString)} %.
-        </p>
+      <StyledGreetings colourOfHour={colourLightness}>
         <br />
-        {/* <BackgroundImage/> */}
+        <p>Good {greeting}.</p>
       </StyledGreetings>
     </>
   );

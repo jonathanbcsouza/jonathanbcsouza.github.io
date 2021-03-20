@@ -10,7 +10,7 @@ const StyledNav = styled.nav`
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 2;
 `;
 
 const StyledUl = styled.ul`
@@ -32,10 +32,9 @@ const StyledUl = styled.ul`
     & :hover {
     color: var(--text-hovers);
     border-bottom: none;
+    }
   }
-  }
-
-  }
+}
 `;
 
 const StyledLi = styled.div`

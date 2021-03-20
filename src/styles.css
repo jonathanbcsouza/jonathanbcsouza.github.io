@@ -1,8 +1,8 @@
 * {
   --background: black;
+  --headers: aliceblue;
   --text-white: white;
   --text-orange: orange;
-  --headers: aliceblue;
   --text-hovers: orange;
 
   background-color: var(--background);
