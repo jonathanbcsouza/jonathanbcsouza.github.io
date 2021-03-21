@@ -6,17 +6,20 @@ const StyledContainer = styled.div`
   position: absolute;
   top: 200px;
   z-index: 0;
-  padding-left: 30vw;
+  padding-left: 7.5vw;
   height: 100%;
+  color: white;
 
-  h1,
+  h2,
   p {
+    position: relative;
     animation-name: text_entrance;
-    animation-duration: 1s;
+    animation-duration: 3s;
     animation-fill-mode: both;
   }
-  p {
-    animation-delay: 2s;
+  P {
+    height:0;
+    animation-delay: 1s;
   }
   @keyframes text_entrance {
     from {
@@ -67,8 +70,14 @@ const Home = () => {
   return (
     <>
       <StyledContainer>
-        <h1>Jonathan Souza </h1>
-        <Greetings setHsl={colourLightness}></Greetings>
+        <br />
+        <br />
+        <h2>I am Jonathan Souza.</h2>
+        <br />
+        <p>
+          I am a Web Developer with passion for the web, innovation and art.
+        </p>
+        <Greetings setHsl={colourLightness} />
       </StyledContainer>
     </>
   );

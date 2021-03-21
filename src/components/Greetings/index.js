@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 const StyledGreetings = styled.p`
   display: inline-block;
-  margin-top:16px;
-  z-index: 3;
+  z-index: 2;
   color: hsl(35, 100%, ${(props) => props.setLightness + "%"});
 `;
 
@@ -19,22 +18,16 @@ const Greetings = (props) => {
       case currentTime > 6 && currentTime < 12:
         displayGreeting = "morning";
         break;
-      case currentTime === 12:
-        displayGreeting = "noon";
-        break;
       case currentTime < 17:
         displayGreeting = "afternoon";
         break;
-      case currentTime < 21:
-        displayGreeting = "evening";
-        break;
       default:
-        displayGreeting = "night";
+        displayGreeting = "evening";
     }
     setGreeting(displayGreeting);
   }
 
-  console.log(currentTime)
+  console.log(currentTime);
   setInterval(() => {
     updateGreeting();
   }, 1000);
@@ -42,7 +35,6 @@ const Greetings = (props) => {
   return (
     <>
       <StyledGreetings setLightness={props.setHsl}>
-        <p>I am a Web Developer with passion for the web, innovation and art.</p>
         <br />
         <p>Good {greeting}</p>
       </StyledGreetings>

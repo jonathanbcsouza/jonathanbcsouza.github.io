@@ -6,39 +6,43 @@ import { NavLink } from "react-router-dom";
 
 const StyledNav = styled.nav`
   text-transform: uppercase;
-  margin-top: -10px;
   position: fixed;
   top: 0;
+  z-index: 3;
+  padding-left: 5vw;
   width: 100%;
-  z-index: 2;
-`;
-
-const StyledUl = styled.ul`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
-
-  & :hover {
-    color: var(--text-hovers);
-    border-bottom: 1px solid;
-    border-color: var(--text-hovers);
-  }
 
   @media (max-width: 615px) {
-    flex-direction: column;
-    border-color: none;
+    padding-left: 0vw;
+  }
 
-    & :hover {
-    color: var(--text-hovers);
-    border-bottom: none;
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    float: left;
+
+    @media (max-width: 615px) {
+      flex-direction: column;
+      border-color: none;
+      float: none;
+      padding-left: 0vw;
+    }
+
+    * :hover {
+      color: var(--text-hovers);
+      border-bottom: 1px solid;
+      border-color: var(--text-hovers);
     }
   }
-}
+
+  li {
+  }
 `;
 
 const StyledLi = styled.div`
-  margin: 10px;
+    margin: 10px;
 
   a {
     display: block;
@@ -49,21 +53,22 @@ const StyledLi = styled.div`
   @media (max-width: 615px) {
     display: ${(props) => (props.isBtnCLicked ? "none" : "")};
     height: inherit;
+    margin: 10px 0;
   }
 `;
 
-const StyledMenuicon = styled.div``;
-
 const Navbar = () => {
+
   const [open, setOpen] = useState(true);
   const handleToggle = () => setOpen(!open);
 
+
   return (
     <StyledNav>
-      <StyledUl>
-        <StyledMenuicon onClick={handleToggle}>
+      <ul>
+        <div onClick={handleToggle}>
           <DropdownIcon isBtnCLicked={open} />
-        </StyledMenuicon>
+        </div>
         {MenuItems.map((item) => {
           return (
             <StyledLi isBtnCLicked={open} key={item.id}>
@@ -79,7 +84,7 @@ const Navbar = () => {
             </StyledLi>
           );
         })}
-      </StyledUl>
+      </ul>
     </StyledNav>
   );
 };
