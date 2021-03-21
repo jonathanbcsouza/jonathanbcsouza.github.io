@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledGreetings = styled.p`
   display: inline-block;
-  font-size: smaller;
+  margin-top:16px;
   z-index: 3;
   color: hsl(35, 100%, ${(props) => props.setLightness + "%"});
 `;
