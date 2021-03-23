@@ -3,13 +3,13 @@ import styled from "styled-components";
 
 const StyledBackground = styled.div`
   height: 80vh;
+  margin-top: 10vh;
+  background-image: url("https://pbs.twimg.com/media/EsJqDoAU0AInOjw?format=jpg&name=4096x4096");
   background-repeat: no-repeat;
   background-size: contain;
   filter: grayscale(40%);
-  margin-top: 10vh;
-  background-image: url("https://pbs.twimg.com/media/EsJqDoAU0AInOjw?format=jpg&name=4096x4096");
-  opacity: ${(props) => props.opc};
   background-attachment: fixed;
+  opacity: ${(props) => props.opc};
 
   @media (min-width: 615px) {
     background-position: center;
@@ -18,11 +18,7 @@ const StyledBackground = styled.div`
 `;
 
 const Background = () => {
-  return (
-    <>
-      <StyledBackground opc="0.7" />
-    </>
-  );
+  return <StyledBackground opc="0.7" />;
 };
 
 export default Background;

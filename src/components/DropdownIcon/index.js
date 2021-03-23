@@ -6,19 +6,13 @@ const StyledMenuBtn = styled.div`
   display: none;
   align-items: center;
   justify-content: flex-end;
-  color: ${(props) => props.colour};
-  background-image: linear-gradient(${(props) => props.backColour}, #000);
-  cursor: pointer;
   padding: 10px 25px;
   height: 50px;
-  font-size: 24px;
+  font-size: 1.3333em;
+  cursor: pointer;
+  color: var(--text-orange);
+  background-image: linear-gradient(${(props) => props.colour}, #000);
 
-  &:hover {
-    background-image: linear-gradient(${(props) => props.backColour}, #000);
-    cursor: pointer;
-    transition: 0.5s;
-
-  }
   @media (max-width: 615px) {
     display: flex;
   }
@@ -27,13 +21,13 @@ const StyledMenuBtn = styled.div`
 const Menuicon = (props) => {
   if (props.isBtnCLicked) {
     return (
-      <StyledMenuBtn colour= "var(--text-orange)">
+      <StyledMenuBtn>
         <FaBars />
       </StyledMenuBtn>
     );
   }
   return (
-    <StyledMenuBtn backColour={"#121212"} colour={"darkred"}>
+    <StyledMenuBtn>
       <FaTimes />
     </StyledMenuBtn>
   );

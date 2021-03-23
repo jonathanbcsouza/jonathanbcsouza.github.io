@@ -20,13 +20,16 @@ const Lab = () => {
   `;
 
   return (
-    <>
-      <StyledDiv>
-        {MyIframes.map((each) => (
-          <Card content={each.type} src={each.src} title={each.title} tech={each.tech}></Card>
-        ))}
-      </StyledDiv>
-    </>
+    <StyledDiv>
+      {MyIframes.map((each) => (
+        <Card
+          content={each.type}
+          src={each.src}
+          title={each.title}
+          tech={each.tech}
+        ></Card>
+      ))}
+    </StyledDiv>
   );
 };
 

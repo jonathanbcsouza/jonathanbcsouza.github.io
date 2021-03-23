@@ -13,7 +13,6 @@ const Greetings = (props) => {
   const [greeting, setGreeting] = useState("loading...");
   function updateGreeting() {
     let displayGreeting;
-
     switch (true) {
       case currentTime > 6 && currentTime < 12:
         displayGreeting = "morning";
@@ -33,12 +32,10 @@ const Greetings = (props) => {
   }, 1000);
 
   return (
-    <>
-      <StyledGreetings setLightness={props.setHsl}>
-        <br />
-        <p>Good {greeting}</p>
-      </StyledGreetings>
-    </>
+    <StyledGreetings setLightness={props.setHsl}>
+      <br />
+      <p>Good {greeting}</p>
+    </StyledGreetings>
   );
 };
 

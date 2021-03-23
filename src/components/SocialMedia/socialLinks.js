@@ -1,8 +1,6 @@
 import React from "react";
 import {FaGithub,FaLinkedin,FaMedium,FaSpotify,FaTwitter} from "react-icons/fa";
 import { SiCodesandbox } from "react-icons/si";
-import { StyledLink } from "./styles";
-
 
 export const MySocialLinks = [
   {
@@ -31,11 +29,3 @@ export const MySocialLinks = [
     link: "https://codesandbox.io/u/jonathanbcsouza",
   },
 ];
-
-export function MapSocial() {
-  return MySocialLinks.map((item) => (
-    <StyledLink key={item.link} link={item.link}>
-      {item.component}
-    </StyledLink>
-  ));
-}

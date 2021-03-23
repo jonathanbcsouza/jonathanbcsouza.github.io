@@ -4,11 +4,11 @@ import Greetings from "../components/Greetings/index";
 
 const StyledContainer = styled.div`
   position: absolute;
-  top: 200px;
-  z-index: 0;
+  margin: 0;
+  top: 20vh;
   padding-left: 7.5vw;
-  height: 100%;
-  color: white;
+  color: var(--text-white);
+  z-index: 0;
 
   h2,
   p {
@@ -18,9 +18,10 @@ const StyledContainer = styled.div`
     animation-fill-mode: both;
   }
   P {
-    height:0;
+    height: 0;
     animation-delay: 1s;
   }
+
   @keyframes text_entrance {
     from {
       top: 0px;
@@ -56,7 +57,6 @@ const Home = () => {
 
   const [hour, min, sec] = time.split(":");
   const timeToString = hour + min + sec;
-
   function timeToPercent() {
     const total = 235959;
     return Math.round((timeToString * 100) / total);
@@ -68,18 +68,14 @@ const Home = () => {
   }, 1000);
 
   return (
-    <>
-      <StyledContainer>
-        <br />
-        <br />
-        <h2>I am Jonathan Souza.</h2>
-        <br />
-        <p>
-          I am a Web Developer with passion for the web, innovation and art.
-        </p>
-        <Greetings setHsl={colourLightness} />
-      </StyledContainer>
-    </>
+    <StyledContainer>
+      <br />
+      <br />
+      <h2>I am Jonathan Souza.</h2>
+      <br />
+      <p>I am a Web Developer with passion for the web, innovation and art.</p>
+      <Greetings setHsl={colourLightness} />
+    </StyledContainer>
   );
 };
 

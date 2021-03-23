@@ -24,7 +24,6 @@ const StyledCard = styled.div`
 
   img {
     filter: blur(1px);
-
     max-width: 100%;
     max-height: 100%;
     margin: 0 auto;

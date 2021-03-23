@@ -36,20 +36,16 @@ const StyledNav = styled.nav`
       border-color: var(--text-hovers);
     }
   }
-
-  li {
-  }
 `;
 
 const StyledLi = styled.div`
-    margin: 10px;
+  margin: 10px;
 
   a {
     display: block;
     padding: 30px;
     color: var(--text-white);
   }
-
   @media (max-width: 615px) {
     display: ${(props) => (props.isBtnCLicked ? "none" : "")};
     height: inherit;
@@ -58,10 +54,8 @@ const StyledLi = styled.div`
 `;
 
 const Navbar = () => {
-
   const [open, setOpen] = useState(true);
   const handleToggle = () => setOpen(!open);
-
 
   return (
     <StyledNav>
@@ -74,9 +68,7 @@ const Navbar = () => {
             <StyledLi isBtnCLicked={open} key={item.id}>
               <NavLink
                 onClick={handleToggle}
-                activeStyle={{
-                  background: "#121212",
-                }}
+                activeStyle={{ background: "#121212" }}
                 to={item.url}
               >
                 {item.title}
