@@ -13,20 +13,18 @@ const Greetings = (props) => {
   const [greeting, setGreeting] = useState("loading...");
   function updateGreeting() {
     let displayGreeting;
-    switch (true) {
-      case currentTime > 6 && currentTime < 12:
-        displayGreeting = "morning";
-        break;
-      case currentTime < 17:
-        displayGreeting = "afternoon";
-        break;
-      default:
-        displayGreeting = "evening";
+
+    if (currentTime > 6 && currentTime < 12) {
+      displayGreeting = "morning";
+    } else if (currentTime < 17) {
+      displayGreeting = "afternoon";
+    } else {
+      displayGreeting = "evening";
     }
+
     setGreeting(displayGreeting);
   }
 
-  console.log(currentTime);
   setInterval(() => {
     updateGreeting();
   }, 1000);

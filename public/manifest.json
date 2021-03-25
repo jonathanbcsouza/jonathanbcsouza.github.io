@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "favicon.ico/images/192x192-harmonic.png",
+      "src": "images/192x192-harmonic.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "favicon.ico/images/512x512-harmonic.png",
+      "src": "images/512x512-harmonic.png",
       "type": "image/png",
       "sizes": "512x512"
     }

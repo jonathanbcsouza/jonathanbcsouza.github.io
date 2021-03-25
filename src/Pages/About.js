@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledContainer = styled.div`
   display: flex;
-  padding: 15% 5%;
+  padding: 10% 5%;
   height: 100%;
   color: var(--text-white);
   font-size: 1em;

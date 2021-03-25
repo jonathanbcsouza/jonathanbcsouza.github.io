@@ -8,6 +8,7 @@ This is a work in progress portfolio website made in React.
 - Routes made with [React Router](https://reactrouter.com/web/guides/quick-start).
 - Components styled with [Styled Components](https://styled-components.com/).
 - Icons imported from [React Icons](https://react-icons.github.io/react-icons/).
+- Iframes rendered with [React-iframe](https://yarn.pm/react-iframe).
 
 ## In-progress
 - Github API
@@ -39,6 +40,7 @@ This is a work in progress portfolio website made in React.
     $ yarn add styled-components
     $ yarn add react-icons
     $ yarn add react-router
+    $ yarn add react-iframe
     ```
 
 4.  Run the server
