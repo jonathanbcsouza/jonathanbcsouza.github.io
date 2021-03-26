@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const StyledGreetings = styled.p`
-  display: inline-block;
   z-index: 2;
   color: hsl(35, 100%, ${(props) => props.setLightness + "%"});
 `;
@@ -31,7 +30,6 @@ const Greetings = (props) => {
 
   return (
     <StyledGreetings setLightness={props.setHsl}>
-      <br />
       <p>Good {greeting}</p>
     </StyledGreetings>
   );

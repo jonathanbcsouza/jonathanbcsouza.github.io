@@ -4,17 +4,12 @@ import styled from "styled-components";
 import { MyIframes } from "../Pages/MyIframes";
 
 const StyledDiv = styled.div`
-  width: 100%;
-  height: 100%;
-  padding: 10% 0 12%;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  color: var(--text-white);
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-end;
   flex-wrap: wrap;
+  margin: 7% 0 20% 0;
+  color: var(--text-white);
   z-index: 0;
 `;
 

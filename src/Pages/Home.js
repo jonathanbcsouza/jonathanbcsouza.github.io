@@ -3,21 +3,25 @@ import styled from "styled-components";
 import Greetings from "../components/Greetings/index";
 
 const StyledContainer = styled.div`
-  position: absolute;
-  margin: 0;
+  position: relative;
   top: 20vh;
   padding-left: 7.5vw;
   color: var(--text-white);
   z-index: 0;
+  height: 200px;
 
-  h2,
+  h2 {
+    animation-name: text_entrance;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+  }
   p {
     position: relative;
     animation-name: text_entrance;
     animation-duration: 3s;
     animation-fill-mode: both;
   }
-  P {
+  p {
     height: 0;
     animation-delay: 1s;
   }
@@ -35,8 +39,6 @@ const StyledContainer = styled.div`
 
   @media (max-width: 615px) {
     padding-left: 3vw;
-    margin: 0;
-    max-width: 90%;
   }
 `;
 
@@ -69,11 +71,9 @@ const Home = () => {
 
   return (
     <StyledContainer>
-      <br />
-      <br />
       <h2>I am Jonathan Souza.</h2>
-      <br />
       <p>I am a Web Developer with passion for the web, innovation and art.</p>
+      <br />
       <Greetings setHsl={colourLightness} />
     </StyledContainer>
   );

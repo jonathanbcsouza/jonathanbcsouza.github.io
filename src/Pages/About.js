@@ -40,18 +40,19 @@ const About = () => {
       <StyledDiv>
         <h1>Learn, create, work and repeat.</h1>
         <p>
-          Over the years I had fun by acquiring experience and learning a bunch
-          of tools that aligned with creativity and resilience, I could help
-          companies to raise their value, their culture and to increase their
-          revenue. I am addicted to innovation and very enthusiastic about
-          learning new things, I am always improvement something!
+          I am a Web Developer passionate about the internet, data and quality
+          as I believe that together, they can be powerful and meaningful in
+          many ways to change people's lives.
           <br />
-          I am passionate about data, quality and web development as I believe
-          that together, they are powerful and meaningful in many ways to change
-          people's lives. In my free time, I like to stay with my family and
-          friends, learn new stuff, compose songs or write new ideas somewhere.
-          <br />
-          Should you want to chat with me, feel free to drop a message :)
+          Over the years I have got experience and knowledge of a wide range of
+          tools that aligned with creativity and resilience, allowed me to help
+          people to solve their problems and improve their processes on a daily
+          basis. I love to be learning, chasing innovation and helping whoever
+          is around me to achieve their goals and reach their next level
+          <br />I am also a multi-instrumentalist/producer/mixer and since I was
+          young, music has been a big passion. In my free time, I like to stay
+          with my family and friends, learn new stuff, play my guitar, compose
+          songs or make notes about new ideas.
         </p>
       </StyledDiv>
     </StyledContainer>
