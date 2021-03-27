@@ -22,7 +22,7 @@ const StyledContainer = styled.div`
     animation-fill-mode: both;
   }
   p {
-    height: 0;
+    height: 4vh;
     animation-delay: 1s;
   }
 
@@ -42,6 +42,8 @@ const StyledContainer = styled.div`
   }
 `;
 
+const currentTime = new Date().getHours();
+
 const Home = () => {
   const [time, setTime] = useState("loading...");
   function updateTime() {
@@ -53,7 +55,7 @@ const Home = () => {
   // It syncs with the daytime
   const [colourLightness, setTextColour] = useState("...");
   function updateColour() {
-    const setLightness = 100 - (timeToPercent() / 2);
+    const setLightness = 100 - timeToPercent() / 2;
     setTextColour(setLightness);
   }
 
@@ -64,18 +66,32 @@ const Home = () => {
     return Math.round((timeToString * 100) / total);
   }
 
+  const [greeting, setGreeting] = useState("loading...");
+  function updateGreeting() {
+    let displayGreeting;
+    if (currentTime > 6 && currentTime < 12) {
+      displayGreeting = "Good morning";
+    } else if (currentTime < 17) {
+      displayGreeting = "Good afternoon";
+    } else {
+      displayGreeting = "Good evening";
+    }
+    setGreeting(displayGreeting);
+  }
+
   setInterval(() => {
     updateTime();
     updateColour();
+    updateGreeting();
   }, 1000);
-
 
   return (
     <StyledContainer>
       <h2>I am Jonathan Souza.</h2>
-      <p>I am a Web Developer with passion for the web, innovation and art.</p>
-      <br />
-      <Greetings setHsl={colourLightness} />
+      <p>
+        I am a Web Developer with passion for the web, innovation and quality.
+      </p>
+      <Greetings setGreeting={greeting} setHsl={colourLightness} />
     </StyledContainer>
   );
 };

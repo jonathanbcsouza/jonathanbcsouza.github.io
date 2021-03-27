@@ -39,11 +39,7 @@ h2,
 h3 {
   color: var(--headers);
 }
-  select {
-    /* -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none; */
-  }
+ 
   button {
     cursor: pointer;
   }
