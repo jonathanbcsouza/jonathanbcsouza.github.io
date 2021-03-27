@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { MenuItems } from "./menuItems";
-import DropdownIcon from "../DropdownIcon";
+import DropdownMenu from "../DropdownMenu";
 import { NavLink } from "react-router-dom";
 
 const StyledNav = styled.nav`
@@ -61,7 +61,7 @@ const Navbar = () => {
     <StyledNav>
       <ul>
         <div onClick={handleToggle}>
-          <DropdownIcon isBtnCLicked={open} />
+          <DropdownMenu isBtnCLicked={open} />
         </div>
         {MenuItems.map((item) => {
           return (

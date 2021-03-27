@@ -8,13 +8,12 @@ const StyledDiv = styled.div`
   justify-content: center;
   align-items: flex-end;
   flex-wrap: wrap;
-  margin: 7% 0 20% 0;
-  padding: 18% 5% 25%;
+  margin: 100px 0px 27vh 0;
   color: var(--text-white);
   z-index: 0;
 
   @media screen and (max-width: 615px) {
-    margin-top: 30px;
+    margin-top: 35px;
   }
 `;
 

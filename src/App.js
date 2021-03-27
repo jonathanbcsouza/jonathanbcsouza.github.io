@@ -1,13 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Greetings from "./components/Greetings";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Lab from "./Pages/Lab";
 import Music from "./Pages/Music";
-import BackgroundImage from "./components/Background";
+import Greetings from "./components/Greetings";
 
 const App = () => {
   return (
@@ -21,7 +20,6 @@ const App = () => {
         <Route path="/lab" component={Lab} exact />
         <Route path="/music" component={Music} exact />
       </Switch>
-      {/* <BackgroundImage /> */}
       <Footer />
     </Router>
   );

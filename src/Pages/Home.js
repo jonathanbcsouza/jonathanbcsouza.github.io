@@ -53,7 +53,7 @@ const Home = () => {
   // It syncs with the daytime
   const [colourLightness, setTextColour] = useState("...");
   function updateColour() {
-    const setLightness = 100 - timeToPercent(timeToString) / 2;
+    const setLightness = 100 - (timeToPercent() / 2);
     setTextColour(setLightness);
   }
 
@@ -68,6 +68,7 @@ const Home = () => {
     updateTime();
     updateColour();
   }, 1000);
+
 
   return (
     <StyledContainer>
