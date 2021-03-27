@@ -15,8 +15,6 @@ export const StyledIcons = styled.div`
   svg:hover {
     fill: red;
     height: 30px;
-    flex-direction: row;
-    cursor: pointer;
   }
 `;
 

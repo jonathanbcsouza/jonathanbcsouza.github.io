@@ -6,6 +6,7 @@ const currentDate = new Date().getFullYear();
 
 const StyledFooter = styled.div`
   position: fixed;
+  z-index: 3;
   color: var(--text-orange);
   padding-bottom: 10px;
   bottom: 0;

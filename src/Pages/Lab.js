@@ -9,8 +9,13 @@ const StyledDiv = styled.div`
   align-items: flex-end;
   flex-wrap: wrap;
   margin: 7% 0 20% 0;
+  padding: 18% 5% 25%;
   color: var(--text-white);
   z-index: 0;
+
+  @media screen and (max-width: 615px) {
+    margin-top: 30px;
+  }
 `;
 
 const Lab = () => {
