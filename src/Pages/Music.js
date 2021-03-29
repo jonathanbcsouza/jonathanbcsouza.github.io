@@ -19,6 +19,12 @@ const StyledDiv = styled.div`
   -ms-transform-origin: top center;
   transform-origin: top center;
 
+  p {
+    margin-top: 100px;
+    color: white;
+    text-align: center;
+  }
+
   @media screen and (max-width: 615px) {
     padding-top: 10vh;
   }

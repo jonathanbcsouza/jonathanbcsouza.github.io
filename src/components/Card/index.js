@@ -8,9 +8,9 @@ const StyledCard = styled.div`
   height: 320px;
   position: relative;
   top: 0;
-  transition: top 0.5s ease;
+  transition: all 0.3s ease;
   border-radius: 20px;
-  box-shadow: 3px 3px 4px 1px rgba(50, 50, 50, 0.75);
+  box-shadow: 1px 5px 20px 1px rgba(50, 50, 50, 0.75);
   background: rgba(28, 27, 27, 0.29);
 
   iframe {
@@ -45,8 +45,8 @@ const StyledCard = styled.div`
 
   &:hover {
     top: -10px;
-    transition: top 0.5s ease;
-    -webkit-filter: saturate(1);
+    transition: all 0.3s ease;
+    box-shadow: 8px 3px 15px 0px rgba(200, 118, 60, 0.75);
 
     iframe,
     img {

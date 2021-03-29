@@ -8,7 +8,7 @@ const StyledGreetings = styled.p`
 
 const Greetings = (props) => {
   return (
-    <StyledGreetings setLightness={props.setHsl}>
+    <StyledGreetings className="styledGreeting" setLightness={props.setHsl}>
       {props.setGreeting}
     </StyledGreetings>
   );

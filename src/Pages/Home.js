@@ -22,8 +22,10 @@ const StyledContainer = styled.div`
     animation-fill-mode: both;
   }
   p {
-    height: 4vh;
     animation-delay: 1s;
+  }
+  .styledGreeting {
+    animation-delay: 2s;
   }
 
   @keyframes text_entrance {
@@ -88,9 +90,8 @@ const Home = () => {
   return (
     <StyledContainer>
       <h2>I am Jonathan Souza.</h2>
-      <p>
-        I am a Web Developer with passion for the web, innovation and quality.
-      </p>
+      <p>Web Developer with passion for the web, innovation, and quality.</p>
+      <br />
       <Greetings setGreeting={greeting} setHsl={colourLightness} />
     </StyledContainer>
   );

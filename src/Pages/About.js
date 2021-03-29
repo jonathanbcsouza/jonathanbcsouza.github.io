@@ -41,20 +41,21 @@ const About = () => {
       <StyledDiv>
         <h1>Learn, create, work and repeat.</h1>
         <p>
-          I am a Web Developer passionate about the internet, data and quality
-          as I believe that together, they can be powerful and meaningful in
-          many ways to change people's lives.
+          I am a Web Developer passionate about the internet, data, and quality.
+          I believe that together, they can be powerful and meaningful in many
+          ways to change people's lives.
           <br />
-          Over the years I have acumulated experience and knowledge of a wide
-          range of tools that aligned with creativity and resilience, allowed me
-          to help people to solve their problems and make their life easier. I
-          love to be learning, chasing innovation and helping whoever is around
-          me to achieve their goals.
-          <br />I am also a multi-instrumentalist/producer/mixer and since I was
-          young, music has been a big passion. In my free time, I like to stay
-          with my family and friends, learn new stuff, play my guitar, compose
-          songs or make notes about new ideas. Should you want to chat with me,
-          feel free to drop a message :)
+          Over the years, I have acquired expertise and experience in a wide
+          range of tools that, along with my creativity and resilience, have
+          allowed me to help people solve their problems and make their lives
+          easier. I love to learn, seek innovation and help those around me
+          achieve their goals.
+          <br />I am also a multi-instrumentalist/producer/mixer and music has
+          been a big passion since I was young. I like to stay with my family
+          and friends in my free time, learn new stuff, play my guitar, compose
+          songs or make notes about new ideas.
+          <br />
+          Let's connect and have a chat about what you are trying to build next!
         </p>
       </StyledDiv>
     </StyledContainer>
