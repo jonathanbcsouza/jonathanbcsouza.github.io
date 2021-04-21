@@ -13,7 +13,7 @@ export const StyledIcons = styled.div`
     transition: fill 0.4s ease;
   }
   svg:hover {
-    fill: red;
+    fill: var(--text-orange);
     height: 30px;
   }
 `;
