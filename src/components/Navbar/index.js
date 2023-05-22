@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { MenuItems } from "./menuItems";
-import DropdownMenu from "../DropdownMenu";
-import { NavLink } from "react-router-dom";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { MenuItems } from './menuItems';
+import DropdownMenu from '../DropdownMenu';
+import { NavLink } from 'react-router-dom';
 
 const StyledNav = styled.nav`
   text-transform: uppercase;
@@ -47,7 +47,7 @@ const StyledLi = styled.div`
     color: var(--text-white);
   }
   @media (max-width: 615px) {
-    display: ${(props) => (props.isBtnCLicked ? "none" : "")};
+    display: ${(props) => (props.isBtnCLicked ? 'none' : '')};
     height: inherit;
     margin: 10px 0;
   }
@@ -68,7 +68,7 @@ const Navbar = () => {
             <StyledLi isBtnCLicked={open} key={item.id}>
               <NavLink
                 onClick={handleToggle}
-                activeStyle={{ background: "#121212" }}
+                activeStyle={{ background: '#121212' }}
                 to={item.url}
               >
                 {item.title}

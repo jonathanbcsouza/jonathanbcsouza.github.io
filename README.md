@@ -11,6 +11,7 @@ This is a work in progress portfolio website made in React.
 - Iframes rendered with [React-iframe](https://yarn.pm/react-iframe).
 
 ## In-progress
+
 - Github API
 - Spotify API
 
@@ -47,3 +48,4 @@ This is a work in progress portfolio website made in React.
 
     ```
     $ yarn run start
+    ```

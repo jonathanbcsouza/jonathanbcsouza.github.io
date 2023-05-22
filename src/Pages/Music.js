@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Iframe from "react-iframe";
+import React from 'react';
+import styled from 'styled-components';
+import Iframe from 'react-iframe';
 
 const StyledDiv = styled.div`
   display: flex;

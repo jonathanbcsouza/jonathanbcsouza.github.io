@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import SocialMedia from "../SocialMedia/index";
+import React from 'react';
+import styled from 'styled-components';
+import SocialMedia from '../SocialMedia/index';
 
 const currentDate = new Date().getFullYear();
 

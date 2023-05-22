@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { FaBars, FaTimes } from "react-icons/fa";
+import React from 'react';
+import styled from 'styled-components';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const StyledMenuBtn = styled.div`
   display: none;

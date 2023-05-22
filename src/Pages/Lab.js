@@ -1,7 +1,7 @@
-import React from "react";
-import Card from "../components/Card";
-import styled from "styled-components";
-import { MyIframes } from "../Pages/MyIframes";
+import React from 'react';
+import Card from '../components/Card';
+import styled from 'styled-components';
+import { MyIframes } from '../Pages/MyIframes';
 
 const StyledDiv = styled.div`
   display: flex;

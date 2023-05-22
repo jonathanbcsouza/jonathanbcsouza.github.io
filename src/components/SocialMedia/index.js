@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { IconContext } from "react-icons";
-import { MySocialLinks } from "./socialLinks";
+import React from 'react';
+import styled from 'styled-components';
+import { IconContext } from 'react-icons';
+import { MySocialLinks } from './socialLinks';
 
 export const StyledIcons = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ export const StyledIcons = styled.div`
 
 export const StyledLink = styled.a.attrs(({ link }) => ({
   href: link,
-  target: "_blank",
+  target: '_blank',
 }))`
   margin: 2px;
 `;
@@ -28,7 +28,7 @@ export const StyledLink = styled.a.attrs(({ link }) => ({
 const SocialMedia = () => {
   return (
     <StyledIcons>
-      <IconContext.Provider value={{ size: "32" }}>
+      <IconContext.Provider value={{ size: '32' }}>
         <h3>Let's Connect!</h3>
         <br />
         <div>
