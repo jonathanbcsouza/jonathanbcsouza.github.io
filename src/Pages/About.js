@@ -41,21 +41,25 @@ const About = () => {
       <StyledDiv>
         <h1>Learn, create, work and repeat.</h1>
         <p>
-          I am a Web Developer passionate about the internet, data, and quality.
-          I believe that together, they can be powerful and meaningful in many
-          ways to change people's lives.
+          I'm a Software Engineer passionate about both music and technology.
           <br />
-          Over the years, I have acquired expertise and experience in a wide
-          range of tools that, along with my creativity and resilience, have
-          allowed me to help people solve their problems and make their lives
-          easier. I love to learn, seek innovation and help those around me
-          achieve their goals.
-          <br />I am also a multi-instrumentalist/producer/mixer and music has
-          been a big passion since I was young. I like to stay with my family
-          and friends in my free time, learn new stuff, play my guitar, compose
-          songs or make notes about new ideas.
-          <br />
-          Let's connect and have a chat about what you are trying to build next!
+          From an Engineering background, I have helped companies and colleagues
+          with everything from process improvements, quality systems, systems
+          automation, mentoring, and beyond. <br />
+          Driven by my passions, I decided to shift my career focus and immersed
+          myself in different programming languages, attended tech events, took
+          online courses, and badgeg certifications from AWS and Microsoft. I
+          also made a successful transition from my Engineering degree to a
+          Bachelor's in Computer Science in 2022. <br />
+          In 2021, I landed my first role as a Software Engineer, gained
+          real-world experience with a PHP application and its ecosystem, and
+          worked closely with a development team. <br />
+          Music has been a big part of my life ever since. I play a few
+          instruments, have performed as a DJ, produced some electronic music,
+          published songs on streaming platforms, and more recently, started
+          making some noise in a rock and roll band with my trusty new friend,
+          my Fender Jazzmaster. <br />
+          Should you want to discuss software, data, or music, let's connect!
         </p>
       </StyledDiv>
     </StyledContainer>
