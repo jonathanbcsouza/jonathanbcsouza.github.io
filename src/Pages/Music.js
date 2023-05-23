@@ -34,23 +34,9 @@ const StyledDiv = styled.div`
   }
 `;
 
-const StyledIframe = styled(Iframe)`
-  border: none;
-  position: relative;
-
-  @media screen and (max-width: 615px) {
-    left: 0vw;
-  }
-`;
-
 const Music = () => {
   return (
     <StyledDiv>
-      <StyledIframe
-        src="https://open.spotify.com/follow/1/?uri=spotify:artist:3SzDQcUhTIhN8GvnxHIgHE&size=detail&theme=dark&show-count=0"
-        width="400"
-        height="56"
-      ></StyledIframe>
       <Iframe
         src="https://open.spotify.com/embed/artist/3SzDQcUhTIhN8GvnxHIgHE"
         frameborder="0"
