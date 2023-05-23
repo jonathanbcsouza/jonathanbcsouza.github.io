@@ -1,4 +1,5 @@
 import React from 'react';
+import { RxCodesandboxLogo } from 'react-icons/rx';
 import {
   FaGithub,
   FaLinkedin,
@@ -7,7 +8,6 @@ import {
   FaSpotify,
   FaTwitter,
 } from 'react-icons/fa';
-import { SiCodesandbox } from 'react-icons/si';
 
 export const MySocialLinks = [
   {
@@ -19,7 +19,7 @@ export const MySocialLinks = [
     link: 'https://www.twitter.com/jonathanbcsouza',
   },
   {
-    component: <SiCodesandbox color="#fff" />,
+    component: <RxCodesandboxLogo color="#fff" />,
     link: 'https://codesandbox.io/u/jonathanbcsouza',
   },
   {

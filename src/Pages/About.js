@@ -55,10 +55,9 @@ const About = () => {
           real-world experience with a PHP application and its ecosystem, and
           worked closely with a development team. <br />
           Music has been a big part of my life ever since. I play a few
-          instruments, have performed as a DJ, produced some electronic music,
-          published songs on streaming platforms, and more recently, started
-          making some noise in a rock and roll band with my trusty new friend,
-          my Fender Jazzmaster. <br />
+          instruments, have some songs on streaming platforms, and more
+          recently, started making some noise in a rock and roll band with my
+          trusty new friend, my Fender Jazzmaster. <br />
           Should you want to discuss software, data, or music, let's connect!
         </p>
       </StyledDiv>
