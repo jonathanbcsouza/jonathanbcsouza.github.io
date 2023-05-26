@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build 'Deploy to github pages'",
+    "deploy": "gh-pages -d build -m 'Deploy to gitHub pages'",
     "format": "prettier --write ."
   },
   "eslintConfig": {
