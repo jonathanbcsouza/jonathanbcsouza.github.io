@@ -63,12 +63,14 @@ const Home = () => {
 
   const [hour, min, sec] = time.split(':');
   const timeToString = hour + min + sec;
+
   function timeToPercent() {
     const total = 235959;
     return Math.round((timeToString * 100) / total);
   }
 
   const [greeting, setGreeting] = useState('loading...');
+
   function updateGreeting() {
     let displayGreeting;
     if (currentTime > 6 && currentTime < 12) {
@@ -94,7 +96,7 @@ const Home = () => {
         Software Enginner with passion for the web, innovation, data, and music.
       </p>
       <br />
-      <Greetings setGreeting={greeting} setHsl={colourLightness} />
+      <Greetings greeting={greeting} hsl={colourLightness} time={time} />
     </StyledContainer>
   );
 };
