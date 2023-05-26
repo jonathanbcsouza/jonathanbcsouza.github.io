@@ -10,7 +10,6 @@ const Greetings = (props) => {
   return (
     <StyledGreetings className="styledGreeting" setLightness={props.hsl}>
       {props.greeting} <br />
-      {props.time} <br />
     </StyledGreetings>
   );
 };
