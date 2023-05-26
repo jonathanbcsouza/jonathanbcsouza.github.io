@@ -92,9 +92,7 @@ const Home = () => {
   return (
     <StyledContainer>
       <h2>I am Jonathan Souza.</h2>
-      <p>
-        Software Enginner with passion for the web, innovation, data, and music.
-      </p>
+      <p>Software Enginner with passion for the web, innovation, and music.</p>
       <br />
       <Greetings greeting={greeting} hsl={colourLightness} time={time} />
     </StyledContainer>
