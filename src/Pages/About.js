@@ -8,7 +8,6 @@ const StyledContainer = styled.div`
   color: var(--text-white);
   font-size: 1em;
   line-height: 26px;
-  font-family: 'Roboto', sans-serif;
 
   @media screen and (max-width: 615px) {
     padding-top: 10vh;
