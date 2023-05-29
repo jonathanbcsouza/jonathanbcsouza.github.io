@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IconContext } from 'react-icons';
-import { MySocialLinks } from './SocialLinks';
+import { MySocialLinks } from '../data/SocialLinks';
 
 export const StyledIcons = styled.div`
   display: flex;
