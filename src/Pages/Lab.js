@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../components/Card';
 import styled from 'styled-components';
-import { MyIframes } from './MyIframes';
+import data from '../data/data.json';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -17,10 +17,10 @@ const StyledDiv = styled.div`
   }
 `;
 
-const Lab = () => {
+const Labs = () => {
   return (
     <StyledDiv>
-      {MyIframes.map((each) => (
+      {data.labs.map((each) => (
         <Card
           content={each.type}
           src={each.src}
@@ -32,4 +32,4 @@ const Lab = () => {
   );
 };
 
-export default Lab;
+export default Labs;

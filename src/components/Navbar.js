@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import DropdownMenu from './DropdownMenu';
 import { NavLink } from 'react-router-dom';
+import data from '../data/data.json';
 
 const StyledNav = styled.nav`
   text-transform: uppercase;
@@ -55,31 +56,6 @@ const StyledLi = styled.div`
 const Navbar = () => {
   const [open, setOpen] = useState(true);
   const handleToggle = () => setOpen(!open);
-  const MenuItems = [
-    {
-      id: 0,
-      title: 'Home',
-      url: '/home',
-    },
-
-    {
-      id: 1,
-      title: 'About',
-      url: '/about',
-    },
-
-    {
-      id: 2,
-      title: 'Labs',
-      url: '/lab',
-    },
-
-    {
-      id: 3,
-      title: 'Music',
-      url: '/music',
-    },
-  ];
 
   return (
     <StyledNav>
@@ -87,7 +63,7 @@ const Navbar = () => {
         <div onClick={handleToggle}>
           <DropdownMenu isBtnCLicked={open} />
         </div>
-        {MenuItems.map((item) => {
+        {data.navitems.map((item) => {
           return (
             <StyledLi isBtnCLicked={open} key={item.id}>
               <NavLink
