@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import DropdownMenu from '../DropdownMenu';
+import DropdownMenu from './DropdownMenu';
 import { NavLink } from 'react-router-dom';
 
 const StyledNav = styled.nav`

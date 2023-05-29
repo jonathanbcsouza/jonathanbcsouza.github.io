@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Greetings from '../components/Greetings/index';
+import Greetings from '../components/Greetings';
 
 const StyledContainer = styled.div`
   position: relative;
