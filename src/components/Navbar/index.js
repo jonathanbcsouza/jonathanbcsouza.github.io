@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { MenuItems } from './menuItems';
 import DropdownMenu from '../DropdownMenu';
 import { NavLink } from 'react-router-dom';
 
@@ -56,6 +55,31 @@ const StyledLi = styled.div`
 const Navbar = () => {
   const [open, setOpen] = useState(true);
   const handleToggle = () => setOpen(!open);
+  const MenuItems = [
+    {
+      id: 0,
+      title: 'Home',
+      url: '/home',
+    },
+
+    {
+      id: 1,
+      title: 'About',
+      url: '/about',
+    },
+
+    {
+      id: 2,
+      title: 'Labs',
+      url: '/lab',
+    },
+
+    {
+      id: 3,
+      title: 'Music',
+      url: '/music',
+    },
+  ];
 
   return (
     <StyledNav>
