@@ -14,6 +14,7 @@ const StyledFooter = styled.div`
   text-align: center;
   font-size: 12px;
   border-top: 1px solid var(--headers);
+  background: var(--background-colour);
 `;
 
 const MakeFooter = () => {

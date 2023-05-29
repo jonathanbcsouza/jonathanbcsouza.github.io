@@ -6,28 +6,22 @@ import data from '../data/data.json';
 
 const StyledNav = styled.nav`
   text-transform: uppercase;
-  position: fixed;
   top: 0;
-  z-index: 3;
   padding-left: 5vw;
   width: 100%;
 
   @media (max-width: 615px) {
     padding-left: 0vw;
+    position: fixed;
   }
 
   ul {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     text-align: center;
-    float: left;
 
     @media (max-width: 615px) {
       flex-direction: column;
-      border-color: none;
-      float: none;
-      padding-left: 0vw;
+      background: var(--background-colour);
     }
 
     * :hover {
@@ -39,8 +33,6 @@ const StyledNav = styled.nav`
 `;
 
 const StyledLi = styled.div`
-  margin: 10px;
-
   a {
     display: block;
     padding: 30px;
@@ -49,7 +41,6 @@ const StyledLi = styled.div`
   @media (max-width: 615px) {
     display: ${(props) => (props.isBtnCLicked ? 'none' : '')};
     height: inherit;
-    margin: 10px 0;
   }
 `;
 
