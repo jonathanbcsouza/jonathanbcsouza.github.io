@@ -10,7 +10,7 @@ This is a work in progress portfolio website made in React.
 - Icons imported from [React Icons](https://react-icons.github.io/react-icons/).
 - Iframes rendered with [React-iframe](https://yarn.pm/react-iframe).
 
-## In-progress
+## Future
 
 - Github API
 - Spotify API
@@ -26,7 +26,7 @@ This is a work in progress portfolio website made in React.
 1.  Clone this repo:
 
     ```sh
-    https://github.com/jonathanbcsouza/personalwebsite.git
+    https://github.com/jonathanbcsouza/jonathanbcsouza.github.io.git
     ```
 
 2.  Install package manager:
