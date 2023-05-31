@@ -39,13 +39,13 @@
     {
       "type": "img",
       "tech": "Data Analysis with Python",
-      "src": "process.env.PUBLIC_URL + '/images/projects/da-python.png'",
+      "src": "https://raw.githubusercontent.com/jonathanbcsouza/jonathanbcsouza.github.io/main/public/images/projects/da-python.png",
       "title": "Medical appointments in Brazil Analysis"
     },
     {
       "type": "img",
       "tech": "Data Analysis with Excel",
-      "src": "process.env.PUBLIC_URL + '/images/projects/da-excel.png'",
+      "src": "https://raw.githubusercontent.com/jonathanbcsouza/jonathanbcsouza.github.io/main/public/images/projects/da-excel.png",
       "title": "QA Management System and Dashboard"
     },
     {
