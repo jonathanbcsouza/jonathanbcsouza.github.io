@@ -1,6 +1,6 @@
 # Portfolio Website
 
-This is a work in progress portfolio website made in React.
+This is a work-in-progress portfolio website made in React, using Vite as the build tool.
 
 ## Features
 
@@ -12,40 +12,28 @@ This is a work in progress portfolio website made in React.
 
 ## Future
 
-- Github API
-- Spotify API
+- Github API integration
+- Spotify API integration
 
 ## Requirements
 
 - Git
 - NodeJS
-- Yarn
 
 ## Usage
 
-1.  Clone this repo:
+1. Clone this repo:
 
-    ```sh
-    https://github.com/jonathanbcsouza/jonathanbcsouza.github.io.git
-    ```
+   ```sh
+   git clone https://github.com/jonathanbcsouza/jonathanbcsouza.github.io.git
 
-2.  Install package manager:
+1. Install dependencies:
 
-    ```sh
-    $ yarn install
-    ```
+   ```sh
+   npm install
 
-3.  Installing libraries
 
-    ```sh
-    $ yarn add styled-components
-    $ yarn add react-icons
-    $ yarn add react-router
-    $ yarn add react-iframe
-    ```
+1. Start the development server::
 
-4.  Run the server
-
-    ```
-    $ yarn run start
-    ```
+   ```sh
+   npm run dev
