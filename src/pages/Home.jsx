@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import Greetings from '../components/Greetings';
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import Greetings from '../components/Greetings'
 
 const StyledContainer = styled.div`
   position: relative;
@@ -42,52 +42,52 @@ const StyledContainer = styled.div`
   @media (max-width: 615px) {
     padding-left: 3vw;
   }
-`;
+`
 
-const currentTime = new Date().getHours();
+const currentTime = new Date().getHours()
 
 const Home = () => {
-  const [time, setTime] = useState('loading...');
+  const [time, setTime] = useState('loading...')
   function updateTime() {
-    const newTime = new Date().toLocaleTimeString();
-    setTime(newTime);
+    const newTime = new Date().toLocaleTimeString()
+    setTime(newTime)
   }
 
   // Iterate the (HSL) negatively from 100% to a limit of 50%
   // It syncs with the daytime
-  const [colourLightness, setTextColour] = useState('...');
+  const [colourLightness, setTextColour] = useState('...')
   function updateColour() {
-    const setLightness = 100 - timeToPercent() / 2;
-    setTextColour(setLightness);
+    const setLightness = 100 - timeToPercent() / 2
+    setTextColour(setLightness)
   }
 
-  const [hour, min, sec] = time.split(':');
-  const timeToString = hour + min + sec;
+  const [hour, min, sec] = time.split(':')
+  const timeToString = hour + min + sec
 
   function timeToPercent() {
-    const total = 235959;
-    return Math.round((timeToString * 100) / total);
+    const total = 235959
+    return Math.round((timeToString * 100) / total)
   }
 
-  const [greeting, setGreeting] = useState('loading...');
+  const [greeting, setGreeting] = useState('loading...')
 
   function updateGreeting() {
-    let displayGreeting;
+    let displayGreeting
     if (currentTime > 6 && currentTime < 12) {
-      displayGreeting = 'Good morning';
+      displayGreeting = 'Good morning'
     } else if (currentTime < 17) {
-      displayGreeting = 'Good afternoon';
+      displayGreeting = 'Good afternoon'
     } else {
-      displayGreeting = 'Good evening';
+      displayGreeting = 'Good evening'
     }
-    setGreeting(displayGreeting);
+    setGreeting(displayGreeting)
   }
 
   setInterval(() => {
-    updateTime();
-    updateColour();
-    updateGreeting();
-  }, 1000);
+    updateTime()
+    updateColour()
+    updateGreeting()
+  }, 1000)
 
   return (
     <StyledContainer>
@@ -96,7 +96,7 @@ const Home = () => {
       <br />
       <Greetings greeting={greeting} hsl={colourLightness} time={time} />
     </StyledContainer>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

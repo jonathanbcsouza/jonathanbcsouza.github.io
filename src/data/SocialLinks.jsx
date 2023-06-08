@@ -1,5 +1,5 @@
-import React from 'react';
-import { RxCodesandboxLogo } from 'react-icons/rx';
+import React from 'react'
+import { RxCodesandboxLogo } from 'react-icons/rx'
 import {
   FaGithub,
   FaLinkedin,
@@ -7,7 +7,7 @@ import {
   FaDev,
   FaSpotify,
   FaTwitter,
-} from 'react-icons/fa';
+} from 'react-icons/fa'
 
 export const MySocialLinks = [
   {
@@ -34,4 +34,4 @@ export const MySocialLinks = [
     component: <FaSpotify color="#1DB954" />,
     link: 'https://open.spotify.com/artist/3SzDQcUhTIhN8GvnxHIgHE?si=tyMKA77PSuCh7WNEyazPpg',
   },
-];
+]

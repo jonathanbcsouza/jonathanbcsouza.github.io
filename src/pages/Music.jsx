@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Iframe from 'react-iframe';
+import React from 'react'
+import styled from 'styled-components'
+import Iframe from 'react-iframe'
 
 const StyledDiv = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ const StyledDiv = styled.div`
   iframe {
     margin: 5% 8px 8px 8px;
   }
-`;
+`
 
 const Music = () => {
   return (
@@ -56,7 +56,7 @@ const Music = () => {
         allowfullscreen
       ></Iframe>
     </StyledDiv>
-  );
-};
+  )
+}
 
-export default Music;
+export default Music

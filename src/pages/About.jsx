@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const StyledContainer = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const StyledContainer = styled.div`
     display: block;
     line-height: 30px;
   }
-`;
+`
 
 const StyledImage = styled.img.attrs({
   src: `https://avatars.githubusercontent.com/u/25882133?s=460&v=4`,
@@ -23,7 +23,7 @@ const StyledImage = styled.img.attrs({
   border-radius: 50%;
   width: 100px;
   height: 100px;
-`;
+`
 
 const StyledContent = styled.div`
   h1 {
@@ -38,7 +38,7 @@ const StyledContent = styled.div`
     margin-bottom: 16px;
     line-height: 26px;
   }
-`;
+`
 
 const About = () => {
   return (
@@ -79,7 +79,7 @@ const About = () => {
         <p>Should you want to discuss the web or music, let's connect!</p>
       </StyledContent>
     </StyledContainer>
-  );
-};
+  )
+}
 
-export default About;
+export default About

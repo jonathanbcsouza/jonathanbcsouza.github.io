@@ -1,7 +1,7 @@
-import React from 'react';
-import Card from '../components/Card';
-import styled from 'styled-components';
-import data from '../data/data.json';
+import React from 'react'
+import Card from '../components/Card'
+import styled from 'styled-components'
+import data from '../data/data.json'
 
 const StyledDiv = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ const StyledDiv = styled.div`
   @media screen and (max-width: 615px) {
     margin-top: 35px;
   }
-`;
+`
 
 const Labs = () => {
   return (
@@ -29,7 +29,7 @@ const Labs = () => {
         ></Card>
       ))}
     </StyledDiv>
-  );
-};
+  )
+}
 
-export default Labs;
+export default Labs
