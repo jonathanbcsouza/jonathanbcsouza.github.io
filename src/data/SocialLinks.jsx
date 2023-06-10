@@ -3,7 +3,6 @@ import { RxCodesandboxLogo } from 'react-icons/rx'
 import {
   FaGithub,
   FaLinkedin,
-  FaMedium,
   FaDev,
   FaSpotify,
   FaTwitter,
@@ -32,6 +31,6 @@ export const MySocialLinks = [
   },
   {
     component: <FaSpotify color="#1DB954" />,
-    link: 'https://open.spotify.com/artist/3SzDQcUhTIhN8GvnxHIgHE?si=tyMKA77PSuCh7WNEyazPpg',
+    link: 'https://open.spotify.com/artist/3AxDKUFfndRKbL2W0sxPZ0?si=BawUTIHpQyaB-ZVw8g_w5w',
   },
 ]
