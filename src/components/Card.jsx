@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const StyledCard = styled.div`
   z-index: 0;
@@ -18,7 +18,6 @@ const StyledCard = styled.div`
     opacity: 0.5;
     width: 100%;
     height: 95%;
-    text-align: center;
     margin: 10px;
     border: none;
     border-radius: 20px;
@@ -26,15 +25,16 @@ const StyledCard = styled.div`
   }
 
   img {
-    filter: blur(2px);
-    max-height: 95%;
-    margin: auto;
     display: block;
+    margin: auto;
+    filter: blur(2px);
     border-radius: 20px;
+    max-height: 95%;
     max-width: 96%;
   }
 
   p {
+    background-color: black;
     position: absolute;
     text-align: center;
     top: 29%;
@@ -64,10 +64,10 @@ const StyledCard = styled.div`
     width: 320px;
     height: 220px;
   }
-`;
+`
 
 const Card = (each) => {
-  const CustomTag = `${each.content}`;
+  const CustomTag = `${each.content}`
 
   return (
     <StyledCard>
@@ -82,7 +82,7 @@ const Card = (each) => {
         title={each.title}
       ></CustomTag>
     </StyledCard>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card
