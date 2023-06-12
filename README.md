@@ -1,6 +1,6 @@
 # Portfolio Website
 
-This is a work-in-progress portfolio website made in React, using Vite as the build tool.
+This is a work-in-progress portfolio website made in React.
 
 ## Features
 
@@ -12,6 +12,7 @@ This is a work-in-progress portfolio website made in React, using Vite as the bu
 
 ## Future
 
+- Use Typescript
 - Github API integration
 - Spotify API integration
 
