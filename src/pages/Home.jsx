@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Greetings from '../components/Greetings'
+import { Greetings } from '../components/Greetings'
 
 const StyledContainer = styled.div`
   position: relative;
@@ -46,7 +46,7 @@ const StyledContainer = styled.div`
 
 const currentTime = new Date().getHours()
 
-const Home = () => {
+export const Home = () => {
   const [time, setTime] = useState('loading...')
   function updateTime() {
     const newTime = new Date().toLocaleTimeString()
@@ -98,5 +98,3 @@ const Home = () => {
     </StyledContainer>
   )
 }
-
-export default Home

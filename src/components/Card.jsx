@@ -66,7 +66,7 @@ const StyledCard = styled.div`
   }
 `
 
-const Card = (each) => {
+export const Card = (each) => {
   const CustomTag = `${each.content}`
 
   return (
@@ -84,5 +84,3 @@ const Card = (each) => {
     </StyledCard>
   )
 }
-
-export default Card

@@ -6,12 +6,10 @@ const StyledGreetings = styled.p`
   color: hsl(35, 100%, ${(props) => props.setLightness + '%'});
 `
 
-const Greetings = (props) => {
+export const Greetings = (props) => {
   return (
     <StyledGreetings className="styledGreeting" setLightness={props.hsl}>
       {props.greeting} <br />
     </StyledGreetings>
   )
 }
-
-export default Greetings

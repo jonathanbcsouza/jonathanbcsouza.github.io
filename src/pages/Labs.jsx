@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '../components/Card'
+import { Card } from '../components/Card'
 import styled from 'styled-components'
 import data from '../data/data.json'
 
@@ -17,7 +17,7 @@ const StyledDiv = styled.div`
   }
 `
 
-const Labs = () => {
+export const Labs = () => {
   return (
     <StyledDiv>
       {data.labs.map((each) => (
@@ -31,5 +31,3 @@ const Labs = () => {
     </StyledDiv>
   )
 }
-
-export default Labs

@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import React from 'react'
+import styled from 'styled-components'
+import { FaBars, FaTimes } from 'react-icons/fa'
 
 const StyledMenuBtn = styled.div`
   display: none;
@@ -16,21 +16,19 @@ const StyledMenuBtn = styled.div`
   @media (max-width: 615px) {
     display: flex;
   }
-`;
+`
 
-const Menuicon = (props) => {
+export const DropdownMenu = (props) => {
   if (props.isBtnCLicked) {
     return (
       <StyledMenuBtn>
         <FaBars />
       </StyledMenuBtn>
-    );
+    )
   }
   return (
     <StyledMenuBtn>
       <FaTimes />
     </StyledMenuBtn>
-  );
-};
-
-export default Menuicon;
+  )
+}

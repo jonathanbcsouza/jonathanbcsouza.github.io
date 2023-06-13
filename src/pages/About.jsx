@@ -40,7 +40,7 @@ const StyledContent = styled.div`
   }
 `
 
-const About = () => {
+export const About = () => {
   return (
     <StyledContainer>
       <StyledImage />
@@ -81,5 +81,3 @@ const About = () => {
     </StyledContainer>
   )
 }
-
-export default About

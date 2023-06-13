@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import DropdownMenu from './DropdownMenu';
-import { NavLink } from 'react-router-dom';
-import data from '../data/data.json';
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { DropdownMenu } from './DropdownMenu'
+import { NavLink } from 'react-router-dom'
+import data from '../data/data.json'
 
 const StyledNav = styled.nav`
   text-transform: uppercase;
@@ -30,7 +30,7 @@ const StyledNav = styled.nav`
       border-color: var(--text-hovers);
     }
   }
-`;
+`
 
 const StyledLi = styled.div`
   a {
@@ -42,11 +42,11 @@ const StyledLi = styled.div`
     display: ${(props) => (props.isBtnCLicked ? 'none' : '')};
     height: inherit;
   }
-`;
+`
 
-const Navbar = () => {
-  const [open, setOpen] = useState(true);
-  const handleToggle = () => setOpen(!open);
+export const Navbar = () => {
+  const [open, setOpen] = useState(true)
+  const handleToggle = () => setOpen(!open)
 
   return (
     <StyledNav>
@@ -65,11 +65,9 @@ const Navbar = () => {
                 {item.title}
               </NavLink>
             </StyledLi>
-          );
+          )
         })}
       </ul>
     </StyledNav>
-  );
-};
-
-export default Navbar;
+  )
+}

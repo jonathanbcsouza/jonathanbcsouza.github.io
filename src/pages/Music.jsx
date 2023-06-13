@@ -33,7 +33,7 @@ const StyledDiv = styled.div`
   }
 `
 
-const Music = () => {
+export const Music = () => {
   return (
     <StyledDiv>
       <Iframe
@@ -58,5 +58,3 @@ const Music = () => {
     </StyledDiv>
   )
 }
-
-export default Music

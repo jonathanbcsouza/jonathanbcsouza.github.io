@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import SocialMedia from './SocialMedia';
+import React from 'react'
+import styled from 'styled-components'
+import { SocialMedia } from './SocialMedia'
 
-const currentDate = new Date().getFullYear();
+const currentDate = new Date().getFullYear()
 
 const StyledFooter = styled.div`
   position: fixed;
@@ -15,16 +15,14 @@ const StyledFooter = styled.div`
   font-size: 12px;
   border-top: 1px solid var(--headers);
   background: var(--background-colour);
-`;
+`
 
-const MakeFooter = () => {
+export const Footer = () => {
   return (
     <StyledFooter>
       <SocialMedia />
       <br />
       <p>Copyright {currentDate} © Jonathan Souza</p>
     </StyledFooter>
-  );
-};
-
-export default MakeFooter;
+  )
+}
