@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Greetings } from '../components/Greetings'
+import { showTime } from '../utils/timerUtils'
 
 const StyledContainer = styled.div`
   position: relative;
@@ -47,14 +48,8 @@ const StyledContainer = styled.div`
 const currentTime = new Date().getHours()
 
 export const Home = () => {
-  const [time, setTime] = useState('loading...')
-  function updateTime() {
-    const newTime = new Date().toLocaleTimeString()
-    setTime(newTime)
-  }
+  const time = showTime()
 
-  // Iterate the (HSL) negatively from 100% to a limit of 50%
-  // It syncs with the daytime
   const [colourLightness, setTextColour] = useState('...')
   function updateColour() {
     const setLightness = 100 - timeToPercent() / 2
@@ -84,7 +79,6 @@ export const Home = () => {
   }
 
   setInterval(() => {
-    updateTime()
     updateColour()
     updateGreeting()
   }, 1000)
@@ -94,7 +88,12 @@ export const Home = () => {
       <h2>I am Jonathan Souza.</h2>
       <p>Software Enginner with passion for the web, innovation, and music.</p>
       <br />
-      <Greetings greeting={greeting} hsl={colourLightness} time={time} />
+      <Greetings greeting={greeting} hsl={colourLightness} />
+      <br />
+      <Greetings
+        greeting={'Auckland, New Zealand - ' + time}
+        hsl={colourLightness}
+      />
     </StyledContainer>
   )
 }
