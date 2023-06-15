@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react'
 
-export function showTime() {
+function getCurrentTime() {
+  return new Date().toLocaleTimeString()
+}
+
+export function stringifyCurrentTime() {
   const [time, setTime] = useState('loading...')
+  const [hour, min, sec] = time.split(':')
+  const stringifiedTime = hour + min + sec
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setTime(new Date().toLocaleTimeString())
+      setTime(getCurrentTime())
     }, 1000)
 
     return () => {
@@ -13,5 +19,5 @@ export function showTime() {
     }
   }, [])
 
-  return time
+  return stringifiedTime
 }

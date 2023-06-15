@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Greetings } from '../components/Greetings'
-import { showTime } from '../utils/timerUtils'
+import { stringifyCurrentTime } from '../utils/timerUtils'
 
 const StyledContainer = styled.div`
   position: relative;
@@ -45,10 +45,10 @@ const StyledContainer = styled.div`
   }
 `
 
-const currentTime = new Date().getHours()
+const currentHour = new Date().getHours()
 
 export const Home = () => {
-  const time = showTime()
+  const stringifiedTime = stringifyCurrentTime()
 
   const [colourLightness, setTextColour] = useState('...')
   function updateColour() {
@@ -56,21 +56,18 @@ export const Home = () => {
     setTextColour(setLightness)
   }
 
-  const [hour, min, sec] = time.split(':')
-  const timeToString = hour + min + sec
-
   function timeToPercent() {
     const total = 235959
-    return Math.round((timeToString * 100) / total)
+    return Math.round((stringifiedTime * 100) / total)
   }
 
   const [greeting, setGreeting] = useState('loading...')
 
   function updateGreeting() {
     let displayGreeting
-    if (currentTime > 6 && currentTime < 12) {
+    if (currentHour > 6 && currentHour < 12) {
       displayGreeting = 'Good morning'
-    } else if (currentTime < 17) {
+    } else if (currentHour < 17) {
       displayGreeting = 'Good afternoon'
     } else {
       displayGreeting = 'Good evening'
@@ -90,10 +87,6 @@ export const Home = () => {
       <br />
       <Greetings greeting={greeting} hsl={colourLightness} />
       <br />
-      <Greetings
-        greeting={'Auckland, New Zealand - ' + time}
-        hsl={colourLightness}
-      />
     </StyledContainer>
   )
 }
