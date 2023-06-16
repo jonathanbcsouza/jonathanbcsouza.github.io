@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Greetings } from '../components/Greetings'
-import { stringifyCurrentTime } from '../utils/timerUtils'
+import { timeToPercent } from '../utils/timeUtils'
 
 const StyledContainer = styled.div`
   position: relative;
@@ -48,17 +48,12 @@ const StyledContainer = styled.div`
 const currentHour = new Date().getHours()
 
 export const Home = () => {
-  const stringifiedTime = stringifyCurrentTime()
+  const timeInPercent = timeToPercent()
 
   const [colourLightness, setTextColour] = useState('...')
   function updateColour() {
-    const setLightness = 100 - timeToPercent() / 2
+    const setLightness = 100 - timeInPercent / 2
     setTextColour(setLightness)
-  }
-
-  function timeToPercent() {
-    const total = 235959
-    return Math.round((stringifiedTime * 100) / total)
   }
 
   const [greeting, setGreeting] = useState('loading...')
