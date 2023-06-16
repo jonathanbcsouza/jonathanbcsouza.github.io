@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Greetings } from '../components/Greetings'
-import { timeToPercent } from '../utils/timeUtils'
+import { convertTimeToPercent } from '../utils/timeUtils'
 
 const StyledContainer = styled.div`
   position: relative;
@@ -48,7 +48,7 @@ const StyledContainer = styled.div`
 const currentHour = new Date().getHours()
 
 export const Home = () => {
-  const timeInPercent = timeToPercent()
+  const timeInPercent = convertTimeToPercent()
 
   const [colourLightness, setTextColour] = useState('...')
   function updateColour() {

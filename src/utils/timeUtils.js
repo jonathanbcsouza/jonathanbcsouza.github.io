@@ -4,7 +4,7 @@ export function getCurrentTime() {
   return new Date().toLocaleTimeString()
 }
 
-export function timeToPercent() {
+export function convertTimeToPercent() {
   const total = 235959
   return Math.round((stringifyCurrentTime() * 100) / total)
 }
