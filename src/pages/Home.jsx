@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Greetings } from '../components/Greetings'
+import { updateGreeting } from '../utils/stringUtils'
+import { setTextLightness } from '../utils/styleUtils'
 import { convertTimeToPercent } from '../utils/timeUtils'
 
 const StyledContainer = styled.div`
@@ -45,34 +47,14 @@ const StyledContainer = styled.div`
   }
 `
 
-const currentHour = new Date().getHours()
-
 export const Home = () => {
   const timeInPercent = convertTimeToPercent()
-
-  const [colourLightness, setTextColour] = useState('...')
-  function updateColour() {
-    const setLightness = 100 - timeInPercent / 2
-    setTextColour(setLightness)
-  }
-
   const [greeting, setGreeting] = useState('loading...')
-
-  function updateGreeting() {
-    let displayGreeting
-    if (currentHour > 6 && currentHour < 12) {
-      displayGreeting = 'Good morning'
-    } else if (currentHour < 17) {
-      displayGreeting = 'Good afternoon'
-    } else {
-      displayGreeting = 'Good evening'
-    }
-    setGreeting(displayGreeting)
-  }
+  const [lightness, setLightness] = useState('...')
 
   setInterval(() => {
-    updateColour()
-    updateGreeting()
+    setTextLightness(timeInPercent, setLightness)
+    updateGreeting(setGreeting)
   }, 1000)
 
   return (
@@ -80,7 +62,7 @@ export const Home = () => {
       <h2>I am Jonathan Souza.</h2>
       <p>Software Enginner with passion for the web, innovation, and music.</p>
       <br />
-      <Greetings greeting={greeting} hsl={colourLightness} />
+      <Greetings greeting={greeting} hsl={lightness} />
       <br />
     </StyledContainer>
   )
