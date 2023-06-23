@@ -10,7 +10,6 @@ const StyledDiv = styled.div`
   flex-wrap: wrap;
   margin: 100px 0px 27vh 0;
   color: var(--text-white);
-  z-index: 0;
 
   @media screen and (max-width: 615px) {
     margin-top: 35px;

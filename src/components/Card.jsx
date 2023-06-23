@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledCard = styled.div`
-  z-index: 0;
   margin: 25px 20px 0 20px;
   width: 520px;
   height: 320px;
@@ -33,7 +32,7 @@ const StyledCard = styled.div`
     max-width: 96%;
   }
 
-  p {
+  div {
     background-color: black;
     position: absolute;
     text-align: center;
@@ -41,6 +40,7 @@ const StyledCard = styled.div`
     width: 100%;
     padding: 50px 0;
     opacity: 0.9;
+    z-index: 1;
   }
 
   &:hover {
@@ -55,7 +55,8 @@ const StyledCard = styled.div`
       transition: opacity 0.2s ease, filter 0.2s ease;
       border: none;
     }
-    p {
+
+    div {
       display: none;
     }
   }
@@ -71,11 +72,11 @@ export const Card = (each) => {
 
   return (
     <StyledCard>
-      <p>
+      <div>
         <h3>{each.title}</h3>
         <br />
         {each.tech}
-      </p>
+      </div>
       <CustomTag
         allowfullscreen="allowfullscreen"
         src={each.src}

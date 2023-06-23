@@ -9,10 +9,15 @@ const StyledNav = styled.nav`
   top: 0;
   padding-left: 5vw;
   width: 100%;
+  z-index: 2;
 
   @media (max-width: 615px) {
     padding-left: 0vw;
     position: fixed;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   ul {

@@ -6,12 +6,9 @@ import { setTextLightness } from '../utils/styleUtils'
 import { convertTimeToPercent } from '../utils/timeUtils'
 
 const StyledContainer = styled.div`
-  position: relative;
-  top: 20vh;
+  margin-top: 15vh;
   padding-left: 7.5vw;
   color: var(--text-white);
-  z-index: 0;
-  height: 200px;
 
   h2 {
     animation-name: text_entrance;
@@ -19,14 +16,13 @@ const StyledContainer = styled.div`
     animation-fill-mode: both;
   }
   p {
-    position: relative;
     animation-name: text_entrance;
     animation-duration: 3s;
     animation-fill-mode: both;
-  }
-  p {
     animation-delay: 1s;
+    margin-top: 20px
   }
+
   .styledGreeting {
     animation-delay: 2s;
   }
@@ -43,7 +39,7 @@ const StyledContainer = styled.div`
   }
 
   @media (max-width: 615px) {
-    padding-left: 3vw;
+    margin-top: 20vh;
   }
 `
 
@@ -61,9 +57,7 @@ export const Home = () => {
     <StyledContainer>
       <h2>I am Jonathan Souza.</h2>
       <p>Software Enginner with passion for the web, innovation, and music.</p>
-      <br />
       <Greetings greeting={greeting} hsl={lightness} />
-      <br />
     </StyledContainer>
   )
 }
