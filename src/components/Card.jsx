@@ -2,58 +2,57 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledCard = styled.div`
-  margin: 25px 20px 0 20px;
+  position: relative;
   width: 520px;
   height: 320px;
-  position: relative;
-  top: 0;
-  transition: all 0.3s ease;
+  margin: 25px 20px 0 20px;
   border-radius: 20px;
   box-shadow: 1px 5px 20px 1px rgba(50, 50, 50, 0.75);
   background: rgba(28, 27, 27, 0.29);
+  transition: all 0.3s ease;
 
   iframe {
-    filter: blur(2px);
-    opacity: 0.5;
+    border: none;
+    border-radius: 20px;
     width: 100%;
     height: 95%;
     margin: 10px;
-    border: none;
-    border-radius: 20px;
     max-width: 96%;
+    filter: blur(2px);
+    opacity: 0.5;
   }
 
   img {
     display: block;
     margin: auto;
+    max-width: 96%;
+    max-height: 95%;
     filter: blur(2px);
     border-radius: 20px;
-    max-height: 95%;
-    max-width: 96%;
   }
 
   div {
-    background-color: black;
     position: absolute;
-    text-align: center;
+    padding: 50px 0;
     top: 29%;
     width: 100%;
-    padding: 50px 0;
     opacity: 0.9;
+    text-align: center;
+    background-color: black;
     z-index: 1;
   }
 
   &:hover {
     top: -10px;
-    transition: all 0.3s ease;
     box-shadow: 8px 3px 15px 0px rgba(200, 118, 60, 0.75);
+    transition: all 0.3s ease;
 
     iframe,
     img {
+      border: none;
       filter: blur(0);
       opacity: 1;
       transition: opacity 0.2s ease, filter 0.2s ease;
-      border: none;
     }
 
     div {

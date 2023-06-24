@@ -5,11 +5,11 @@ import { NavLink } from 'react-router-dom'
 import data from '../data/data.json'
 
 const StyledNav = styled.nav`
-  text-transform: uppercase;
   top: 0;
-  padding-left: 5vw;
   width: 100%;
+  padding-left: 5vw;
   z-index: 2;
+  text-transform: uppercase;
 
   @media (max-width: 615px) {
     padding-left: 0vw;

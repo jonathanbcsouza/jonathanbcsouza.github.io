@@ -5,13 +5,13 @@ import { MySocialLinks } from '../data/SocialLinks'
 
 export const StyledIcons = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   margin-top: 10px;
+
   path {
     transition: fill 0.4s ease;
   }
+
   svg:hover {
     fill: var(--text-orange);
     height: 30px;

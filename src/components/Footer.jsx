@@ -6,15 +6,15 @@ const currentDate = new Date().getFullYear()
 
 const StyledFooter = styled.div`
   position: fixed;
-  z-index: 1;
-  color: var(--text-orange);
-  padding-bottom: 10px;
   bottom: 0;
   width: 100vw;
-  text-align: center;
-  font-size: 12px;
   border-top: 1px solid var(--headers);
+  padding-bottom: 10px;
+  font-size: 12px;
+  color: var(--text-orange);
+  text-align: center;
   background: var(--background-colour);
+  z-index: 1;
 `
 
 export const Footer = () => {

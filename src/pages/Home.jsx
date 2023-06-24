@@ -15,12 +15,12 @@ const StyledContainer = styled.div`
     animation-duration: 3s;
     animation-fill-mode: both;
   }
+  
   p {
     animation-name: text_entrance;
     animation-duration: 3s;
     animation-fill-mode: both;
     animation-delay: 1s;
-    margin-top: 20px
   }
 
   .styledGreeting {
@@ -57,7 +57,9 @@ export const Home = () => {
     <StyledContainer>
       <h2>I am Jonathan Souza.</h2>
       <p>Software Enginner with passion for the web, innovation, and music.</p>
+      <br />
       <Greetings greeting={greeting} hsl={lightness} />
+      <br />
     </StyledContainer>
   )
 }

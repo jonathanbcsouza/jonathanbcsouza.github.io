@@ -5,9 +5,9 @@ import data from '../data/data.json'
 
 const StyledDiv = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-end;
-  flex-wrap: wrap;
   margin: 100px 0px 27vh 0;
   color: var(--text-white);
 

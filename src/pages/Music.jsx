@@ -5,22 +5,11 @@ import Iframe from 'react-iframe'
 const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
-  padding: 10vh 5% 10vh 5%;
-  -moz-transform: scale(1.25, 1.25);
-  -webkit-transform: scale(1.25, 1.25);
-  -o-transform: scale(1.25, 1.25);
-  -ms-transform: scale(1.25, 1.25);
-  transform: scale(0.9, 0.9);
-  -moz-transform-origin: top center;
-  -webkit-transform-origin: top center;
-  -o-transform-origin: top center;
-  -ms-transform-origin: top center;
-  transform-origin: top center;
 
   p {
     margin-top: 100px;
-    color: white;
     text-align: center;
+    color: white;
   }
 
   @media screen and (max-width: 615px) {

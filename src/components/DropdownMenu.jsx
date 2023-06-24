@@ -4,14 +4,14 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 
 const StyledMenuBtn = styled.div`
   display: none;
-  align-items: center;
   justify-content: flex-end;
-  padding: 10px 25px;
+  align-items: center;
   height: 50px;
+  padding: 10px 25px;
   font-size: 1.3333em;
-  cursor: pointer;
   color: var(--text-orange);
   background-image: linear-gradient(${(props) => props.colour}, #000);
+  cursor: pointer;
 
   @media (max-width: 615px) {
     display: flex;
