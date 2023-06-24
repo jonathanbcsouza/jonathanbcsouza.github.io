@@ -4,7 +4,7 @@ This is a work-in-progress portfolio website made in React.
 
 ## Features
 
-- Project bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Project bootstrapped with [Vite](https://vitejs.dev).
 - Routes made with [React Router](https://reactrouter.com/web/guides/quick-start).
 - Components styled with [Styled Components](https://styled-components.com/).
 - Icons imported from [React Icons](https://react-icons.github.io/react-icons/).
