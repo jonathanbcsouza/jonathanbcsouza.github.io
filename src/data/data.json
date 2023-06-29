@@ -13,52 +13,52 @@
       "title": "Documentation Page"
     },
     {
-      "type": "iframe",
+      "type": "img",
       "tech": "Wordpress + CSS + Amazon Lightsail",
-      "src": "http://jetweld.co.nz",
-      "title": "Engineering Engineering Website"
+      "src": "https://raw.githubusercontent.com/jonathanbcsouza/jonathanbcsouza.github.io/main/public/images/projects/jetweld.co.nz.png",
+      "title": "Engineering Company Website"
     },
     {
       "type": "iframe",
-      "tech": "C programming",
+      "tech": "C Programming",
       "src": "https://www.youtube.com/embed/XKU81C9e_5I",
-      "title": "Encryption decoder"
+      "title": "Encryption Decoder"
     },
     {
       "type": "iframe",
-      "tech": "C programming",
+      "tech": "C Programming",
       "src": "https://www.youtube.com/embed/QTI3PEhvXto",
       "title": "Mario Pyramid"
     },
     {
       "type": "img",
-      "tech": "Data Analysis with Python",
+      "tech": "Data Analysis with Python + Jupyter",
       "src": "https://raw.githubusercontent.com/jonathanbcsouza/jonathanbcsouza.github.io/main/public/images/projects/da-python.png",
-      "title": "Medical appointments in Brazil Analysis"
+      "title": "Medical Appointments In Brazil"
     },
     {
       "type": "img",
       "tech": "Data Analysis with Excel",
       "src": "https://raw.githubusercontent.com/jonathanbcsouza/jonathanbcsouza.github.io/main/public/images/projects/da-excel.png",
-      "title": "QA Management System and Dashboard"
+      "title": "QA Studies at Ecovix Shipyard"
     },
     {
       "type": "img",
       "tech": "Android - Java",
-      "src": "https://raw.githubusercontent.com/jonathanbcsouza/P6-NZ-Guide/master/screenshots/cover.png",
-      "title": "Tour Guide NZ"
+      "src": "https://raw.githubusercontent.com/jonathanbcsouza/jonathanbcsouza.github.io/main/public/images/projects/android-app-visit-new-zealand.png",
+      "title": "Tour Guide NZ - Android App"
     },
     {
       "type": "img",
       "tech": "Android - Java",
-      "src": "https://raw.githubusercontent.com/jonathanbcsouza/mymusicapp/master/screenshots/screenshot_library.png",
-      "title": "Music Player"
+      "src": "https://raw.githubusercontent.com/jonathanbcsouza/jonathanbcsouza.github.io/main/public/images/projects/android-app-music-player.png",
+      "title": "Music Player - Android App"
     },
     {
       "type": "iframe",
       "tech": "Pseudocode with Scratch",
       "src": "https://scratch.mit.edu/projects/385143391/embed",
-      "title": "Covid 19 - Pseudocode and Educational Game"
+      "title": "Educational Game"
     }
   ],
 
