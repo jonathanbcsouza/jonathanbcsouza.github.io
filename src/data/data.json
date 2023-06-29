@@ -1,28 +1,22 @@
 {
   "labs": [
     {
-      "type": "img",
-      "tech": "Android - Java",
-      "src": "https://raw.githubusercontent.com/jonathanbcsouza/P6-NZ-Guide/master/screenshots/cover.png",
-      "title": "Tour Guide NZ"
-    },
-    {
-      "type": "img",
-      "tech": "Android - Java",
-      "src": "https://raw.githubusercontent.com/jonathanbcsouza/mymusicapp/master/screenshots/screenshot_library.png",
-      "title": "Music Player"
-    },
-    {
       "type": "iframe",
       "tech": "Javascript/React",
-      "src": "https://codesandbox.io/embed/js-array-and-object-methods-and-arrow-functions-fvyww?fontsize=14&hidenavigation=1&theme=dark&view=editor",
-      "title": "JS Array and Object Methods and Arrow Functions"
+      "src": "https://codesandbox.io/embed/holy-lake-c44fs9?fontsize=14&hidenavigation=1&theme=dark",
+      "title": "Ceasar Cipher"
     },
     {
       "type": "iframe",
-      "tech": "Javascript",
-      "src": "https://codesandbox.io/embed/dom-access-methods-uoxm5?fontsize=14&hidenavigation=1&theme=dark",
-      "title": "Dom Access Methods"
+      "tech": "HTML + CSS + Javascript",
+      "src": "https://codepen.io/jonathanbcsouza/full/WqBpog",
+      "title": "Documentation Page"
+    },
+    {
+      "type": "iframe",
+      "tech": "Wordpress + CSS + Amazon Lightsail",
+      "src": "http://jetweld.co.nz",
+      "title": "Engineering Engineering Website"
     },
     {
       "type": "iframe",
@@ -47,6 +41,18 @@
       "tech": "Data Analysis with Excel",
       "src": "https://raw.githubusercontent.com/jonathanbcsouza/jonathanbcsouza.github.io/main/public/images/projects/da-excel.png",
       "title": "QA Management System and Dashboard"
+    },
+    {
+      "type": "img",
+      "tech": "Android - Java",
+      "src": "https://raw.githubusercontent.com/jonathanbcsouza/P6-NZ-Guide/master/screenshots/cover.png",
+      "title": "Tour Guide NZ"
+    },
+    {
+      "type": "img",
+      "tech": "Android - Java",
+      "src": "https://raw.githubusercontent.com/jonathanbcsouza/mymusicapp/master/screenshots/screenshot_library.png",
+      "title": "Music Player"
     },
     {
       "type": "iframe",
