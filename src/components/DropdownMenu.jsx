@@ -19,7 +19,7 @@ const StyledMenuBtn = styled.div`
 `
 
 export const DropdownMenu = (props) => {
-  if (props.isBtnCLicked) {
+  if (props.isBtnClicked) {
     return (
       <StyledMenuBtn>
         <FaBars />
