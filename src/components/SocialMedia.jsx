@@ -18,8 +18,8 @@ export const StyledIcons = styled.div`
   }
 `
 
-export const StyledLink = styled.a.attrs(({ link }) => ({
-  href: link,
+export const StyledLink = styled.a.attrs(({ $link }) => ({
+  href: $link,
   target: '_blank',
 }))`
   margin: 2px;
@@ -33,7 +33,7 @@ export const SocialMedia = () => {
         <br />
         <div>
           {MySocialLinks.map((item) => (
-            <StyledLink key={item.link} link={item.link}>
+            <StyledLink key={item.link} $link={item.link}>
               {item.component}
             </StyledLink>
           ))}

@@ -19,8 +19,9 @@ const StyledDiv = styled.div`
 export const Labs = () => {
   return (
     <StyledDiv>
-      {data.labs.map((each) => (
+      {data.labs.map((each, index) => (
         <Card
+          key={index}
           content={each.type}
           src={each.src}
           title={each.title}

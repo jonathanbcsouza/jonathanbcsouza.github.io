@@ -44,7 +44,7 @@ const StyledLi = styled.div`
     color: var(--text-white);
   }
   @media (max-width: 615px) {
-    display: ${(props) => (props.isBtnClicked ? 'none' : '')};
+    display: ${(props) => (props.$isBtnClicked ? 'none' : '')};
     height: inherit;
   }
 `
@@ -61,7 +61,7 @@ export const Navbar = () => {
         </div>
         {data.navitems.map((item) => {
           return (
-            <StyledLi isBtnClicked={open} key={item.id}>
+            <StyledLi $isBtnClicked={open} key={item.id}>
               <NavLink
                 onClick={handleToggle}
                 activeStyle={{ background: '#121212' }}

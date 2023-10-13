@@ -77,7 +77,7 @@ export const Card = (each) => {
         {each.tech}
       </div>
       <CustomTag
-        allowfullscreen="allowfullscreen"
+        allowFullScreen="allowfullscreen"
         src={each.src}
         title={each.title}
       ></CustomTag>
