@@ -1,5 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
+import { useEffect } from 'react';
+import styled from 'styled-components';
+import { databases } from '../libs/appwrite';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ const StyledContainer = styled.div`
     padding-top: 10vh;
     line-height: 30px;
   }
-`
+`;
 
 const StyledImage = styled.img.attrs({
   src: `https://avatars.githubusercontent.com/u/25882133?s=460&v=4`,
@@ -23,7 +24,7 @@ const StyledImage = styled.img.attrs({
   height: 100px;
   margin-right: 40px;
   border-radius: 50%;
-`
+`;
 
 const StyledContent = styled.div`
   h1 {
@@ -38,9 +39,22 @@ const StyledContent = styled.div`
     margin-bottom: 16px;
     line-height: 26px;
   }
-`
+`;
 
 export const About = () => {
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const response = await databases.listDocuments(
+      import.meta.env.VITE_APPWRITE_EVENTS_DATABASE_ID,
+      import.meta.env.VITE_APPWRITE_EVENTS_COLLECTION_ID
+    );
+
+    console.log(response);
+  };
+
   return (
     <StyledContainer>
       <StyledImage />
@@ -79,5 +93,5 @@ export const About = () => {
         <p>Should you want to discuss the web or music, let's connect!</p>
       </StyledContent>
     </StyledContainer>
-  )
-}
+  );
+};
