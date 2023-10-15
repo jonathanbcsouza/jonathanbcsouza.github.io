@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import { DropdownMenu } from './DropdownMenu'
-import { NavLink } from 'react-router-dom'
-import data from '../data/data.json'
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { DropdownMenu } from './DropdownMenu';
+import { NavLink } from 'react-router-dom';
+import data from '../data/data.json';
 
 const StyledNav = styled.nav`
   top: 0;
@@ -35,7 +35,7 @@ const StyledNav = styled.nav`
       border-color: var(--text-hovers);
     }
   }
-`
+`;
 
 const StyledLi = styled.div`
   a {
@@ -47,32 +47,32 @@ const StyledLi = styled.div`
     display: ${(props) => (props.$isBtnClicked ? 'none' : '')};
     height: inherit;
   }
-`
+`;
+
+const StyledNavLink = styled(NavLink)`
+  &:active {
+    background: '#121212';
+  }
+`;
+
+const NavbarItem = ({ item, isMenuOpen }) => (
+  <StyledLi $isBtnClicked={isMenuOpen}>
+    <StyledNavLink to={item.url}>{item.title}</StyledNavLink>
+  </StyledLi>
+);
 
 export const Navbar = () => {
-  const [open, setOpen] = useState(true)
-  const handleToggle = () => setOpen(!open)
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const handleToggle = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <StyledNav>
-      <ul>
-        <div onClick={handleToggle}>
-          <DropdownMenu isBtnClicked={open} />
-        </div>
-        {data.navitems.map((item) => {
-          return (
-            <StyledLi $isBtnClicked={open} key={item.id}>
-              <NavLink
-                onClick={handleToggle}
-                activeStyle={{ background: '#121212' }}
-                to={item.url}
-              >
-                {item.title}
-              </NavLink>
-            </StyledLi>
-          )
-        })}
+      <ul onClick={handleToggle}>
+        <DropdownMenu isBtnClicked={isMenuOpen} />
+        {data.navitems.map((item) => (
+          <NavbarItem key={item.title} item={item} isMenuOpen={isMenuOpen} />
+        ))}
       </ul>
     </StyledNav>
-  )
-}
+  );
+};
