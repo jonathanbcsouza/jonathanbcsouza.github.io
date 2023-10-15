@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import Iframe from 'react-iframe';
-import data from '../data/data.json';
+import { fetchData } from '../utils/fetchData';
 
 const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
+  width: 75%;
+  margin: auto;
 
   p {
     margin-top: 100px;
@@ -13,30 +15,34 @@ const StyledDiv = styled.div`
     color: white;
   }
 
-  @media screen and (max-width: 615px) {
-    padding-top: 10vh;
-    flex-wrap: wrap;
-  }
-
   iframe {
     margin: 5% 8px 8px 8px;
+  }
+
+  @media screen and (max-width: 615px) {
+    padding-top: 10vh;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
 export const Music = () => {
-  return (
-    <StyledDiv>
-      {data.music_links.map((each, index) => (
-        <Iframe
-          key={index}
-          src={each.src}
-          width="100%"
-          height="352"
-          frameBorder="0"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></Iframe>
-      ))}
-    </StyledDiv>
-  );
+  const data = fetchData();
+
+  const renderIframes = (messages) => {
+    const labs = JSON.parse(messages.music_data).music_links;
+    return labs.map((link) => (
+      <Iframe
+        key={link.title}
+        src={link.src}
+        width="100%"
+        height="352"
+        frameBorder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      />
+    ));
+  };
+
+  return <StyledDiv>{data.flatMap(renderIframes)}</StyledDiv>;
 };

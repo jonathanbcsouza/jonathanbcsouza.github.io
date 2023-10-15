@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledCard = styled.div`
   position: relative;
@@ -52,7 +52,9 @@ const StyledCard = styled.div`
       border: none;
       filter: blur(0);
       opacity: 1;
-      transition: opacity 0.2s ease, filter 0.2s ease;
+      transition:
+        opacity 0.2s ease,
+        filter 0.2s ease;
     }
 
     div {
@@ -64,23 +66,25 @@ const StyledCard = styled.div`
     width: 320px;
     height: 220px;
   }
-`
+`;
 
-export const Card = (each) => {
-  const CustomTag = `${each.content}`
-
+export const Card = ({ src, title, tech, type }) => {
   return (
     <StyledCard>
       <div>
-        <h3>{each.title}</h3>
+        <h3>{title}</h3>
         <br />
-        {each.tech}
+        {tech}
       </div>
-      <CustomTag
-        allowFullScreen="allowfullscreen"
-        src={each.src}
-        title={each.title}
-      ></CustomTag>
+      {type == 'iframe' ? (
+        <iframe
+          allowFullScreen="allowfullscreen"
+          src={src}
+          title={title}
+        ></iframe>
+      ) : (
+        <img src={src} alt={title} />
+      )}
     </StyledCard>
-  )
-}
+  );
+};

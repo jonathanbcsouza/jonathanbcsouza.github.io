@@ -1,7 +1,7 @@
-import React from 'react'
-import { Card } from '../components/Card'
-import styled from 'styled-components'
-import data from '../data/data.json'
+import React from 'react';
+import { Card } from '../components/Card';
+import styled from 'styled-components';
+import { fetchData } from '../utils/fetchData';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -14,20 +14,23 @@ const StyledDiv = styled.div`
   @media screen and (max-width: 615px) {
     margin-top: 35px;
   }
-`
+`;
 
 export const Labs = () => {
-  return (
-    <StyledDiv>
-      {data.labs.map((each, index) => (
-        <Card
-          key={index}
-          content={each.type}
-          src={each.src}
-          title={each.title}
-          tech={each.tech}
-        ></Card>
-      ))}
-    </StyledDiv>
-  )
-}
+  const data = fetchData();
+
+  const renderCards = (messages) => {
+    const labs = JSON.parse(messages.labs_data).labs;
+    return labs.map((lab) => (
+      <Card
+        key={lab.title}
+        type={lab.type}
+        tech={lab.tech}
+        src={lab.src}
+        title={lab.title}
+      />
+    ));
+  };
+
+  return <StyledDiv>{data.flatMap(renderCards)}</StyledDiv>;
+};

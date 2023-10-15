@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { DropdownMenu } from './DropdownMenu';
 import { NavLink } from 'react-router-dom';
-import data from '../data/data.json';
+import routes from '../data/routes.json';
 
 const StyledNav = styled.nav`
   top: 0;
@@ -69,7 +69,7 @@ export const Navbar = () => {
     <StyledNav>
       <ul onClick={handleToggle}>
         <DropdownMenu isBtnClicked={isMenuOpen} />
-        {data.navitems.map((item) => (
+        {routes.routes.map((item) => (
           <NavbarItem key={item.title} item={item} isMenuOpen={isMenuOpen} />
         ))}
       </ul>

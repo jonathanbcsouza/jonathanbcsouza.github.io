@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "title": "Home",
+      "url": "/home"
+    },
+    {
+      "title": "About",
+      "url": "/about"
+    },
+    {
+      "title": "Labs",
+      "url": "/labs"
+    },
+    {
+      "title": "Music",
+      "url": "/music"
+    }
+  ]
+}
