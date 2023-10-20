@@ -37,13 +37,8 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm install
-      - name: Deploy to Appwrite
+      - name: Build
         run: npm run build
-        env:
-          VITE_APPWRITE_ENDPOINT: ${{ secrets.VITE_APPWRITE_ENDPOINT }}
-          VITE_APPWRITE_API_KEY: ${{ secrets.VITE_APPWRITE_API_KEY }}
-      - name: Deploy my function to Appwrite
-        uses: rdmchr/Appwrite-Deploy@v0.1
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
