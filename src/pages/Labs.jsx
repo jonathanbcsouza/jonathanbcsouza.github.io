@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from '../components/Card';
 import styled from 'styled-components';
-import { fetchData } from '../utils/fetchData';
+import { fetchData, isEmptyData } from '../utils/fetchData';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -19,8 +19,8 @@ const StyledDiv = styled.div`
 export const Labs = () => {
   const data = fetchData();
 
-  const renderCards = (messages) => {
-    const labs = JSON.parse(messages.labs_data).labs;
+  const renderCards = (document) => {
+    const labs = JSON.parse(document.labs_data).labs;
     return labs.map((lab) => (
       <Card
         key={lab.title}
@@ -32,5 +32,9 @@ export const Labs = () => {
     ));
   };
 
-  return <StyledDiv>{data.flatMap(renderCards)}</StyledDiv>;
+  return (
+    <StyledDiv>
+      {isEmptyData(data) ? <p>Loading...</p> : data.flatMap(renderCards)}
+    </StyledDiv>
+  );
 };

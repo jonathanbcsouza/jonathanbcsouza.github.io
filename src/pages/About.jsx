@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { fetchData } from '../utils/fetchData';
+import { fetchData, isEmptyData } from '../utils/fetchData';
+import { Avatar } from '../components/ProfilePhoto';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -14,15 +15,6 @@ const StyledContainer = styled.div`
     padding-top: 10vh;
     line-height: 30px;
   }
-`;
-
-const StyledImage = styled.img.attrs({
-  src: `https://avatars.githubusercontent.com/u/25882133?s=460&v=4`,
-})`
-  width: 100px;
-  height: 100px;
-  margin-right: 40px;
-  border-radius: 50%;
 `;
 
 const StyledContent = styled.div`
@@ -44,14 +36,18 @@ export const About = () => {
   const data = fetchData();
 
   return (
-    <StyledContainer>
-      <StyledImage />
-      {data.map((messages) => (
-        <StyledContent key={messages.$id}>
-          <h1>{messages.about_header}</h1>
-          <p>{messages.about_description}</p>
-        </StyledContent>
-      ))}
+    <StyledContainer className={isEmptyData(data) ? '' : 'animate'}>
+      <Avatar />
+      {isEmptyData(data) ? (
+        <p>Loading...</p>
+      ) : (
+        data.map((document) => (
+          <StyledContent key={document.$id}>
+            <h1>{document.about_header}</h1>
+            <p>{document.about_description}</p>
+          </StyledContent>
+        ))
+      )}
     </StyledContainer>
   );
 };

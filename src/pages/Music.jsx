@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Iframe from 'react-iframe';
-import { fetchData } from '../utils/fetchData';
+import { fetchData, isEmptyData } from '../utils/fetchData';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -26,23 +26,27 @@ const StyledDiv = styled.div`
   }
 `;
 
+const renderIframes = (document) => {
+  const labs = JSON.parse(document.music_data).music_links;
+  return labs.map((link, index) => (
+    <Iframe
+      key={`${link.title}-${index}`}
+      src={link.src}
+      width="100%"
+      height="352"
+      frameBorder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    />
+  ));
+};
+
 export const Music = () => {
   const data = fetchData();
 
-  const renderIframes = (messages) => {
-    const labs = JSON.parse(messages.music_data).music_links;
-    return labs.map((link) => (
-      <Iframe
-        key={link.title}
-        src={link.src}
-        width="100%"
-        height="352"
-        frameBorder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-      />
-    ));
-  };
-
-  return <StyledDiv>{data.flatMap(renderIframes)}</StyledDiv>;
+  return (
+    <StyledDiv>
+      {isEmptyData(data) ? <p>Loading...</p> : data.map(renderIframes)}
+    </StyledDiv>
+  );
 };

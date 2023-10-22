@@ -1,11 +1,11 @@
-import React from 'react'
-import { About } from './pages/About'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Footer } from './components/Footer'
-import { Home } from './pages/Home'
-import { Labs } from './pages/Labs'
-import { Music } from './pages/Music'
-import { Navbar } from './components/Navbar'
+import React from 'react';
+import { About } from './pages/About';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Footer } from './components/Footer';
+import { Home } from './pages/Home';
+import { Labs } from './pages/Labs';
+import { Music } from './pages/Music';
+import { Navbar } from './components/Navbar';
 
 export const App = () => {
   return (
@@ -20,5 +20,5 @@ export const App = () => {
       </Switch>
       <Footer />
     </Router>
-  )
-}
+  );
+};
