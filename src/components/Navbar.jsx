@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { DropdownMenu } from './DropdownMenu';
 import { NavLink } from 'react-router-dom';
-import routes from '../data/routes.json';
 
 const StyledNav = styled.nav`
   top: 0;
@@ -54,6 +53,16 @@ const StyledNavLink = styled(NavLink)`
     background: '#121212';
   }
 `;
+
+const routes = {
+  routes: [
+    { title: '', url: '/home' },
+    { title: 'Home', url: '/home' },
+    { title: 'About', url: '/about' },
+    { title: 'Labs', url: '/labs' },
+    { title: 'Music', url: '/music' },
+  ],
+};
 
 const NavbarItem = ({ item, isMenuOpen }) => (
   <StyledLi $isBtnClicked={isMenuOpen}>

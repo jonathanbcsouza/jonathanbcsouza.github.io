@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   :root {
@@ -21,6 +21,7 @@ export default createGlobalStyle`
     min-height: 100vh;
     font-family: --apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: var(--text-white);
   }
 
   h1, h2, h3 {
@@ -34,4 +35,12 @@ export default createGlobalStyle`
   ul {
     list-style: none;
   }
-`
+
+  .error-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+`;

@@ -77,11 +77,7 @@ export const Card = ({ src, title, tech, type }) => {
         {tech}
       </div>
       {type == 'iframe' ? (
-        <iframe
-          allowFullScreen="allowfullscreen"
-          src={src}
-          title={title}
-        ></iframe>
+        <iframe allowFullScreen="allowfullscreen" src={src} title={title}></iframe>
       ) : (
         <img src={src} alt={title} />
       )}

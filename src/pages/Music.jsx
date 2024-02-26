@@ -45,8 +45,8 @@ export const Music = () => {
   const data = fetchData();
 
   return (
-    <StyledDiv>
-      {isEmptyData(data) ? <p>Loading...</p> : data.map(renderIframes)}
-    </StyledDiv>
+    <>
+      <StyledDiv>{isEmptyData(data) ? <p>Loading...</p> : data.map(renderIframes)}</StyledDiv>
+    </>
   );
 };
