@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { DropdownMenu } from './DropdownMenu';
 import { NavLink } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 const StyledNav = styled.nav`
   top: 0;
   width: 100%;
-  padding-left: 5vw;
+  padding-left: calc(5vw + 60px);
   z-index: 2;
   text-transform: uppercase;
 
@@ -28,7 +28,7 @@ const StyledNav = styled.nav`
       background: var(--background-colour);
     }
 
-    * :hover {
+    a:hover {
       color: var(--text-hovers);
       border-bottom: 1px solid;
       border-color: var(--text-hovers);
@@ -36,50 +36,56 @@ const StyledNav = styled.nav`
   }
 `;
 
-const StyledLi = styled.div`
+const StyledLi = styled.li`
   a {
     display: block;
     padding: 30px;
     color: var(--text-white);
   }
   @media (max-width: 615px) {
-    display: ${(props) => (props.$isBtnClicked ? 'none' : '')};
+    display: ${(props) => (props.$isMenuOpen ? '' : 'none')};
     height: inherit;
   }
 `;
 
 const StyledNavLink = styled(NavLink)`
   &:active {
-    background: '#121212';
+    background: #121212;
   }
 `;
 
-const routes = {
-  routes: [
-    { title: '', url: '/home' },
-    { title: 'Home', url: '/home' },
-    { title: 'About', url: '/about' },
-    { title: 'Labs', url: '/labs' },
-    { title: 'Music', url: '/music' },
-  ],
-};
+const routes = [
+  { title: 'Home', url: '/home' },
+  { title: 'About', url: '/about' },
+  { title: 'Labs', url: '/labs' },
+  { title: 'Music', url: '/music' },
+];
 
-const NavbarItem = ({ item, isMenuOpen }) => (
-  <StyledLi $isBtnClicked={isMenuOpen}>
-    <StyledNavLink to={item.url}>{item.title}</StyledNavLink>
+const NavbarItem = ({ item, isMenuOpen, onNavigate }) => (
+  <StyledLi $isMenuOpen={isMenuOpen}>
+    <StyledNavLink to={item.url} onClick={onNavigate}>
+      {item.title}
+    </StyledNavLink>
   </StyledLi>
 );
 
 export const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
-  const handleToggle = () => setIsMenuOpen(!isMenuOpen);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <StyledNav>
-      <ul onClick={handleToggle}>
-        <DropdownMenu isBtnClicked={isMenuOpen} />
-        {routes.routes.map((item) => (
-          <NavbarItem key={item.title} item={item} isMenuOpen={isMenuOpen} />
+      <ul>
+        <DropdownMenu
+          isMenuOpen={isMenuOpen}
+          onToggle={() => setIsMenuOpen((open) => !open)}
+        />
+        {routes.map((item) => (
+          <NavbarItem
+            key={item.url}
+            item={item}
+            isMenuOpen={isMenuOpen}
+            onNavigate={() => setIsMenuOpen(false)}
+          />
         ))}
       </ul>
     </StyledNav>

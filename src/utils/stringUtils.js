@@ -1,19 +1,9 @@
-export function updateGreeting(setGreeting) {
-  const currentHour = new Date().getHours();
-
-  let displayGreeting;
-
-  if (currentHour > 6 && currentHour < 12) {
-    displayGreeting = 'Good morning';
-  } else if (currentHour < 17) {
-    displayGreeting = 'Good afternoon';
-  } else {
-    displayGreeting = 'Good evening';
-  }
-
-  setGreeting(displayGreeting);
+export function getGreeting(hour) {
+  if (hour >= 5 && hour < 12) return 'Good morning';
+  if (hour >= 12 && hour < 17) return 'Good afternoon';
+  return 'Good evening';
 }
 
-export function toTitleCase(str) {
+export function toTitleCase(str = '') {
   return str.replace(/\b\w/g, (char) => char.toUpperCase());
 }

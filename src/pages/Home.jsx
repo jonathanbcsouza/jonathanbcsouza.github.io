@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Greetings } from '../components/Greetings';
-import { updateGreeting, toTitleCase } from '../utils/stringUtils';
-import { setTextLightness } from '../utils/styleUtils';
-import { convertTimeToPercent } from '../utils/timeUtils';
-import { fetchData, isEmptyData } from '../utils/fetchData';
+import { getGreeting, toTitleCase } from '../utils/stringUtils';
+import { getTextLightness } from '../utils/styleUtils';
+import { getDayProgressPercent, useCurrentTime } from '../utils/timeUtils';
+import { useFetchData } from '../utils/useFetchData';
 
 const StyledContainer = styled.div`
   margin-top: 15vh;
@@ -17,41 +16,35 @@ const StyledContainer = styled.div`
 `;
 
 export const Home = () => {
-  const data = fetchData()[0];
+  const { data, isLoading, error } = useFetchData();
+  const content = data[0];
 
-  const timeInPercent = convertTimeToPercent();
-  const [greeting, setGreeting] = useState('');
-  const [lightness, setLightness] = useState('...');
+  const now = useCurrentTime();
+  const greeting = getGreeting(now.getHours());
+  const lightness = getTextLightness(getDayProgressPercent(now));
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTextLightness(timeInPercent, setLightness);
-      updateGreeting(setGreeting);
-    }, 1000);
+  if (isLoading) {
+    return (
+      <StyledContainer>
+        <p>Loading...</p>
+      </StyledContainer>
+    );
+  }
 
-    return () => clearInterval(interval);
-  }, [
-    timeInPercent,
-    setTextLightness,
-    updateGreeting,
-    setLightness,
-    setGreeting,
-  ]);
+  if (error || !content) {
+    return (
+      <StyledContainer>
+        <p>Unable to load content. Please try again later.</p>
+      </StyledContainer>
+    );
+  }
 
   return (
     <StyledContainer>
-      {isEmptyData(data) ? (
-        <p>Loading...</p>
-      ) : (
-        data && (
-          <div key={'s'}>
-            <h1>{toTitleCase(data.home_header)}</h1>
-            <p>{data.home_subheading}</p>
-            <p>{data.home_description}</p>
-            <Greetings greeting={greeting} hsl={lightness} />
-          </div>
-        )
-      )}
+      <h1>{toTitleCase(content.home_header)}</h1>
+      <p>{content.home_subheading}</p>
+      <p>{content.home_description}</p>
+      <Greetings greeting={greeting} hsl={lightness} />
     </StyledContainer>
   );
 };

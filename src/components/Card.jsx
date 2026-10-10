@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const StyledCard = styled.div`
@@ -76,10 +75,10 @@ export const Card = ({ src, title, tech, type }) => {
         <br />
         {tech}
       </div>
-      {type == 'iframe' ? (
-        <iframe allowFullScreen="allowfullscreen" src={src} title={title}></iframe>
+      {type === 'iframe' ? (
+        <iframe allowFullScreen loading="lazy" src={src} title={title}></iframe>
       ) : (
-        <img src={src} alt={title} />
+        <img src={src} alt={title} loading="lazy" />
       )}
     </StyledCard>
   );

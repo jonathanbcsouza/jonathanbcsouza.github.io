@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 import Iframe from 'react-iframe';
-import { fetchData, isEmptyData } from '../utils/fetchData';
+import { useFetchData, parseJson } from '../utils/useFetchData';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -27,11 +26,12 @@ const StyledDiv = styled.div`
 `;
 
 const renderIframes = (document) => {
-  const labs = JSON.parse(document.music_data).music_links;
-  return labs.map((link, index) => (
+  const links = parseJson(document.music_data, {}).music_links ?? [];
+  return links.map((link, index) => (
     <Iframe
       key={`${link.title}-${index}`}
       src={link.src}
+      title={link.title || 'Music player'}
       width="100%"
       height="352"
       frameBorder="0"
@@ -42,11 +42,13 @@ const renderIframes = (document) => {
 };
 
 export const Music = () => {
-  const data = fetchData();
+  const { data, isLoading, error } = useFetchData();
 
-  return (
-    <>
-      <StyledDiv>{isEmptyData(data) ? <p>Loading...</p> : data.map(renderIframes)}</StyledDiv>
-    </>
-  );
+  const renderContent = () => {
+    if (isLoading) return <p>Loading...</p>;
+    if (error) return <p>Unable to load content. Please try again later.</p>;
+    return data.flatMap(renderIframes);
+  };
+
+  return <StyledDiv>{renderContent()}</StyledDiv>;
 };

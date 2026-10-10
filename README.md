@@ -62,4 +62,4 @@ To run the app locally, you need to set up some environment variables related to
 
 ### License
 
-This project is licensed under the [MIT license](./LICENSE.md).
+This project is licensed under the [MIT license](./LICENSE).

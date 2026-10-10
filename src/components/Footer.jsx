@@ -1,13 +1,13 @@
-import React from 'react'
 import styled from 'styled-components'
 import { SocialMedia } from './SocialMedia'
 
 const currentDate = new Date().getFullYear()
 
-const StyledFooter = styled.div`
+const StyledFooter = styled.footer`
   position: fixed;
   bottom: 0;
-  width: 100vw;
+  left: 0;
+  width: 100%;
   border-top: 1px solid var(--headers);
   padding-bottom: 10px;
   font-size: 12px;

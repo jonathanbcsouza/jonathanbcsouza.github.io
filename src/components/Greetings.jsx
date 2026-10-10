@@ -1,14 +1,9 @@
-import React from 'react'
 import styled from 'styled-components'
 
 const StyledGreetings = styled.p`
-  color: hsl(35, 100%, ${(props) => props.$setLightness + '%'});
+  color: hsl(35, 100%, ${(props) => props.$lightness + '%'});
 `
 
-export const Greetings = (props) => {
-  return (
-    <StyledGreetings className="styledGreeting" $setLightness={props.hsl}>
-      {props.greeting} <br />
-    </StyledGreetings>
-  )
+export const Greetings = ({ greeting, hsl }) => {
+  return <StyledGreetings $lightness={hsl}>{greeting}</StyledGreetings>
 }

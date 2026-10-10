@@ -19,7 +19,7 @@ export default createGlobalStyle`
   body {
     background: var(--background-colour);
     min-height: 100vh;
-    font-family: --apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     color: var(--text-white);
   }
@@ -36,11 +36,16 @@ export default createGlobalStyle`
     list-style: none;
   }
 
-  .error-page{
+  .error-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 12px;
     height: 100vh;
+
+    a {
+      color: var(--text-orange);
+    }
   }
 `;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fetchData, isEmptyData } from '../utils/fetchData';
+import { useFetchData } from '../utils/useFetchData';
 import { Avatar } from '../components/ProfilePhoto';
 
 const StyledContainer = styled.div`
@@ -33,21 +33,23 @@ const StyledContent = styled.div`
 `;
 
 export const About = () => {
-  const data = fetchData();
+  const { data, isLoading, error } = useFetchData();
+
+  const renderContent = () => {
+    if (isLoading) return <p>Loading...</p>;
+    if (error) return <p>Unable to load content. Please try again later.</p>;
+    return data.map((document) => (
+      <StyledContent key={document.$id}>
+        <h1>{document.about_header}</h1>
+        <p>{document.about_description}</p>
+      </StyledContent>
+    ));
+  };
 
   return (
-    <StyledContainer className={isEmptyData(data) ? '' : 'animate'}>
+    <StyledContainer>
       <Avatar />
-      {isEmptyData(data) ? (
-        <p>Loading...</p>
-      ) : (
-        data.map((document) => (
-          <StyledContent key={document.$id}>
-            <h1>{document.about_header}</h1>
-            <p>{document.about_description}</p>
-          </StyledContent>
-        ))
-      )}
+      {renderContent()}
     </StyledContainer>
   );
 };

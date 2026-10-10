@@ -1,7 +1,6 @@
-import React from 'react';
 import { Card } from '../components/Card';
 import styled from 'styled-components';
-import { fetchData, isEmptyData } from '../utils/fetchData';
+import { useFetchData, parseJson } from '../utils/useFetchData';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -16,25 +15,27 @@ const StyledDiv = styled.div`
   }
 `;
 
-export const Labs = () => {
-  const data = fetchData();
+const renderCards = (document) => {
+  const labs = parseJson(document.labs_data, {}).labs ?? [];
+  return labs.map((lab, index) => (
+    <Card
+      key={`${lab.title}-${index}`}
+      type={lab.type}
+      tech={lab.tech}
+      src={lab.src}
+      title={lab.title}
+    />
+  ));
+};
 
-  const renderCards = (document) => {
-    const labs = JSON.parse(document.labs_data).labs;
-    return labs.map((lab) => (
-      <Card
-        key={lab.title}
-        type={lab.type}
-        tech={lab.tech}
-        src={lab.src}
-        title={lab.title}
-      />
-    ));
+export const Labs = () => {
+  const { data, isLoading, error } = useFetchData();
+
+  const renderContent = () => {
+    if (isLoading) return <p>Loading...</p>;
+    if (error) return <p>Unable to load content. Please try again later.</p>;
+    return data.flatMap(renderCards);
   };
 
-  return (
-    <StyledDiv>
-      {isEmptyData(data) ? <p>Loading...</p> : data.flatMap(renderCards)}
-    </StyledDiv>
-  );
+  return <StyledDiv>{renderContent()}</StyledDiv>;
 };

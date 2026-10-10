@@ -1,4 +1,3 @@
-export function setTextLightness(timeInPercent, setTextColour) {
-  const setLightness = 100 - timeInPercent / 2
-  setTextColour(setLightness)
+export function getTextLightness(timeInPercent) {
+  return 100 - timeInPercent / 2;
 }

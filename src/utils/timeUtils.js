@@ -1,28 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
-export function getCurrentTime() {
-  return new Date().toLocaleTimeString()
+const SECONDS_PER_DAY = 24 * 60 * 60;
+
+export function getDayProgressPercent(date) {
+  const secondsSinceMidnight =
+    date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds();
+  return Math.round((secondsSinceMidnight * 100) / SECONDS_PER_DAY);
 }
 
-export function convertTimeToPercent() {
-  const total = 235959
-  return Math.round((stringifyCurrentTime() * 100) / total)
-}
-
-export function stringifyCurrentTime() {
-  const [time, setTime] = useState('loading...')
-  const [hour, min, sec] = time.split(':')
-  const stringifiedTime = hour + min + sec
+export function useCurrentTime(intervalMs = 1000) {
+  const [now, setNow] = useState(() => new Date());
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTime(getCurrentTime())
-    }, 1000)
+    const intervalId = setInterval(() => setNow(new Date()), intervalMs);
+    return () => clearInterval(intervalId);
+  }, [intervalMs]);
 
-    return () => {
-      clearInterval(intervalId)
-    }
-  }, [])
-
-  return stringifiedTime
+  return now;
 }
