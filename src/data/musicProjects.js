@@ -8,12 +8,17 @@ export const musicPage = {
       name: 'Jonathan B. Souza',
       tagline: 'Personal',
       description:
-        'Self-taught multi-instrumentalist, composer, and producer exploring minimalistic classical, immersive melodies, and atmospheric post-rock.',
+        'An experimental musical project exploring neoclassical, modern classical, ambient, electronic, and post-rock music.',
       embeds: [
         {
           type: 'youtube',
           id: '0qKL72EtwCI',
           title: 'Jonathan B. Souza - Darkness And Light',
+        },
+        {
+          type: 'youtube',
+          id: 'e_xqTXs91hE',
+          title: 'Jonathan B. Souza - Enlightening (John Hindemith project)',
         },
       ],
       links: [
@@ -44,7 +49,7 @@ export const musicPage = {
       name: 'Harmonic Science',
       tagline: 'Electronic',
       description:
-        'Electronic project focused on frequency-driven soundscapes, remixes, and experimental production.',
+        'An electronic music project created in 2009 (previously a.k.a. The Alchemist), bringing innovation across psychedelic trance and prog. More recently, I have been experimenting with mixing electronic music with psychedelic rock, post-rock, heavy metal. Stay tuned.',
       embeds: [
         {
           type: 'youtube',
