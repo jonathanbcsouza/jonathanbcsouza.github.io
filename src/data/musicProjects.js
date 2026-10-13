@@ -55,6 +55,11 @@ export const musicPage = {
       ],
       links: [
         {
+          kind: 'instagram',
+          label: 'Instagram',
+          href: 'https://www.instagram.com/harmonicscience/',
+        },
+        {
           kind: 'x',
           label: 'X',
           href: 'https://x.com/HarmonicScience',

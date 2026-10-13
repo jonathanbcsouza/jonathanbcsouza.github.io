@@ -50,7 +50,7 @@ export const ArtistProject = ({ project }) => (
       <Title id={`${project.id}-title`}>{project.name}</Title>
       <Description>{project.description}</Description>
     </Header>
-    <ArtistLinks links={project.links} />
+    {project.links?.length > 0 ? <ArtistLinks links={project.links} /> : null}
     <EmbedStack>
       {project.embeds?.map((embed) => (
         <MusicEmbed key={embed.id || embed.src} embed={embed} />

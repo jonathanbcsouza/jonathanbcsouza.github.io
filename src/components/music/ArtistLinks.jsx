@@ -6,11 +6,15 @@ import {
   FaTwitter,
 } from 'react-icons/fa';
 
-const LinkRow = styled.div`
+const LinkRow = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 14px;
+`;
+
+const LinkItem = styled.li`
+  list-style: none;
 `;
 
 const ArtistLink = styled.a`
@@ -44,23 +48,28 @@ const icons = {
   x: FaTwitter,
 };
 
-export const ArtistLinks = ({ links = [] }) => (
-  <LinkRow>
-    {links.map((link) => {
-      const Icon = icons[link.kind];
-      return (
-        <ArtistLink
-          key={link.href}
-          href={link.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={link.label}
-          title={link.label}
-        >
-          {Icon ? <Icon size={16} aria-hidden="true" /> : null}
-          <span>{link.label}</span>
-        </ArtistLink>
-      );
-    })}
-  </LinkRow>
-);
+export const ArtistLinks = ({ links = [] }) => {
+  if (!links.length) return null;
+
+  return (
+    <LinkRow aria-label="Artist links">
+      {links.map((link) => {
+        const Icon = icons[link.kind];
+        return (
+          <LinkItem key={`${link.kind}-${link.href}`}>
+            <ArtistLink
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.label}
+              title={link.label}
+            >
+              {Icon ? <Icon size={16} aria-hidden="true" /> : null}
+              <span>{link.label}</span>
+            </ArtistLink>
+          </LinkItem>
+        );
+      })}
+    </LinkRow>
+  );
+};
