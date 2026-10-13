@@ -1,54 +1,74 @@
 import styled from 'styled-components';
-import Iframe from 'react-iframe';
-import { useFetchData, parseJson } from '../utils/useFetchData';
+import { musicPage } from '../data/musicProjects';
+import { ArtistProject } from '../components/music/ArtistProject';
 
-const StyledDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 75%;
-  margin: auto;
-
-  p {
-    margin-top: 100px;
-    text-align: center;
-    color: white;
-  }
-
-  iframe {
-    margin: 5% 8px 8px 8px;
-  }
+const Page = styled.main`
+  width: min(92%, 1100px);
+  margin: 80px auto 27vh;
+  color: var(--text-white);
 
   @media screen and (max-width: 615px) {
-    padding-top: 10vh;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 100px;
   }
 `;
 
-const renderIframes = (document) => {
-  const links = parseJson(document.music_data, {}).music_links ?? [];
-  return links.map((link, index) => (
-    <Iframe
-      key={`${link.title}-${index}`}
-      src={link.src}
-      title={link.title || 'Music player'}
-      width="100%"
-      height="352"
-      frameBorder="0"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy"
-    />
-  ));
-};
+const Intro = styled.header`
+  margin-bottom: 40px;
+
+  h1 {
+    margin-bottom: 12px;
+    font-size: 1.8em;
+    letter-spacing: 0.04em;
+  }
+
+  p {
+    max-width: 52ch;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+`;
+
+const ProjectGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: start;
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+`;
+
+const OtherSection = styled.div`
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+  & > section {
+    max-width: 640px;
+  }
+`;
 
 export const Music = () => {
-  const { data, isLoading, error } = useFetchData();
+  const { title, intro, featured, other } = musicPage;
 
-  const renderContent = () => {
-    if (isLoading) return <p>Loading...</p>;
-    if (error) return <p>Unable to load content. Please try again later.</p>;
-    return data.flatMap(renderIframes);
-  };
-
-  return <StyledDiv>{renderContent()}</StyledDiv>;
+  return (
+    <Page>
+      <Intro>
+        <h1>{title}</h1>
+        <p>{intro}</p>
+      </Intro>
+      <ProjectGrid>
+        {featured.map((project) => (
+          <ArtistProject key={project.id} project={project} />
+        ))}
+      </ProjectGrid>
+      <OtherSection>
+        {other.map((project) => (
+          <ArtistProject key={project.id} project={project} />
+        ))}
+      </OtherSection>
+    </Page>
+  );
 };
