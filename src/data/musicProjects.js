@@ -1,7 +1,7 @@
 export const musicPage = {
   title: 'Music',
   intro:
-    'Two artist projects: personal songwriting as Jonathan B. Souza, and electronic production as Harmonic Science.',
+    'Artist projects:',
   featured: [
     {
       id: 'jonathan-b-souza',
@@ -84,12 +84,6 @@ export const musicPage = {
           type: 'youtube',
           id: 'p49Bl8Q5X18',
           title: 'Rejected By Society - Transmission Lost',
-        },
-        {
-          type: 'site',
-          href: 'https://rejectedbysociety.com/',
-          title: 'rejectedbysociety.com',
-          imageSrc: '/images/projects/rejected-by-society.png',
         },
       ],
       links: [

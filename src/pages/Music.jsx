@@ -62,7 +62,7 @@ export const Music = () => {
       </ProjectGrid>
       <OtherSection>
         {other.map((project) => (
-          <ArtistProject key={project.id} project={project} wideMedia />
+          <ArtistProject key={project.id} project={project} />
         ))}
       </OtherSection>
     </Page>

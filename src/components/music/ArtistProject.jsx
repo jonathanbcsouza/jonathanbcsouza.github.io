@@ -37,20 +37,14 @@ const Description = styled.p`
 `;
 
 const EmbedStack = styled.div`
-  display: grid;
-  grid-template-columns: ${(props) =>
-    props.$columns > 1 ? 'repeat(2, minmax(0, 1fr))' : 'minmax(0, 1fr)'};
+  display: flex;
+  flex-direction: column;
   gap: 12px;
   margin-top: 18px;
-
-  @media screen and (max-width: 700px) {
-    grid-template-columns: 1fr;
-  }
 `;
 
-export const ArtistProject = ({ project, wideMedia = false }) => {
+export const ArtistProject = ({ project }) => {
   const embeds = project.embeds ?? [];
-  const columns = wideMedia && embeds.length > 1 ? 2 : 1;
 
   return (
     <Section aria-labelledby={`${project.id}-title`}>
@@ -61,7 +55,7 @@ export const ArtistProject = ({ project, wideMedia = false }) => {
       </Header>
       {project.links?.length > 0 ? <ArtistLinks links={project.links} /> : null}
       {embeds.length > 0 ? (
-        <EmbedStack $columns={columns}>
+        <EmbedStack>
           {embeds.map((embed) => (
             <MusicEmbed key={embed.id || embed.href || embed.src} embed={embed} />
           ))}

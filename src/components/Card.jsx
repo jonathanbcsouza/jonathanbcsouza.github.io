@@ -26,11 +26,12 @@ const StyledCard = styled.div`
     margin: auto;
     max-width: 96%;
     max-height: 95%;
+    object-fit: cover;
     filter: blur(2px);
     border-radius: 20px;
   }
 
-  div {
+  .card-overlay {
     position: absolute;
     padding: 50px 0;
     top: 29%;
@@ -56,7 +57,7 @@ const StyledCard = styled.div`
         filter 0.2s ease;
     }
 
-    div {
+    .card-overlay {
       display: none;
     }
   }
@@ -67,10 +68,16 @@ const StyledCard = styled.div`
   }
 `;
 
-export const Card = ({ src, title, tech, type }) => {
-  return (
+const CardLink = styled.a`
+  display: block;
+  color: inherit;
+  text-decoration: none;
+`;
+
+export const Card = ({ src, title, tech, type, href }) => {
+  const content = (
     <StyledCard>
-      <div>
+      <div className="card-overlay">
         <h3>{title}</h3>
         <br />
         {tech}
@@ -81,5 +88,18 @@ export const Card = ({ src, title, tech, type }) => {
         <img src={src} alt={title} loading="lazy" />
       )}
     </StyledCard>
+  );
+
+  if (!href) return content;
+
+  return (
+    <CardLink
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Open ${title}`}
+    >
+      {content}
+    </CardLink>
   );
 };
