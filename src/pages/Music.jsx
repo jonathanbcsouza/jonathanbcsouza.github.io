@@ -44,10 +44,6 @@ const OtherSection = styled.div`
   margin-top: 56px;
   padding-top: 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-
-  & > section {
-    max-width: 640px;
-  }
 `;
 
 export const Music = () => {
@@ -66,7 +62,7 @@ export const Music = () => {
       </ProjectGrid>
       <OtherSection>
         {other.map((project) => (
-          <ArtistProject key={project.id} project={project} />
+          <ArtistProject key={project.id} project={project} wideMedia />
         ))}
       </OtherSection>
     </Page>

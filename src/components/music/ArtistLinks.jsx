@@ -4,6 +4,8 @@ import {
   FaInstagram,
   FaApple,
   FaTwitter,
+  FaFacebook,
+  FaGlobe,
 } from 'react-icons/fa';
 
 const LinkRow = styled.ul`
@@ -46,6 +48,8 @@ const icons = {
   instagram: FaInstagram,
   apple: FaApple,
   x: FaTwitter,
+  facebook: FaFacebook,
+  website: FaGlobe,
 };
 
 export const ArtistLinks = ({ links = [] }) => {

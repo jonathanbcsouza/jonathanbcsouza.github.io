@@ -74,19 +74,36 @@ export const musicPage = {
   ],
   other: [
     {
-      id: 'other-projects',
-      name: 'Other projects',
+      id: 'rejected-by-society',
+      name: 'Rejected By Society',
       tagline: 'Collaborations',
       description:
-        'Selected collaborations and featured work outside the main artist projects.',
+        'Experimental heavy rock collaboration. Translating experience into sound — sometimes a collective thought, sometimes an isolated perspective.',
       embeds: [
         {
           type: 'youtube',
           id: 'p49Bl8Q5X18',
           title: 'Rejected By Society - Transmission Lost',
         },
+        {
+          type: 'site',
+          href: 'https://rejectedbysociety.com/',
+          title: 'rejectedbysociety.com',
+          imageSrc: '/images/projects/rejected-by-society.png',
+        },
       ],
-      links: [],
+      links: [
+        {
+          kind: 'website',
+          label: 'Website',
+          href: 'https://rejectedbysociety.com/',
+        },
+        {
+          kind: 'facebook',
+          label: 'Facebook',
+          href: 'https://www.facebook.com/profile.php?id=61595342132436',
+        },
+      ],
     },
   ],
 };

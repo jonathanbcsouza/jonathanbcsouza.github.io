@@ -37,24 +37,36 @@ const Description = styled.p`
 `;
 
 const EmbedStack = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: ${(props) =>
+    props.$columns > 1 ? 'repeat(2, minmax(0, 1fr))' : 'minmax(0, 1fr)'};
   gap: 12px;
   margin-top: 18px;
+
+  @media screen and (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
-export const ArtistProject = ({ project }) => (
-  <Section aria-labelledby={`${project.id}-title`}>
-    <Header>
-      <Tagline>{project.tagline}</Tagline>
-      <Title id={`${project.id}-title`}>{project.name}</Title>
-      <Description>{project.description}</Description>
-    </Header>
-    {project.links?.length > 0 ? <ArtistLinks links={project.links} /> : null}
-    <EmbedStack>
-      {project.embeds?.map((embed) => (
-        <MusicEmbed key={embed.id || embed.src} embed={embed} />
-      ))}
-    </EmbedStack>
-  </Section>
-);
+export const ArtistProject = ({ project, wideMedia = false }) => {
+  const embeds = project.embeds ?? [];
+  const columns = wideMedia && embeds.length > 1 ? 2 : 1;
+
+  return (
+    <Section aria-labelledby={`${project.id}-title`}>
+      <Header>
+        <Tagline>{project.tagline}</Tagline>
+        <Title id={`${project.id}-title`}>{project.name}</Title>
+        <Description>{project.description}</Description>
+      </Header>
+      {project.links?.length > 0 ? <ArtistLinks links={project.links} /> : null}
+      {embeds.length > 0 ? (
+        <EmbedStack $columns={columns}>
+          {embeds.map((embed) => (
+            <MusicEmbed key={embed.id || embed.href || embed.src} embed={embed} />
+          ))}
+        </EmbedStack>
+      ) : null}
+    </Section>
+  );
+};

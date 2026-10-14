@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { SitePreview } from './SitePreview';
 
 const EmbedFrame = styled.div`
   position: relative;
@@ -19,6 +20,16 @@ const EmbedFrame = styled.div`
 `;
 
 export const MusicEmbed = ({ embed }) => {
+  if (embed.type === 'site') {
+    return (
+      <SitePreview
+        href={embed.href}
+        title={embed.title}
+        imageSrc={embed.imageSrc}
+      />
+    );
+  }
+
   if (embed.type !== 'youtube') return null;
 
   return (
