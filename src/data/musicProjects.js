@@ -60,6 +60,11 @@ export const musicPage = {
       ],
       links: [
         {
+          kind: 'spotify',
+          label: 'Spotify',
+          href: 'https://open.spotify.com/artist/3SzDQcUhTIhN8GvnxHIgHE',
+        },
+        {
           kind: 'instagram',
           label: 'Instagram',
           href: 'https://www.instagram.com/harmonicscience/',
@@ -78,7 +83,7 @@ export const musicPage = {
       name: 'Rejected By Society',
       tagline: 'Collaborations',
       description:
-        'Experimental heavy rock collaboration. Translating experience into sound — sometimes a collective thought, sometimes an isolated perspective.',
+        'Rock band. Translating experience into sound — sometimes a collective thought, sometimes an isolated perspective.',
       embeds: [
         {
           type: 'youtube',
