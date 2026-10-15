@@ -101,12 +101,23 @@ export const musicPage = {
           id: 'p49Bl8Q5X18',
           title: 'Rejected By Society - Transmission Lost',
         },
+        {
+          type: 'spotify',
+          kind: 'artist',
+          id: '7ppG2Sze4xOeX7n1hrghbD',
+          title: 'Rejected By Society on Spotify',
+        },
       ],
       links: [
         {
           kind: 'website',
           label: 'Website',
           href: 'https://rejectedbysociety.com/',
+        },
+        {
+          kind: 'spotify',
+          label: 'Spotify',
+          href: 'https://open.spotify.com/artist/7ppG2Sze4xOeX7n1hrghbD',
         },
         {
           kind: 'facebook',
