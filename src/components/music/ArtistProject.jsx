@@ -22,7 +22,7 @@ const Tagline = styled.p`
 
 const Title = styled.h2`
   margin: 0 0 10px;
-  font-size: 1.35em;
+  font-size: 1.5em;
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 1.25;
@@ -30,17 +30,23 @@ const Title = styled.h2`
 
 const Description = styled.p`
   margin: 0;
+  max-width: 62ch;
   line-height: 1.55;
-  font-size: 0.95em;
+  font-size: 0.98em;
   color: var(--text-white);
   opacity: 0.9;
 `;
 
 const EmbedStack = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 18px;
+  display: grid;
+  grid-template-columns: ${(props) =>
+    props.$count > 1 ? 'repeat(2, minmax(0, 1fr))' : 'minmax(0, 1fr)'};
+  gap: 14px;
+  margin-top: 20px;
+
+  @media screen and (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const ArtistProject = ({ project }) => {
@@ -55,7 +61,7 @@ export const ArtistProject = ({ project }) => {
       </Header>
       {project.links?.length > 0 ? <ArtistLinks links={project.links} /> : null}
       {embeds.length > 0 ? (
-        <EmbedStack>
+        <EmbedStack $count={embeds.length}>
           {embeds.map((embed) => (
             <MusicEmbed key={embed.id || embed.href || embed.src} embed={embed} />
           ))}

@@ -6,7 +6,7 @@ export const musicPage = {
     {
       id: 'jonathan-b-souza',
       name: 'Jonathan B. Souza',
-      tagline: 'Personal',
+      tagline: 'Experimental',
       description:
         'An experimental musical project exploring neoclassical, modern classical, ambient, electronic, and post-rock music.',
       embeds: [
@@ -82,8 +82,7 @@ export const musicPage = {
       id: 'rejected-by-society',
       name: 'Rejected By Society',
       tagline: 'Collaborations',
-      description:
-        'Rock band. Translating experience into sound — sometimes a collective thought, sometimes an isolated perspective.',
+      description: 'Rock band.',
       embeds: [
         {
           type: 'youtube',
