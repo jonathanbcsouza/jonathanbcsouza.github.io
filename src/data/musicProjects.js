@@ -20,6 +20,12 @@ export const musicPage = {
           id: 'e_xqTXs91hE',
           title: 'Jonathan B. Souza - Enlightening (John Hindemith project)',
         },
+        {
+          type: 'spotify',
+          kind: 'artist',
+          id: '3AxDKUFfndRKbL2W0sxPZ0',
+          title: 'Jonathan B. Souza on Spotify',
+        },
       ],
       links: [
         {
@@ -56,6 +62,12 @@ export const musicPage = {
           id: 'sp_NYR4U8Oo',
           title:
             'Cat Dealers & Evokings feat. Magga - Gravity (Harmonic Science Remix)',
+        },
+        {
+          type: 'spotify',
+          kind: 'album',
+          id: '22tqX3xbk0aiVBLOH0xhop',
+          title: 'Early Experiments on Spotify',
         },
       ],
       links: [

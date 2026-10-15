@@ -37,12 +37,18 @@ const Description = styled.p`
   opacity: 0.9;
 `;
 
+const MediaBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+`;
+
 const EmbedStack = styled.div`
   display: grid;
   grid-template-columns: ${(props) =>
     props.$count > 1 ? 'repeat(2, minmax(0, 1fr))' : 'minmax(0, 1fr)'};
   gap: 14px;
-  margin-top: 20px;
 
   @media screen and (max-width: 700px) {
     grid-template-columns: 1fr;
@@ -51,6 +57,8 @@ const EmbedStack = styled.div`
 
 export const ArtistProject = ({ project }) => {
   const embeds = project.embeds ?? [];
+  const videos = embeds.filter((embed) => embed.type === 'youtube');
+  const spotify = embeds.filter((embed) => embed.type === 'spotify');
 
   return (
     <Section aria-labelledby={`${project.id}-title`}>
@@ -60,12 +68,19 @@ export const ArtistProject = ({ project }) => {
         <Description>{project.description}</Description>
       </Header>
       {project.links?.length > 0 ? <ArtistLinks links={project.links} /> : null}
-      {embeds.length > 0 ? (
-        <EmbedStack $count={embeds.length}>
-          {embeds.map((embed) => (
-            <MusicEmbed key={embed.id || embed.href || embed.src} embed={embed} />
+      {videos.length > 0 || spotify.length > 0 ? (
+        <MediaBlock>
+          {videos.length > 0 ? (
+            <EmbedStack $count={videos.length}>
+              {videos.map((embed) => (
+                <MusicEmbed key={`yt-${embed.id}`} embed={embed} />
+              ))}
+            </EmbedStack>
+          ) : null}
+          {spotify.map((embed) => (
+            <MusicEmbed key={`sp-${embed.kind}-${embed.id}`} embed={embed} />
           ))}
-        </EmbedStack>
+        </MediaBlock>
       ) : null}
     </Section>
   );
