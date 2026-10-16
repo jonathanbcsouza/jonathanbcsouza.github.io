@@ -77,6 +77,11 @@ export const musicPage = {
           href: 'https://open.spotify.com/artist/3SzDQcUhTIhN8GvnxHIgHE',
         },
         {
+          kind: 'soundcloud',
+          label: 'SoundCloud',
+          href: 'https://soundcloud.com/harmonic_science/tracks',
+        },
+        {
           kind: 'instagram',
           label: 'Instagram',
           href: 'https://www.instagram.com/harmonicscience/',
@@ -118,6 +123,11 @@ export const musicPage = {
           kind: 'spotify',
           label: 'Spotify',
           href: 'https://open.spotify.com/artist/7ppG2Sze4xOeX7n1hrghbD',
+        },
+        {
+          kind: 'instagram',
+          label: 'Instagram',
+          href: 'https://www.instagram.com/rbs.music/',
         },
         {
           kind: 'facebook',
