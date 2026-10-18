@@ -17,11 +17,9 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "appwrite": "^13.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
-    "react-iframe": "^1.8.5",
     "react-router-dom": "^7.18.4",
     "styled-components": "^6.0.9"
   },

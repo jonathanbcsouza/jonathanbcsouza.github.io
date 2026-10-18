@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { useFetchData } from '../utils/useFetchData';
 import { Avatar } from '../components/ProfilePhoto';
+import { aboutPage } from '../data/aboutPage';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -33,23 +33,17 @@ const StyledContent = styled.div`
 `;
 
 export const About = () => {
-  const { data, isLoading, error } = useFetchData();
-
-  const renderContent = () => {
-    if (isLoading) return <p>Loading...</p>;
-    if (error) return <p>Unable to load content. Please try again later.</p>;
-    return data.map((document) => (
-      <StyledContent key={document.$id}>
-        <h1>{document.about_header}</h1>
-        <p>{document.about_description}</p>
-      </StyledContent>
-    ));
-  };
+  const { title, paragraphs } = aboutPage;
 
   return (
     <StyledContainer>
       <Avatar />
-      {renderContent()}
+      <StyledContent>
+        <h1>{title}</h1>
+        {paragraphs.map((paragraph) => (
+          <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+        ))}
+      </StyledContent>
     </StyledContainer>
   );
 };
