@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { musicPage } from '../data/musicProjects';
 import { ArtistProject } from '../components/music/ArtistProject';
 
-const Page = styled.main`
+const Page = styled.div`
   width: min(92%, 960px);
   margin: 80px auto 27vh;
   color: var(--text-white);
@@ -42,7 +42,7 @@ const SwitcherButton = styled.button`
     ${(props) =>
       props.$active ? 'var(--text-orange)' : 'rgba(255, 255, 255, 0.22)'};
   background: ${(props) =>
-      props.$active ? 'rgba(255, 165, 0, 0.12)' : 'transparent'};
+    props.$active ? 'rgba(255, 165, 0, 0.12)' : 'transparent'};
   color: ${(props) =>
     props.$active ? 'var(--text-orange)' : 'var(--text-white)'};
   padding: 10px 14px;

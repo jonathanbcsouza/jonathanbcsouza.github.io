@@ -1,7 +1,6 @@
 export const musicPage = {
   title: 'Music',
-  intro:
-    'Artist projects:',
+  intro: 'Artist projects:',
   featured: [
     {
       id: 'jonathan-b-souza',

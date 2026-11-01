@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { SocialMedia } from './SocialMedia'
+import styled from 'styled-components';
+import { SocialMedia } from './SocialMedia';
 
-const currentDate = new Date().getFullYear()
+const currentYear = new Date().getFullYear();
 
 const StyledFooter = styled.footer`
   position: fixed;
@@ -15,14 +15,14 @@ const StyledFooter = styled.footer`
   text-align: center;
   background: var(--background-colour);
   z-index: 1;
-`
+`;
 
 export const Footer = () => {
   return (
     <StyledFooter>
       <SocialMedia />
       <br />
-      <p>Copyright {currentDate} © Jonathan Souza</p>
+      <p>Copyright {currentYear} © Jonathan Souza</p>
     </StyledFooter>
-  )
-}
+  );
+};

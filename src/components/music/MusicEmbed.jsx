@@ -47,7 +47,6 @@ export const MusicEmbed = ({ embed }) => {
           src={spotifySrc(embed)}
           title={embed.title || 'Spotify player'}
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          allowFullScreen
           loading="lazy"
         />
       </SpotifyFrame>
@@ -61,8 +60,7 @@ export const MusicEmbed = ({ embed }) => {
       <iframe
         src={`https://www.youtube.com/embed/${embed.id}`}
         title={embed.title || 'Music video'}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
         loading="lazy"
       />
     </YoutubeFrame>

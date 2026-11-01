@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { IconContext } from 'react-icons'
-import { MySocialLinks } from './SocialLinks'
+import styled from 'styled-components';
+import { IconContext } from 'react-icons';
+import { MySocialLinks } from './SocialLinks';
 
 const StyledIcons = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ const StyledIcons = styled.div`
     fill: var(--text-orange);
     height: 30px;
   }
-`
+`;
 
 const StyledLink = styled.a.attrs(({ $link, $label }) => ({
   href: $link,
@@ -25,7 +25,7 @@ const StyledLink = styled.a.attrs(({ $link, $label }) => ({
   title: $label,
 }))`
   margin: 2px;
-`
+`;
 
 export const SocialMedia = () => {
   return (
@@ -42,5 +42,5 @@ export const SocialMedia = () => {
         </div>
       </IconContext.Provider>
     </StyledIcons>
-  )
-}
+  );
+};

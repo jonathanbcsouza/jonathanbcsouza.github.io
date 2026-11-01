@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { DropdownMenu } from './DropdownMenu';
 import { NavLink } from 'react-router-dom';
+import { siteRoutes } from '../data/siteRoutes';
 
 const StyledNav = styled.nav`
   top: 0;
@@ -43,7 +44,7 @@ const StyledLi = styled.li`
     color: var(--text-white);
   }
   @media (max-width: 615px) {
-    display: ${(props) => (props.$isMenuOpen ? '' : 'none')};
+    display: ${(props) => (props.$isMenuOpen ? 'block' : 'none')};
     height: inherit;
   }
 `;
@@ -54,17 +55,14 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-const routes = [
-  { title: 'Home', url: '/home' },
-  { title: 'About', url: '/about' },
-  { title: 'Labs', url: '/labs' },
-  { title: 'Music', url: '/music' },
-];
-
-const NavbarItem = ({ item, isMenuOpen, onNavigate }) => (
+const NavbarItem = ({ route, isMenuOpen, onNavigate }) => (
   <StyledLi $isMenuOpen={isMenuOpen}>
-    <StyledNavLink to={item.url} onClick={onNavigate}>
-      {item.title}
+    <StyledNavLink
+      to={route.path}
+      end={route.path === '/'}
+      onClick={onNavigate}
+    >
+      {route.title}
     </StyledNavLink>
   </StyledLi>
 );
@@ -79,10 +77,10 @@ export const Navbar = () => {
           isMenuOpen={isMenuOpen}
           onToggle={() => setIsMenuOpen((open) => !open)}
         />
-        {routes.map((item) => (
+        {siteRoutes.map((route) => (
           <NavbarItem
-            key={item.url}
-            item={item}
+            key={route.path}
+            route={route}
             isMenuOpen={isMenuOpen}
             onNavigate={() => setIsMenuOpen(false)}
           />

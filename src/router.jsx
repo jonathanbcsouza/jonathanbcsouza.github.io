@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { App } from './App.jsx';
 import { Home } from './pages/Home.jsx';
 import { About } from './pages/About.jsx';
@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'home', element: <Home /> },
+      { path: 'home', element: <Navigate to="/" replace /> },
       { path: 'about', element: <About /> },
       { path: 'labs', element: <Labs /> },
       { path: 'music', element: <Music /> },

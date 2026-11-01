@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { FaBars, FaTimes } from 'react-icons/fa'
+import styled from 'styled-components';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const StyledMenuBtn = styled.button`
   display: none;
@@ -17,7 +17,7 @@ const StyledMenuBtn = styled.button`
   @media (max-width: 615px) {
     display: flex;
   }
-`
+`;
 
 export const DropdownMenu = ({ isMenuOpen, onToggle }) => (
   <li>
@@ -30,4 +30,4 @@ export const DropdownMenu = ({ isMenuOpen, onToggle }) => (
       {isMenuOpen ? <FaTimes /> : <FaBars />}
     </StyledMenuBtn>
   </li>
-)
+);

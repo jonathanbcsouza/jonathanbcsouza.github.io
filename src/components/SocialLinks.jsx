@@ -1,11 +1,6 @@
-import { RxCodesandboxLogo } from 'react-icons/rx'
-import {
-  FaGithub,
-  FaLinkedin,
-  FaDev,
-  FaSpotify,
-  FaTwitter,
-} from 'react-icons/fa'
+import { RxCodesandboxLogo } from 'react-icons/rx';
+import { FaGithub, FaLinkedin, FaDev, FaSpotify } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 export const MySocialLinks = [
   {
@@ -29,13 +24,13 @@ export const MySocialLinks = [
     link: 'https://dev.to/jonathanbcsouza',
   },
   {
-    label: 'Twitter',
-    component: <FaTwitter color="#00acee" />,
-    link: 'https://www.twitter.com/jonathanbcsouza',
+    label: 'X',
+    component: <FaXTwitter color="#fff" />,
+    link: 'https://x.com/jonathanbcsouza',
   },
   {
     label: 'Spotify',
     component: <FaSpotify color="#1DB954" />,
     link: 'https://open.spotify.com/artist/3AxDKUFfndRKbL2W0sxPZ0?si=BawUTIHpQyaB-ZVw8g_w5w',
   },
-]
+];

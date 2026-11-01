@@ -13,7 +13,7 @@ export const labsProjects = [
     src: 'https://todo-list-app-eight-bice.vercel.app',
   },
   {
-    title: 'Ceasar Cipher',
+    title: 'Caesar Cipher',
     tech: 'Javascript/React',
     type: 'iframe',
     src: 'https://main.d12bj0lezqamk9.amplifyapp.com',
