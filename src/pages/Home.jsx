@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Greetings } from '../components/Greetings';
 import { Page } from '../components/Page';
+import { TypedLine } from '../components/TypedLine';
 import { Sketchpad } from '../components/sketchpad/Sketchpad';
 import { homePage } from '../data/homePage';
 import { getGreeting } from '../utils/stringUtils';
@@ -16,28 +17,29 @@ const Hero = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 60ch;
+  padding-top: 24px;
 
   h1 {
-    margin-bottom: 14px;
+    margin-bottom: 10px;
     font-size: clamp(1.9em, 5vw, 2.6em);
     line-height: 1.15;
     letter-spacing: 0.01em;
   }
-
-  p {
-    margin-bottom: 12px;
-    line-height: 1.6;
-  }
 `;
 
-const Subheading = styled.p`
+const Role = styled.p`
+  margin-bottom: 16px;
   color: var(--text-orange);
   font-size: 0.95em;
   letter-spacing: 0.02em;
 `;
 
+const Intro = styled(TypedLine)`
+  line-height: 1.6;
+`;
+
 export const Home = () => {
-  const { header, subheading, description } = homePage;
+  const { name, role, intro } = homePage;
   const now = useCurrentTime(CLOCK_INTERVAL_MS);
   const greeting = getGreeting(now.getHours());
   const lightness = getTextLightness(getDayProgressPercent(now));
@@ -46,9 +48,9 @@ export const Home = () => {
     <Page>
       <Hero>
         <Greetings greeting={greeting} lightness={lightness} />
-        <h1>{header}</h1>
-        <Subheading>{subheading}</Subheading>
-        <p>{description}</p>
+        <h1>{name}</h1>
+        <Role>{role}</Role>
+        <Intro text={intro} />
       </Hero>
       <Sketchpad />
     </Page>
