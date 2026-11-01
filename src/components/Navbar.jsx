@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { DropdownMenu } from './DropdownMenu';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { siteRoutes } from '../data/siteRoutes';
 
 const StyledNav = styled.nav`
@@ -39,7 +39,10 @@ const StyledNav = styled.nav`
 
 // The mobile bar was an empty strip with only the menu icon on the right.
 // The name gives it a left anchor and a way home from any page.
-const MobileBrand = styled(NavLink)`
+// A plain Link, not a NavLink: as a NavLink it also claimed
+// aria-current="page" on the home route, so the nav announced two current
+// pages at once.
+const MobileBrand = styled(Link)`
   display: none;
 
   @media (max-width: 615px) {
