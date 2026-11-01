@@ -30,6 +30,9 @@ const speedFor = (length) =>
 const Reserve = styled.span`
   display: block;
   visibility: hidden;
+  /* Excluded from selection so copying the hero does not yield the sentence
+     three times over, once from each layer. */
+  user-select: none;
 `;
 
 const Wrap = styled.p`
@@ -49,6 +52,7 @@ const ForScreenReaders = styled.span`
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+  user-select: none;
 `;
 
 const Caret = styled.span`
