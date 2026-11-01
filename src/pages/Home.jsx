@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Greetings } from '../components/Greetings';
 import { Page } from '../components/Page';
+import { Sketchpad } from '../components/sketchpad/Sketchpad';
 import { homePage } from '../data/homePage';
 import { getGreeting } from '../utils/stringUtils';
 import { getTextLightness } from '../utils/styleUtils';
@@ -49,6 +50,7 @@ export const Home = () => {
         <Subheading>{subheading}</Subheading>
         <p>{description}</p>
       </Hero>
+      <Sketchpad />
     </Page>
   );
 };
