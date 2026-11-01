@@ -3,25 +3,22 @@ import { SocialMedia } from './SocialMedia';
 
 const currentYear = new Date().getFullYear();
 
+// Sits in normal flow. #root is a flex column and main grows, so this lands at
+// the bottom of the viewport on short pages without being position:fixed.
 const StyledFooter = styled.footer`
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  flex-shrink: 0;
   width: 100%;
-  border-top: 1px solid var(--headers);
-  padding-bottom: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 20px 5% 24px;
   font-size: 12px;
   color: var(--text-orange);
   text-align: center;
-  background: var(--background-colour);
-  z-index: 1;
 `;
 
 export const Footer = () => {
   return (
     <StyledFooter>
       <SocialMedia />
-      <br />
       <p>Copyright {currentYear} © Jonathan Souza</p>
     </StyledFooter>
   );

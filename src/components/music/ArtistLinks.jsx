@@ -24,7 +24,8 @@ const ArtistLink = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 10px;
+  padding: 10px 12px;
+  min-height: 44px;
   color: var(--text-white);
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.22);

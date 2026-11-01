@@ -2,31 +2,10 @@ import { useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { musicPage } from '../data/musicProjects';
 import { ArtistProject } from '../components/music/ArtistProject';
+import { Page, PageIntro } from '../components/Page';
 
-const Page = styled.div`
-  width: min(92%, 960px);
-  margin: 80px auto 27vh;
-  color: var(--text-white);
-
-  @media screen and (max-width: 615px) {
-    margin-top: 100px;
-  }
-`;
-
-const Intro = styled.header`
-  margin-bottom: 28px;
-
-  h1 {
-    margin-bottom: 10px;
-    font-size: 1.8em;
-    letter-spacing: 0.04em;
-  }
-
-  p {
-    max-width: 48ch;
-    line-height: 1.55;
-    opacity: 0.9;
-  }
+const Column = styled.div`
+  max-width: 960px;
 `;
 
 const ProjectSwitcher = styled.div`
@@ -45,8 +24,9 @@ const SwitcherButton = styled.button`
     props.$active ? 'rgba(255, 165, 0, 0.12)' : 'transparent'};
   color: ${(props) =>
     props.$active ? 'var(--text-orange)' : 'var(--text-white)'};
-  padding: 10px 14px;
-  border-radius: 4px;
+  padding: 12px 16px;
+  min-height: 44px;
+  border-radius: 6px;
   cursor: pointer;
   text-align: left;
   transition:
@@ -93,41 +73,43 @@ export const Music = () => {
 
   return (
     <Page>
-      <Intro>
-        <h1>{title}</h1>
-        <p>{intro}</p>
-      </Intro>
+      <Column>
+        <PageIntro>
+          <h1>{title}</h1>
+          <p>{intro}</p>
+        </PageIntro>
 
-      <ProjectSwitcher role="tablist" aria-label="Artist projects">
-        {projects.map((project) => {
-          const isActive = project.id === activeProject.id;
-          return (
-            <SwitcherButton
-              key={project.id}
-              type="button"
-              role="tab"
-              id={`tab-${project.id}`}
-              aria-selected={isActive}
-              aria-controls={`panel-${project.id}`}
-              $active={isActive}
-              onClick={() => setActiveId(project.id)}
-            >
-              <SwitcherTag>{project.tagline}</SwitcherTag>
-              <SwitcherName>{project.name}</SwitcherName>
-            </SwitcherButton>
-          );
-        })}
-      </ProjectSwitcher>
+        <ProjectSwitcher role="tablist" aria-label="Artist projects">
+          {projects.map((project) => {
+            const isActive = project.id === activeProject.id;
+            return (
+              <SwitcherButton
+                key={project.id}
+                type="button"
+                role="tab"
+                id={`tab-${project.id}`}
+                aria-selected={isActive}
+                aria-controls={`panel-${project.id}`}
+                $active={isActive}
+                onClick={() => setActiveId(project.id)}
+              >
+                <SwitcherTag>{project.tagline}</SwitcherTag>
+                <SwitcherName>{project.name}</SwitcherName>
+              </SwitcherButton>
+            );
+          })}
+        </ProjectSwitcher>
 
-      {activeProject ? (
-        <Panel
-          role="tabpanel"
-          id={`panel-${activeProject.id}`}
-          aria-labelledby={`tab-${activeProject.id}`}
-        >
-          <ArtistProject project={activeProject} />
-        </Panel>
-      ) : null}
+        {activeProject ? (
+          <Panel
+            role="tabpanel"
+            id={`panel-${activeProject.id}`}
+            aria-labelledby={`tab-${activeProject.id}`}
+          >
+            <ArtistProject project={activeProject} />
+          </Panel>
+        ) : null}
+      </Column>
     </Page>
   );
 };

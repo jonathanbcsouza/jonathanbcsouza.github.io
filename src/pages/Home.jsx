@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Greetings } from '../components/Greetings';
+import { Page } from '../components/Page';
 import { homePage } from '../data/homePage';
 import { getGreeting } from '../utils/stringUtils';
 import { getTextLightness } from '../utils/styleUtils';
@@ -10,14 +11,28 @@ import { getDayProgressPercent, useCurrentTime } from '../utils/timeUtils';
 // only bought 3,600 wasted renders an hour.
 const CLOCK_INTERVAL_MS = 60_000;
 
-const StyledContainer = styled.div`
-  margin-top: 15vh;
-  padding-left: 7.5vw;
-  color: var(--text-white);
+const Hero = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 60ch;
+
+  h1 {
+    margin-bottom: 14px;
+    font-size: clamp(1.9em, 5vw, 2.6em);
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+  }
 
   p {
     margin-bottom: 12px;
+    line-height: 1.6;
   }
+`;
+
+const Subheading = styled.p`
+  color: var(--text-orange);
+  font-size: 0.95em;
+  letter-spacing: 0.02em;
 `;
 
 export const Home = () => {
@@ -27,11 +42,13 @@ export const Home = () => {
   const lightness = getTextLightness(getDayProgressPercent(now));
 
   return (
-    <StyledContainer>
-      <h1>{header}</h1>
-      <p>{subheading}</p>
-      <p>{description}</p>
-      <Greetings greeting={greeting} lightness={lightness} />
-    </StyledContainer>
+    <Page>
+      <Hero>
+        <Greetings greeting={greeting} lightness={lightness} />
+        <h1>{header}</h1>
+        <Subheading>{subheading}</Subheading>
+        <p>{description}</p>
+      </Hero>
+    </Page>
   );
 };
