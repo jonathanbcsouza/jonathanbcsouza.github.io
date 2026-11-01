@@ -1,105 +1,179 @@
 import styled from 'styled-components';
+import { FiArrowUpRight } from 'react-icons/fi';
 
-const StyledCard = styled.div`
+const Item = styled.li`
+  min-width: 0;
+`;
+
+const Surface = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.28);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+`;
+
+const Media = styled.div`
   position: relative;
-  width: 520px;
-  height: 320px;
-  margin: 25px 20px 0 20px;
-  border-radius: 20px;
-  box-shadow: 1px 5px 20px 1px rgba(50, 50, 50, 0.75);
-  background: rgba(28, 27, 27, 0.29);
-  transition: all 0.3s ease;
-
-  iframe {
-    border: none;
-    border-radius: 20px;
-    width: 100%;
-    height: 95%;
-    margin: 10px;
-    max-width: 96%;
-    filter: blur(2px);
-    opacity: 0.5;
-  }
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
   img {
-    display: block;
-    margin: auto;
-    max-width: 96%;
-    max-height: 95%;
-    object-fit: cover;
-    filter: blur(2px);
-    border-radius: 20px;
-  }
-
-  .card-overlay {
-    position: absolute;
-    padding: 50px 0;
-    top: 29%;
     width: 100%;
-    opacity: 0.9;
-    text-align: center;
-    background-color: black;
-    z-index: 1;
+    height: 100%;
+    display: block;
+    /* 'contain' keeps portrait screenshots whole, 'cover' anchored to the top
+       shows the masthead of a wide page rather than its middle. */
+    object-fit: ${(props) => (props.$fit === 'contain' ? 'contain' : 'cover')};
+    object-position: ${(props) => (props.$fit === 'contain' ? 'center' : 'top center')};
   }
+`;
 
-  &:hover {
-    top: -10px;
-    box-shadow: 8px 3px 15px 0px rgba(200, 118, 60, 0.75);
-    transition: all 0.3s ease;
+const Placeholder = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 16px;
+  font-size: 0.78em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.45);
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 165, 0, 0.05)
+  );
+`;
 
-    iframe,
-    img {
-      border: none;
-      filter: blur(0);
-      opacity: 1;
-      transition:
-        opacity 0.2s ease,
-        filter 0.2s ease;
-    }
+const Body = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px 16px;
+`;
 
-    .card-overlay {
-      display: none;
-    }
-  }
+const Title = styled.h2`
+  margin: 0;
+  font-size: 1.02em;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  transition: color 0.25s ease;
+`;
 
-  @media (max-width: 615px) {
-    width: 320px;
-    height: 220px;
+const Tech = styled.p`
+  margin: 0;
+  font-size: 0.82em;
+  line-height: 1.45;
+  color: var(--text-white);
+  opacity: 0.7;
+`;
+
+const Destination = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: auto;
+  padding-top: 10px;
+  font-size: 0.74em;
+  letter-spacing: 0.04em;
+  color: var(--text-orange);
+  opacity: 0.85;
+
+  svg {
+    flex-shrink: 0;
   }
 `;
 
 const CardLink = styled.a`
   display: block;
+  height: 100%;
   color: inherit;
   text-decoration: none;
+  border-radius: 12px;
+
+  &:hover ${Surface} {
+    transform: translateY(-4px);
+    border-color: var(--text-orange);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+  }
+
+  &:hover ${Title} {
+    color: var(--text-orange);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--text-orange);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &:hover ${Surface} {
+      transform: none;
+    }
+  }
 `;
 
-export const Card = ({ src, title, tech, type, href }) => {
-  const content = (
-    <StyledCard>
-      <div className="card-overlay">
-        <h3>{title}</h3>
-        <br />
-        {tech}
-      </div>
-      {type === 'iframe' ? (
-        <iframe allowFullScreen loading="lazy" src={src} title={title}></iframe>
-      ) : (
-        <img src={src} alt={title} loading="lazy" />
-      )}
-    </StyledCard>
+// Showing where a card goes is more honest than a generic "view project".
+const destinationOf = (href) => {
+  try {
+    return new URL(href).hostname.replace(/^www\./, '');
+  } catch {
+    return null;
+  }
+};
+
+export const Card = ({ project }) => {
+  const { title, tech, src, href, fit } = project;
+
+  const surface = (
+    <Surface>
+      <Media $fit={fit}>
+        {src ? (
+          <img src={src} alt={title} loading="lazy" decoding="async" />
+        ) : (
+          <Placeholder>{tech}</Placeholder>
+        )}
+      </Media>
+      <Body>
+        <Title>{title}</Title>
+        <Tech>{tech}</Tech>
+        {href ? (
+          <Destination>
+            {destinationOf(href)}
+            <FiArrowUpRight size={13} aria-hidden="true" />
+          </Destination>
+        ) : null}
+      </Body>
+    </Surface>
   );
 
-  if (!href) return content;
-
   return (
-    <CardLink
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Open ${title}`}
-    >
-      {content}
-    </CardLink>
+    <Item>
+      {href ? (
+        <CardLink
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${title}, opens in a new tab`}
+        >
+          {surface}
+        </CardLink>
+      ) : (
+        surface
+      )}
+    </Item>
   );
 };

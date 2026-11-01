@@ -8,6 +8,6 @@
 export const siteRoutes = [
   { path: '/', title: 'Home' },
   { path: '/about', title: 'About' },
-  { path: '/labs', title: 'Labs' },
+  { path: '/tech', title: 'Tech' },
   { path: '/music', title: 'Music' },
 ];
