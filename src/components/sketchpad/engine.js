@@ -17,9 +17,14 @@ export async function createEngine({
   getOctave,
   getInstrument,
   onStep,
+  muted = false,
 }) {
   const Tone = await import('tone');
   await Tone.start();
+
+  // Applied up front so a visitor who muted before pressing play does not get
+  // a burst of sound.
+  Tone.getDestination().mute = muted;
 
   // The effects stay put for the life of the engine and only the voice is
   // swapped, so changing instrument mid-loop does not rebuild the reverb or
@@ -106,6 +111,11 @@ export async function createEngine({
     },
     setInstrument(id) {
       swapVoice(id);
+    },
+    setMuted(flag) {
+      // Muting the destination rather than the voice, so it silences the
+      // delay and reverb tails too instead of leaving them ringing.
+      Tone.getDestination().mute = flag;
     },
     dispose() {
       transport.stop();

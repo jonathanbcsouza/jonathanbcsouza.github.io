@@ -1,17 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 import styled from 'styled-components';
 import { FiPlay, FiSquare, FiRotateCcw } from 'react-icons/fi';
-import {
-  DEFAULT_OCTAVE,
-  OCTAVES,
-  SEED,
-  STEPS,
-  clonePattern,
-  emptyPattern,
-  notesForOctave,
-  rangeLabel,
-} from './scale';
-import { DEFAULT_INSTRUMENT, INSTRUMENTS } from './instruments';
+import { OCTAVES, STEPS, notesForOctave, rangeLabel } from './scale';
+import { INSTRUMENTS } from './instruments';
+import { useSketchpad } from './sketchpad-context';
+import { getServerStep, getStep, subscribeStep } from './step-store';
 
 const Panel = styled.section`
   max-width: 560px;
@@ -211,97 +204,25 @@ const Status = styled.span`
  * the visitor asks for it.
  */
 export const Sketchpad = () => {
-  const [pattern, setPattern] = useState(() => clonePattern(SEED));
-  const [playing, setPlaying] = useState(false);
-  const [step, setStep] = useState(-1);
-  const [loading, setLoading] = useState(false);
-  const [instrument, setInstrument] = useState(DEFAULT_INSTRUMENT);
-  const [octave, setOctave] = useState(DEFAULT_OCTAVE);
+  const {
+    pattern,
+    instrument,
+    octave,
+    playing,
+    loading,
+    toggleCell,
+    togglePlay,
+    setInstrument,
+    setOctave,
+    reset,
+    clear,
+  } = useSketchpad();
 
-  // The sequence callback runs on the audio clock, outside React, so it reads
-  // its inputs from refs. Driving audio from state would make every edit a
-  // timing risk. The refs are synced after commit rather than during render,
-  // which is both what the hooks lint wants and harmless here: a change lands
-  // on the next pass of the sequence either way.
-  const patternRef = useRef(pattern);
-  const octaveRef = useRef(octave);
-  const instrumentRef = useRef(instrument);
-
-  useEffect(() => {
-    patternRef.current = pattern;
-  }, [pattern]);
-
-  useEffect(() => {
-    octaveRef.current = octave;
-  }, [octave]);
-
-  const engineRef = useRef(null);
-  const aliveRef = useRef(true);
-
-  // Swapping the voice keeps the transport running, so the sound changes
-  // under your fingers without restarting the loop.
-  useEffect(() => {
-    instrumentRef.current = instrument;
-    engineRef.current?.setInstrument(instrument);
-  }, [instrument]);
-
-  useEffect(() => {
-    aliveRef.current = true;
-    return () => {
-      // Leaving the page must take the audio graph with it, or the transport
-      // keeps running behind the rest of the site.
-      aliveRef.current = false;
-      engineRef.current?.dispose();
-      engineRef.current = null;
-    };
-  }, []);
-
-  const toggleCell = useCallback((rowIndex, stepIndex) => {
-    setPattern((current) =>
-      current.map((row, r) =>
-        r === rowIndex ? row.map((on, s) => (s === stepIndex ? !on : on)) : row,
-      ),
-    );
-  }, []);
-
-  const handlePlay = useCallback(async () => {
-    if (playing) {
-      engineRef.current?.stop();
-      setPlaying(false);
-      setStep(-1);
-      return;
-    }
-
-    if (!engineRef.current) {
-      setLoading(true);
-      try {
-        const engine = await createEngineSafely({
-          getPattern: () => patternRef.current,
-          getOctave: () => octaveRef.current,
-          getInstrument: () => instrumentRef.current,
-          onStep: (s) => {
-            if (aliveRef.current) setStep(s);
-          },
-        });
-        if (!aliveRef.current) {
-          engine?.dispose();
-          return;
-        }
-        engineRef.current = engine;
-      } finally {
-        if (aliveRef.current) setLoading(false);
-      }
-    }
-
-    if (!engineRef.current) return;
-    engineRef.current.start();
-    setPlaying(true);
-  }, [playing]);
+  // Subscribed separately so the playhead re-renders this panel only, not the
+  // provider and everything else under it.
+  const step = useSyncExternalStore(subscribeStep, getStep, getServerStep);
 
   const noteNames = notesForOctave(octave);
-
-  const reset = useCallback(() => setPattern(clonePattern(SEED)), []);
-  const clear = useCallback(() => setPattern(emptyPattern()), []);
 
   return (
     <Panel aria-labelledby="sketchpad-title">
@@ -330,9 +251,14 @@ export const Sketchpad = () => {
       </Grid>
 
       <Controls>
-        <Button $primary type="button" onClick={handlePlay} disabled={loading}>
+        <Button
+          $primary
+          type="button"
+          onClick={() => void togglePlay()}
+          disabled={loading}
+        >
           {playing ? <FiSquare size={13} /> : <FiPlay size={13} />}
-          {loading ? 'Loading sound…' : playing ? 'Stop' : 'Play'}
+          {loading ? 'Loading sound\u2026' : playing ? 'Stop' : 'Play'}
         </Button>
         <Button type="button" onClick={reset}>
           <FiRotateCcw size={13} />
@@ -377,16 +303,6 @@ export const Sketchpad = () => {
     </Panel>
   );
 };
-
-/** Keeps a failed audio load from breaking the page it sits on. */
-async function createEngineSafely(options) {
-  try {
-    const { createEngine } = await import('./engine');
-    return await createEngine(options);
-  } catch {
-    return null;
-  }
-}
 
 const Row = ({ note, rowIndex, cells, step, onToggle }) => (
   <>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { DropdownMenu } from './DropdownMenu';
 import { NavLink, Link } from 'react-router-dom';
 import { siteRoutes } from '../data/siteRoutes';
+import { MuteToggle } from './MuteToggle';
 
 const StyledNav = styled.nav`
   width: min(92%, 1180px);
@@ -63,6 +64,20 @@ const MobileBrand = styled(Link)`
 const StyledLi = styled.li`
   @media (max-width: 615px) {
     display: ${(props) => (props.$isMenuOpen ? 'block' : 'none')};
+  }
+`;
+
+const MuteItem = styled.li`
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+
+  @media (max-width: 615px) {
+    position: absolute;
+    top: 0;
+    right: 56px;
+    height: var(--nav-height);
+    margin: 0;
   }
 `;
 
@@ -146,6 +161,9 @@ export const Navbar = () => {
             onNavigate={() => setIsMenuOpen(false)}
           />
         ))}
+        <MuteItem>
+          <MuteToggle />
+        </MuteItem>
       </ul>
     </StyledNav>
   );

@@ -12,13 +12,17 @@ const MenuItem = styled.li`
   }
 `;
 
+// Sized to the icon rather than the full bar. At 100% width its hit area
+// covered the whole top bar, so a tap anywhere up there opened the menu, and
+// it sat underneath the mute control.
 const StyledMenuBtn = styled.button`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  width: 100%;
+  width: var(--nav-height);
   min-height: var(--nav-height);
-  padding: 0 20px;
+  margin-left: auto;
+  padding: 0;
   border: none;
   font-size: 1.3333em;
   color: var(--text-orange);
