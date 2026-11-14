@@ -14,7 +14,7 @@ const Header = styled.header`
 
 const Tagline = styled.p`
   margin: 0 0 6px;
-  font-size: 0.75em;
+  font-size: 0.78em;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-orange);

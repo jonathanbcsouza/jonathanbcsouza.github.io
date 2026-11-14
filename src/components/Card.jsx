@@ -82,12 +82,13 @@ const Tech = styled.p`
 `;
 
 const Destination = styled.span`
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 5px;
+  min-width: 0;
   margin-top: auto;
   padding-top: 10px;
-  font-size: 0.74em;
+  font-size: 0.8em;
   letter-spacing: 0.04em;
   color: var(--text-orange);
   opacity: 0.85;
@@ -97,7 +98,29 @@ const Destination = styled.span`
   }
 `;
 
+// Long hostnames (a generated amplifyapp.com or vercel.app address) truncate
+// on one line instead of wrapping and making that card taller than its row.
+const Host = styled.span`
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+// Announced after the card text, which is the link's accessible name. An
+// aria-label here would replace that text, so the name would no longer
+// contain what is visibly on the card.
+const VisuallyHidden = styled.span`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+`;
+
 const CardLink = styled.a`
+  position: relative;
   display: block;
   height: 100%;
   color: inherit;
@@ -138,11 +161,13 @@ const destinationOf = (href) => {
 export const Card = ({ project }) => {
   const { title, tech, src, href, fit } = project;
 
+  // The image is decorative (alt=""): the title sits directly beneath it and
+  // names the card, so repeating it would be read out twice.
   const surface = (
     <Surface>
       <Media $fit={fit}>
         {src ? (
-          <img src={src} alt={title} loading="lazy" decoding="async" />
+          <img src={src} alt="" loading="lazy" decoding="async" />
         ) : (
           <Placeholder>{tech}</Placeholder>
         )}
@@ -152,7 +177,7 @@ export const Card = ({ project }) => {
         <Tech>{tech}</Tech>
         {href ? (
           <Destination>
-            {destinationOf(href)}
+            <Host>{destinationOf(href)}</Host>
             <FiArrowUpRight size={13} aria-hidden="true" />
           </Destination>
         ) : null}
@@ -163,13 +188,9 @@ export const Card = ({ project }) => {
   return (
     <Item>
       {href ? (
-        <CardLink
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${title}, opens in a new tab`}
-        >
+        <CardLink href={href} target="_blank" rel="noopener noreferrer">
           {surface}
+          <VisuallyHidden>(opens in a new tab)</VisuallyHidden>
         </CardLink>
       ) : (
         surface

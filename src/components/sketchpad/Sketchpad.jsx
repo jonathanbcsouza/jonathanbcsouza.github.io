@@ -1,14 +1,14 @@
-import { useSyncExternalStore } from 'react';
+import { useRef, useState, useSyncExternalStore } from 'react';
 import styled from 'styled-components';
 import { FiPlay, FiSquare, FiRotateCcw } from 'react-icons/fi';
-import { OCTAVES, STEPS, notesForOctave, rangeLabel } from './scale';
+import { OCTAVES, ROWS, STEPS, notesForOctave, rangeLabel } from './scale';
 import { INSTRUMENTS } from './instruments';
 import { useSketchpad } from './sketchpad-context';
 import { getServerStep, getStep, subscribeStep } from './step-store';
 
 const Panel = styled.section`
+  width: 100%;
   max-width: 560px;
-  margin-top: 44px;
   padding: 18px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 12px;
@@ -17,7 +17,6 @@ const Panel = styled.section`
 
   /* Trimmed so the grid cells keep as much width as possible for fingers. */
   @media (max-width: 615px) {
-    margin-top: 32px;
     padding: 14px 12px;
   }
 `;
@@ -59,10 +58,10 @@ const Grid = styled.div`
 `;
 
 const RowLabel = styled.span`
-  font-size: 0.68em;
+  font-size: 0.78em;
   letter-spacing: 0.06em;
   text-align: right;
-  opacity: 0.45;
+  opacity: 0.65;
 `;
 
 const Cell = styled.button`
@@ -148,10 +147,10 @@ const Field = styled.label`
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  font-size: 0.74em;
+  font-size: 0.78em;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  opacity: 0.6;
+  opacity: 0.75;
 `;
 
 // A native select, so it gets the platform picker on a phone and keyboard
@@ -190,9 +189,16 @@ const Select = styled.select`
   }
 `;
 
+const ErrorNote = styled.p`
+  margin-top: 12px;
+  font-size: 0.84em;
+  line-height: 1.5;
+  color: #ffb4a8;
+`;
+
 const Status = styled.span`
-  font-size: 0.74em;
-  opacity: 0.55;
+  font-size: 0.78em;
+  opacity: 0.7;
   font-variant-numeric: tabular-nums;
 `;
 
@@ -210,6 +216,7 @@ export const Sketchpad = () => {
     octave,
     playing,
     loading,
+    error,
     toggleCell,
     togglePlay,
     setInstrument,
@@ -224,6 +231,34 @@ export const Sketchpad = () => {
 
   const noteNames = notesForOctave(octave);
 
+  // The 40 cells are one tab stop, not forty. Arrow keys move between them,
+  // the same way a native grid or toolbar behaves, so a keyboard user can
+  // reach the Play button without tabbing through the whole pattern.
+  const [focusCell, setFocusCell] = useState({ row: 0, step: 0 });
+  const gridRef = useRef(null);
+
+  const onGridKeyDown = (event) => {
+    const lastRow = ROWS.length - 1;
+    const lastStep = STEPS - 1;
+    const { row, step: col } = focusCell;
+
+    const next = {
+      ArrowRight: { row, step: Math.min(col + 1, lastStep) },
+      ArrowLeft: { row, step: Math.max(col - 1, 0) },
+      ArrowDown: { row: Math.min(row + 1, lastRow), step: col },
+      ArrowUp: { row: Math.max(row - 1, 0), step: col },
+      Home: { row, step: 0 },
+      End: { row, step: lastStep },
+    }[event.key];
+
+    if (!next) return;
+    event.preventDefault();
+    setFocusCell(next);
+    gridRef.current
+      ?.querySelector(`[data-cell="${next.row}-${next.step}"]`)
+      ?.focus();
+  };
+
   return (
     <Panel aria-labelledby="sketchpad-title">
       <Header>
@@ -234,10 +269,16 @@ export const Sketchpad = () => {
       </Header>
       <Hint>
         Tap the grid to build a phrase. The scale has no semitone clashes, so
-        whatever you land on stays in key.
+        whatever you land on stays in key. With a keyboard, use the arrow keys
+        to move and Space to toggle.
       </Hint>
 
-      <Grid role="group" aria-label="Note grid">
+      <Grid
+        ref={gridRef}
+        role="group"
+        aria-label="Note grid"
+        onKeyDown={onGridKeyDown}
+      >
         {noteNames.map((note, rowIndex) => (
           <Row
             key={note}
@@ -245,6 +286,8 @@ export const Sketchpad = () => {
             rowIndex={rowIndex}
             cells={pattern[rowIndex]}
             step={step}
+            focusCell={focusCell}
+            onFocusCell={setFocusCell}
             onToggle={toggleCell}
           />
         ))}
@@ -268,6 +311,8 @@ export const Sketchpad = () => {
           Clear
         </Button>
       </Controls>
+
+      {error ? <ErrorNote role="alert">{error}</ErrorNote> : null}
 
       <Options>
         <Field htmlFor="sketchpad-instrument">
@@ -304,7 +349,15 @@ export const Sketchpad = () => {
   );
 };
 
-const Row = ({ note, rowIndex, cells, step, onToggle }) => (
+const Row = ({
+  note,
+  rowIndex,
+  cells,
+  step,
+  focusCell,
+  onFocusCell,
+  onToggle,
+}) => (
   <>
     <RowLabel aria-hidden="true">{note}</RowLabel>
     {cells.map((on, stepIndex) => (
@@ -313,8 +366,13 @@ const Row = ({ note, rowIndex, cells, step, onToggle }) => (
         type="button"
         $on={on}
         $playing={step === stepIndex}
+        data-cell={`${rowIndex}-${stepIndex}`}
+        tabIndex={
+          focusCell.row === rowIndex && focusCell.step === stepIndex ? 0 : -1
+        }
         aria-pressed={on}
         aria-label={`${note}, step ${stepIndex + 1}`}
+        onFocus={() => onFocusCell({ row: rowIndex, step: stepIndex })}
         onClick={() => onToggle(rowIndex, stepIndex)}
       />
     ))}

@@ -13,11 +13,31 @@ import { getDayProgressPercent, useCurrentTime } from '../utils/timeUtils';
 // only bought 3,600 wasted renders an hour.
 const CLOCK_INTERVAL_MS = 60_000;
 
+// Side by side on a wide window, so the sketchpad sits beside the greeting and
+// is visible without scrolling instead of leaving the right half of the page
+// empty. Stacked below that, where a second column would be too narrow to play.
+const Split = styled.div`
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 44px;
+  align-items: center;
+
+  @media (min-width: 980px) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
+    gap: 64px;
+    /* Roughly the optical centre of the first screen. */
+    min-height: min(560px, 62vh);
+  }
+
+  @media (max-width: 615px) {
+    gap: 32px;
+  }
+`;
+
 const Hero = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 60ch;
-  padding-top: 24px;
 
   h1 {
     margin-bottom: 10px;
@@ -46,13 +66,15 @@ export const Home = () => {
 
   return (
     <Page>
-      <Hero>
-        <Greetings greeting={greeting} lightness={lightness} />
-        <h1>{name}</h1>
-        <Role>{role}</Role>
-        <Intro text={intro} />
-      </Hero>
-      <Sketchpad />
+      <Split>
+        <Hero>
+          <Greetings greeting={greeting} lightness={lightness} />
+          <h1>{name}</h1>
+          <Role>{role}</Role>
+          <Intro text={intro} />
+        </Hero>
+        <Sketchpad />
+      </Split>
     </Page>
   );
 };

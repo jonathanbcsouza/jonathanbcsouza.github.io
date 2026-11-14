@@ -23,6 +23,9 @@ export const SketchpadProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [muted, setMuted] = useState(false);
 
+  /** Set when the audio engine could not be loaded, so the UI can say so. */
+  const [error, setError] = useState(null);
+
   /**
    * Whether audio has been engaged at all this session. The mute control in
    * the navbar keys off this, so it appears when it can do something rather
@@ -95,6 +98,7 @@ export const SketchpadProvider = ({ children }) => {
 
     if (!engineRef.current) {
       setLoading(true);
+      setError(null);
       try {
         const engine = await createEngineSafely({
           getPattern: () => patternRef.current,
@@ -108,6 +112,9 @@ export const SketchpadProvider = ({ children }) => {
         if (!aliveRef.current) {
           engine?.dispose();
           return;
+        }
+        if (!engine) {
+          setError('Sound could not load. Check the connection and try again.');
         }
         engineRef.current = engine;
       } finally {
@@ -130,6 +137,7 @@ export const SketchpadProvider = ({ children }) => {
       loading,
       muted,
       engaged,
+      error,
       toggleCell,
       togglePlay,
       toggleMuted,
@@ -146,6 +154,7 @@ export const SketchpadProvider = ({ children }) => {
       loading,
       muted,
       engaged,
+      error,
       toggleCell,
       togglePlay,
       toggleMuted,

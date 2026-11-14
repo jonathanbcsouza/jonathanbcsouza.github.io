@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { DropdownMenu } from './DropdownMenu';
 import { NavLink, Link } from 'react-router-dom';
@@ -143,8 +143,18 @@ const NavbarItem = ({ route, isMenuOpen, onNavigate }) => (
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Escape closes the open mobile menu, the way a dialog or popover would.
+  useEffect(() => {
+    if (!isMenuOpen) return undefined;
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') setIsMenuOpen(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [isMenuOpen]);
+
   return (
-    <StyledNav>
+    <StyledNav aria-label="Main">
       <MobileBrand to="/" onClick={() => setIsMenuOpen(false)}>
         Jonathan Souza
       </MobileBrand>

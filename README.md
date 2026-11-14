@@ -25,6 +25,23 @@ Routes are declared once in `src/data/siteRoutes.js`.
 `vercel.json` is retained so the same build also works on Vercel, which handles
 SPA routing with a rewrite instead.
 
+### SEO
+
+Each route gets its own `<title>`, description, canonical URL and Open Graph
+tags, written into its static HTML at build time from `src/data/siteRoutes.js`
+(see `scripts/pagesRoutes.js`). The build also emits `sitemap.xml` and a
+`noindex` `404.html`. The social preview card is `public/og-image.png`
+(1200x630).
+
+### Quality checks
+
+```sh
+npm run check   # lint (including jsx-a11y), tests, production build
+npm test        # Vitest + Testing Library only
+```
+
+CI runs lint, tests and the build before deploying.
+
 ### Running Locally
 
 1. **Clone the Repository**:

@@ -14,6 +14,14 @@ export default createGlobalStyle`
     --page-top: 56px;
     --page-bottom: 80px;
     --nav-height: 50px;
+
+    /* Dark native scrollbars, select popups and form controls. */
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   @media (max-width: 615px) {
@@ -58,8 +66,26 @@ export default createGlobalStyle`
     }
   }
 
+  /* Form controls do not inherit the page font by default, which is why the
+     tabs, buttons and selects rendered in a different face from the text. */
+  button, select, input, textarea {
+    font: inherit;
+  }
+
   h1, h2, h3 {
     color: var(--headers);
+  }
+
+  /* Anyone who asks the OS for less motion gets none, site wide. The typed
+     intro and the card lift also check this themselves, so they still behave
+     if this rule is ever removed. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   a {
@@ -77,6 +103,8 @@ export default createGlobalStyle`
 
   .error-page {
     display: flex;
+    padding: 24px;
+    text-align: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -84,6 +112,8 @@ export default createGlobalStyle`
     min-height: 100vh;
 
     a {
+      display: inline-block;
+      padding: 12px;
       color: var(--text-orange);
     }
   }

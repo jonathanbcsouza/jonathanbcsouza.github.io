@@ -4,9 +4,10 @@ import { Home } from './pages/Home.jsx';
 import { About } from './pages/About.jsx';
 import { Tech } from './pages/Tech.jsx';
 import { Music } from './pages/Music.jsx';
+import { NotFound } from './pages/NotFound.jsx';
 import { ErrorPage } from './pages/ErrorPage.jsx';
 
-export const router = createBrowserRouter([
+export const routes = [
   {
     path: '/',
     element: <App />,
@@ -19,6 +20,9 @@ export const router = createBrowserRouter([
       // Kept so the previously published /labs links keep resolving.
       { path: 'labs', element: <Navigate to="/tech" replace /> },
       { path: 'music', element: <Music /> },
+      { path: '*', element: <NotFound /> },
     ],
   },
-]);
+];
+
+export const router = createBrowserRouter(routes);

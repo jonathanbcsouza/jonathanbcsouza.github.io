@@ -1,14 +1,17 @@
 {
   "short_name": "Jonathan Souza",
   "name": "Jonathan Souza - Portfolio Website",
+  "description": "Portfolio, projects, and music by Jonathan Souza.",
   "icons": [
     {
-      "src": "favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#000000"

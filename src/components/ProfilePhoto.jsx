@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
+// Served from this site rather than hotlinked from GitHub, so the page does
+// not depend on a third party URL (and its 5 minute cache) for its one portrait.
 const StyledAvatar = styled.img.attrs({
-  src: 'https://avatars.githubusercontent.com/u/25882133?s=460&v=4',
+  src: '/images/avatar.png',
   alt: 'Jonathan Souza',
   width: 112,
   height: 112,
+  decoding: 'async',
 })`
   width: 112px;
   height: 112px;
