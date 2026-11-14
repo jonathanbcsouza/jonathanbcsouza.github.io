@@ -26,7 +26,7 @@ export const siteRoutes = [
     title: 'About',
     documentTitle: 'About | Jonathan Souza',
     description:
-      'Cloud Support Engineer at AWS focused on serverless and event driven applications, with a background in shipbuilding quality engineering and a life in music.',
+      'Cloud Support Engineer supporting AWS customers worldwide, with a background in shipbuilding quality engineering and a life in music.',
   },
   {
     path: '/tech',
